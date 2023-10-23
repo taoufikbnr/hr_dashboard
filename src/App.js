@@ -1,24 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import Navbar from "./components/navbar/Navbar";
+import Sidebar from "./components/sidebar/Sidebar";
+import "./app.css";
+import GlobalCandidateArea from "./components/globalCandidateArea/GlobalCandidateArea";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Login from "./page/login/Login";
+import { useState } from "react";
 
 function App() {
+  const [selectedCandidates, setSelectedCandidates] = useState(0);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {/* <div>
+        <Navbar />
+        <div className="container">
+          <Sidebar />
+          <div className="content">
+            <GlobalCandidateArea />
+          </div>
+        </div>
+      </div> */}
+      <Router>
+        <Switch>
+          <Route path="/login">
+            <div className="contentLogin">
+              <Login />
+            </div>
+          </Route>
+          <Route path="/">
+            <div>
+              <Navbar />
+              <div className="container">
+                <Sidebar selectedCandidates={selectedCandidates} />
+                <div className="content">
+                  <GlobalCandidateArea selectedItem={item => setSelectedCandidates(item)} />
+                </div>
+              </div>
+            </div>
+          </Route>
+        </Switch>
+      </Router>
+    </>
   );
 }
 

@@ -1,0 +1,27 @@
+.personal-info-wrapper {
+  width: 100%;
+  border: 1px solid teal;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+  border-radius: 15px 15px 0 0;
+  flex-direction: row;
+}
+
+@media screen and (max-width: 300px) {
+  .personal-info-wrapper {
+    flex-direction: column;
+  }
+}
+
+.personal-info-wrapper p {
+  display: flex;
+  gap: 5px;
+}
+.personal-info-name {
+  width: 50%;
+}
+.personal-info-wrapper img {
+  cursor: pointer;
+}
