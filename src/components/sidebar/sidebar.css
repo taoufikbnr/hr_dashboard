@@ -1,0 +1,79 @@
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidebar {
+  height: 100%;
+  width: 85px;
+  position: fixed;
+  left: 0;
+  background-color: rgba(211, 211, 211);
+  transition: 0.5s;
+  overflow-x: hidden;
+  padding-top: 60px;
+  white-space: nowrap;
+}
+.pop-up {
+  position: absolute;
+  z-index: 999; /* Adjust the z-index as needed */
+}
+.sidebar.active {
+  width: 200px;
+}
+.sidebar:hover {
+  width: 200px;
+  transition: all 0.3s ease;
+}
+.sidebar .sidebarItem.active span {
+  display: block;
+}
+.sidebar:hover .sidebarItem span {
+  display: inline-block;
+}
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 15px;
+  color: teal;
+  display: block;
+  list-style: none;
+  width: 100%;
+  margin-top: 5px;
+}
+
+.sidebar a:hover,
+.link.active {
+  background-color: rgb(176, 164, 164);
+}
+
+.sidebarItem {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  height: 20px;
+}
+
+.sidebarItem span {
+  display: none;
+}
+
+.material-icons,
+.icon-text {
+  vertical-align: middle;
+}
+
+@media screen and (max-height: 450px) {
+  .sidebar {
+    padding-top: 15px;
+  }
+  .sidebar a {
+    font-size: 18px;
+  }
+}
+.icons {
+  fill: red;
+}
+span.active {
+  font-weight: 600;
+  color: #000;
+}
