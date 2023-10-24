@@ -17,12 +17,13 @@ body {
   position: absolute;
   z-index: 999; /* Adjust the z-index as needed */
 }
-.sidebar.active {
-  width: 200px;
-}
+
 .sidebar:hover {
   width: 200px;
   transition: all 0.3s ease;
+}
+.sidebar.active {
+  width: 50%;
 }
 .sidebar .sidebarItem.active span {
   display: block;
@@ -37,7 +38,7 @@ body {
   color: teal;
   display: block;
   list-style: none;
-  width: 100%;
+  width: 200px;
   margin-top: 5px;
 }
 
