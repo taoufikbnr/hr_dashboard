@@ -7,11 +7,13 @@ import TabCV from "../TabCV/TabCV";
 import CandidatePersonalinformations from "../candidate-info/CandidatePersonalinformations";
 import styles from "./styles.module.css";
 import candidates from "../../data/candidates";
+import { set } from "lodash";
 
 const GlobalCandidateArea = props => {
   const ref = useRef(null);
   const [isItemFocused, setIsItemFocused] = useState(0);
   const [countCvs, setCountCvs] = useState(0);
+  const [width, setwidth] = useState(0);
 
   const collapsePanel = () => {
     const panel = ref.current;
@@ -23,8 +25,10 @@ const GlobalCandidateArea = props => {
   useEffect(
     () => {
       props.selectedItem(countCvs);
+      getLeftPanelWidth();
+
     },
-    [countCvs]
+    [countCvs,width]
   );
 
   const selectedItemIndex = index => {
@@ -37,7 +41,15 @@ const GlobalCandidateArea = props => {
       setCountCvs(countCvs - 1);
     }
   };
-
+  const getLeftPanelWidth = () => {
+    if (ref.current) {
+      const leftPanelWidth = ref.current.getSize();
+      setwidth(leftPanelWidth)
+    } else {
+      console.log('Left panel ref is not available yet.');
+    }
+  };
+  console.log(width);
   return (
     <>
       <div className={styles.Container}>
