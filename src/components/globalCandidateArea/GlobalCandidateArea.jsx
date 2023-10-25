@@ -7,7 +7,7 @@ import TabCV from "../TabCV/TabCV";
 import CandidatePersonalinformations from "../candidate-info/CandidatePersonalinformations";
 import styles from "./styles.module.css";
 import candidates from "../../data/candidates";
-import { set } from "lodash";
+import ReactPaginate from "react-paginate";
 
 const GlobalCandidateArea = props => {
   const ref = useRef(null);
@@ -50,6 +50,17 @@ const GlobalCandidateArea = props => {
     }
   };
   console.log(width);
+  const itemsPerPage = 5; // Number of items to display per page
+  const [currentPage, setCurrentPage] = useState(0); // Use 0-based indexing
+
+  const handlePageClick = ({ selected }) => {
+    setCurrentPage(selected);
+  };
+
+  const indexOfLastItem = (currentPage + 1) * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentCandidates = candidates.slice(indexOfFirstItem, indexOfLastItem);
+
   return (
     <>
       <div className={styles.Container}>
@@ -59,7 +70,7 @@ const GlobalCandidateArea = props => {
             <Panel className={styles.Panel} collapsible={true} order={1} defaultSize={50} ref={ref}>
               <CandidatePersonalinformations selectedItemInfos={isItemFocused} />
               <div className="listCandidates">
-                {candidates.map((item, index) => (
+                {currentCandidates.map((item, index) => (
                   <CandidateInfoCard
                     data={item}
                     index={index}
@@ -69,12 +80,24 @@ const GlobalCandidateArea = props => {
                   />
                 ))}
               </div>
+              <ReactPaginate
+        previousLabel={"Previous"}
+        nextLabel={"Next"}
+        breakLabel={"..."}
+        pageCount={Math.ceil(candidates.length / itemsPerPage)}
+        marginPagesDisplayed={2}
+        pageRangeDisplayed={3}
+        onPageChange={handlePageClick}
+        containerClassName={"pagination"}
+        subContainerClassName={"pages pagination"}
+        activeClassName={"active current"}
+      />
             </Panel>
             <ResizeHandle resizeAction={collapsePanel} />
             <Panel className={styles.Panel} collapsible={false} order={2} minSize={50}>
               <TabCV />
               <div className="listCandidates">
-                {candidates[isItemFocused].resume1.map((item, index) => (
+                {currentCandidates[isItemFocused].resume1.map((item, index) => (
                   <>
                     <img src={item} style={{ width: "100%" }} />
                     <br />
