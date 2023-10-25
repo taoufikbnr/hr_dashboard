@@ -1,9 +1,4 @@
-.drilling-container{
-    /* display: flex; */
-    /* justify-content: space-between; */
-    /* gap: 2px; */
-    
-}
+
 .drilling-menu{
     margin-bottom: 10px;
 }
@@ -27,7 +22,7 @@
 }
 .drilling-item{
     background: lightcyan;
-    width: 49%;
+    width: 48%;
     padding:5px;
     border-radius: 15px;
 }
