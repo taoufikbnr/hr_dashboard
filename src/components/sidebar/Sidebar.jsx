@@ -6,6 +6,7 @@ import PopUp from "../pop-up/PopUp";
 import candidates from "../../data/candidates";
 import IndustriesFilter from "../filters/industries/IndustriesFilter";
 import TableLayout from "../table/Table";
+import Drilling from "../filters/drilling/Drilling";
 
 const Sidebar = props => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -29,8 +30,10 @@ const Sidebar = props => {
         return <TableLayout title={title} />;
       case 1:
         return <IndustriesFilter />;
+      case 4:
+        return <Drilling />;
       default:
-        return null; 
+        return <TableLayout  title={title} />; 
     }
   };
   return (
