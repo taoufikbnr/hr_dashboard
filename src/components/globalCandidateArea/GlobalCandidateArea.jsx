@@ -33,6 +33,7 @@ const GlobalCandidateArea = props => {
 
   const selectedItemIndex = index => {
     setIsItemFocused(index);
+    console.log(index);
   };
   const countSelectionDirect = count => {
     if (count === 1) {
@@ -49,7 +50,6 @@ const GlobalCandidateArea = props => {
       console.log('Left panel ref is not available yet.');
     }
   };
-  console.log(width);
   const itemsPerPage = 5; // Number of items to display per page
   const [currentPage, setCurrentPage] = useState(0); // Use 0-based indexing
 
