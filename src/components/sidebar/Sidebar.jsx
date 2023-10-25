@@ -4,6 +4,8 @@ import { Info, NotificationsNone, Search, Spa } from "@mui/icons-material";
 import sidebarData from "../../data/sidebarData";
 import PopUp from "../pop-up/PopUp";
 import candidates from "../../data/candidates";
+import IndustriesFilter from "../filters/industries/IndustriesFilter";
+import TableLayout from "../table/Table";
 
 const Sidebar = props => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -21,7 +23,16 @@ const Sidebar = props => {
   };
 
   const sidebarContainerRef = useRef(null);
-
+  const getPopupContent = (index) => {
+    switch (index) {
+      case 0:
+        return <TableLayout title={title} />;
+      case 1:
+        return <IndustriesFilter />;
+      default:
+        return null; 
+    }
+  };
   return (
     <div className={`sidebar ${open && "active"}`}>
       <div className="sidebarWrapper" ref={sidebarContainerRef} id="sidebar">
@@ -49,7 +60,7 @@ const Sidebar = props => {
             </span>
           </li>
         </ul>
-        <PopUp title={title} setOpen={setOpen} open={open} anchorEl={anchorEl} placement={placement} index={currentIndex} />
+        <PopUp  content={getPopupContent(currentIndex)} title={title} setOpen={setOpen} open={open} anchorEl={anchorEl} placement={placement} index={currentIndex} />
       </div>
     </div>
   );
