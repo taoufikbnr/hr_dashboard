@@ -1,0 +1,41 @@
+.drilling-container{
+    /* display: flex; */
+    /* justify-content: space-between; */
+    /* gap: 2px; */
+    
+}
+.drilling-menu{
+    margin-bottom: 10px;
+}
+.drilling-items{
+    display: none;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap:2px
+}
+.drilling-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    font-weight: 400;
+    text-decoration: underline;
+    margin-bottom: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.drilling-item{
+    background: lightcyan;
+    width: 49%;
+    padding:5px;
+    border-radius: 15px;
+}
+
+.drilling-items.open{
+    display: flex;
+}
+.drilling-header.open{
+    background:rgb(1, 44, 51);
+}
+
