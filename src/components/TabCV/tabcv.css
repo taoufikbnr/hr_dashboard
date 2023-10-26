@@ -27,9 +27,10 @@
   padding: 0 10px;
   height: 47px;
 }
-:focus {
-  outline: none;
+.tabCv-right input{
+  border: none;
 }
-input:focus {
+.tabCv-right input:focus {
   outline: none;
+  border: none;
 }
