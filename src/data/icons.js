@@ -36,9 +36,13 @@ import Message_Empty from "../assets/icons/Message_Empty.svg"
 import PFS_CV_Empty from "../assets/icons/PFS CV_Empty.svg"
 import Linkedin_in from "../assets/icons/Linkedin_in.svg"
 import Linkedin_in_white from "../assets/icons/Linkedin_in_white.svg"
+import Arrow_Empty from "../assets/icons/Arrow_Empty.svg"
+import Arrow_Filled from "../assets/icons/Arrow_Filled.svg"
 
 
 export {
+    Arrow_Filled,
+    Arrow_Empty,
     Linkedin_in_white,
     Linkedin_in,
     PFS_CV_Empty,
