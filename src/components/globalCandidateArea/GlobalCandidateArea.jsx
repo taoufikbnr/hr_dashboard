@@ -13,7 +13,6 @@ const GlobalCandidateArea = props => {
   const ref = useRef(null);
   const [isItemFocused, setIsItemFocused] = useState(0);
   const [countCvs, setCountCvs] = useState(0);
-  const [width, setwidth] = useState(0);
 
   const collapsePanel = () => {
     const panel = ref.current;
@@ -25,15 +24,12 @@ const GlobalCandidateArea = props => {
   useEffect(
     () => {
       props.selectedItem(countCvs);
-      getLeftPanelWidth();
-
     },
-    [countCvs,width]
+    [countCvs]
   );
 
   const selectedItemIndex = index => {
     setIsItemFocused(index);
-    console.log(index);
   };
   const countSelectionDirect = count => {
     if (count === 1) {
@@ -42,25 +38,16 @@ const GlobalCandidateArea = props => {
       setCountCvs(countCvs - 1);
     }
   };
-  const getLeftPanelWidth = () => {
-    if (ref.current) {
-      const leftPanelWidth = ref.current.getSize();
-      setwidth(leftPanelWidth)
-    } else {
-      console.log('Left panel ref is not available yet.');
-    }
-  };
-  const itemsPerPage = 5; // Number of items to display per page
-  const [currentPage, setCurrentPage] = useState(0); // Use 0-based indexing
 
+  const itemsPerPage = 5; 
+  const [currentPage, setCurrentPage] = useState(0); 
+  const indexOfFirstItem = currentPage * itemsPerPage;
+  const indexOfLastItem = indexOfFirstItem + itemsPerPage;
+  const currentCandidates = candidates.slice(indexOfFirstItem, indexOfLastItem);
   const handlePageClick = ({ selected }) => {
     setCurrentPage(selected);
   };
-
-  const indexOfLastItem = (currentPage + 1) * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentCandidates = candidates.slice(indexOfFirstItem, indexOfLastItem);
-
+console.log(candidates[isItemFocused+indexOfFirstItem]);
   return (
     <>
       <div className={styles.Container}>
@@ -74,8 +61,8 @@ const GlobalCandidateArea = props => {
                   <CandidateInfoCard
                     data={item}
                     index={index}
-                    focused={isItemFocused == index ? true : false}
-                    selectedItem={() => selectedItemIndex(index)}
+                    focused={isItemFocused == index+indexOfFirstItem ? true : false}
+                    selectedItem={() => selectedItemIndex(index+indexOfFirstItem)}
                     countSelection={count => countSelectionDirect(count)}
                   />
                 ))}
@@ -97,7 +84,7 @@ const GlobalCandidateArea = props => {
             <Panel className={styles.Panel} collapsible={false} order={2} minSize={50}>
               <TabCV />
               <div className="listCandidates">
-                {currentCandidates[isItemFocused].resume1.map((item, index) => (
+                {candidates[isItemFocused].resume1.map((item, index) => (
                   <>
                     <img src={item} style={{ width: "100%" }} />
                     <br />
