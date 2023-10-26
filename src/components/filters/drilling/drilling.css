@@ -26,7 +26,13 @@
     padding:5px;
     border-radius: 15px;
 }
-
+.drilling-item:hover{
+    background: lightskyblue;
+}
+.drilling-item.selected{
+    background:rgb(1, 44, 51);
+    color: white;
+}
 .drilling-items.open{
     display: flex;
 }
@@ -34,3 +40,6 @@
     background:rgb(1, 44, 51);
 }
 
+.drilling-item.selected{
+    background: #000;
+}

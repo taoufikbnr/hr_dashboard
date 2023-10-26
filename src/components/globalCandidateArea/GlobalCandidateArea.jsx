@@ -47,7 +47,6 @@ const GlobalCandidateArea = props => {
   const handlePageClick = ({ selected }) => {
     setCurrentPage(selected);
   };
-console.log(candidates[isItemFocused+indexOfFirstItem]);
   return (
     <>
       <div className={styles.Container}>
@@ -60,7 +59,7 @@ console.log(candidates[isItemFocused+indexOfFirstItem]);
                 {currentCandidates.map((item, index) => (
                   <CandidateInfoCard
                     data={item}
-                    index={index}
+                    index={index+indexOfFirstItem}
                     focused={isItemFocused == index+indexOfFirstItem ? true : false}
                     selectedItem={() => selectedItemIndex(index+indexOfFirstItem)}
                     countSelection={count => countSelectionDirect(count)}
@@ -90,7 +89,6 @@ console.log(candidates[isItemFocused+indexOfFirstItem]);
                     <br />
                   </>
                 ))}
-
                 {/* <embed src="https://www.africau.edu/images/default/sample.pdf" style={{ width: "100%", height: "92vh" }} /> */}
               </div>
             </Panel>
