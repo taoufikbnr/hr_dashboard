@@ -39,7 +39,7 @@ const Sidebar = props => {
   return (
     <div className={`sidebar ${open && "active"}`}>
       <div className="sidebarWrapper" ref={sidebarContainerRef} id="sidebar">
-        <ul lassName="sidebarItems">
+        <ul className="sidebarItems">
           {sidebarData.map((item, i) => (
             <a onClick={handleClick("left", i)} className={`link ${currentIndex === i && open && "active"}`} href={item?.path}>
               <li key={i} className={`sidebarItem ${open && "active"}`}>
