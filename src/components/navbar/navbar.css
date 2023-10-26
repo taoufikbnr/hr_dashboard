@@ -2,11 +2,13 @@
 .search input{
 background-color: white;
 padding: 5px;
+border-radius: 10px;
+background: rgba(211, 211, 211, 0.603);
 }
 .css-q0jhri-MuiInputBase-root-MuiInput-root:before {
   display: none;
   }
-input::placeholder {
+  .search input::placeholder {
     color: teal;
   }
 
