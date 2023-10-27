@@ -8,6 +8,9 @@
     flex-wrap: wrap;
     gap:2px
 }
+.drilling-menu .rotate{
+    transform: rotate(180deg);
+}
 .drilling-header{
     display: flex;
     align-items: center;
