@@ -1,0 +1,40 @@
+.clients-container{
+    display: flex;
+    justify-content: space-between;
+    gap: 2px;
+}
+
+.clients-item{
+    background: lightcyan;
+    padding:5px 10px;
+    border-radius: 15px;
+}
+.clients-item:hover{
+    background: lightgreen;
+}
+.clients-left,.clients-right{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap: 2px;
+}
+.clients-search{
+    border: none;
+    outline: none;
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+}
+.selected-items{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:5px 10px;
+    border-radius: 15px;
+    background: green;
+    color: white;
+}
+.selected-items .closeBtn{
+    height: 15px;
+    cursor: pointer;
+}

@@ -20,7 +20,6 @@ const Drilling = () => {
         setSelectedIndexes({ i, j });
       }
     };
-    console.log(selectedIndexes);
   return (
     <div>
     <div className="drilling-container">
