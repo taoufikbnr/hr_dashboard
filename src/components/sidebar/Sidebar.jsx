@@ -9,6 +9,7 @@ import TableLayout from "../table/Table";
 import ClientsFilter from "../filters/clients/ClientsFilter";
 import Drilling from "../filters/drilling/Drilling";
 import AgeFilter from "../filters/age/Age";
+import AvailabilitiesFilter from "../filters/availabilities/Availabilities";
 
 const Sidebar = props => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -38,6 +39,8 @@ const Sidebar = props => {
         return <ClientsFilter />;
       case 10:
         return <AgeFilter />;
+      case 11:
+        return <AvailabilitiesFilter />;
       default:
         return <TableLayout  title={title} />; 
     }
