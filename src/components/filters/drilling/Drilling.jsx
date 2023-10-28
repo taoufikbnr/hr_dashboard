@@ -1,61 +1,133 @@
-// import React from 'react'
-// import { useState } from 'react';
-// import drillData from "../../../data/drilling.json"
-// import "./drilling.css"
-// import {ArrowDropDownCircleRounded} from '@mui/icons-material';
-// const Drilling = () => {
-//     const [selected, setselected] = useState(false)
-//     const [activeIndex, setActiveIndex] = useState(0);
-//     const [selectedIndexes, setSelectedIndexes] = useState([]);
+import React from "react";
+import { useState } from "react";
+import drillData from "../../../data/drilling.json";
+import "./drilling.css";
+import { ArrowDropDownCircleRounded } from "@mui/icons-material";
+const Drilling = () => {
+  const [selectedDrillingRigs, setselectedDrillingRigs] = useState([]);
+  const [selectedDrillingPositions, setselectedDrillingPositions] = useState([]);
+  const [selectedRigPositions, setselectedRigPositions] = useState([]);
+  const [openMenu, setopenMenu] = useState(
+    drillData.drillingPositions.title ? true : false
+  );
+  const [activeMenu, setactiveMenu] = useState(
+    drillData.drillingPositions.title
+  );
+  const toggleAccordion = (menu) => {
+    setopenMenu((prev) => activeMenu !== menu || !prev);
+    setactiveMenu(menu);
+  };
+  const handleDrillingRigs = (DrillRig) => {
+    if (selectedDrillingRigs.includes(DrillRig)) {
+      setselectedDrillingRigs(
+        selectedDrillingRigs.filter((item) => item !== DrillRig)
+      );
+    } else {
+      setselectedDrillingRigs((prev) => [...prev, DrillRig]);
+    }
+  };
+  const handleDrillingPositions = (RigPos) => {
+    if (selectedDrillingPositions.includes(RigPos)) {
+      setselectedDrillingPositions(
+        selectedDrillingPositions.filter((item) => item !== RigPos)
+      );
+    } else {
+      setselectedDrillingPositions((prev) => [...prev, RigPos]);
+    }
+  };
+  const handleRigPositions = (RigPost) => {
+    if (selectedRigPositions.includes(RigPost)) {
+      setselectedRigPositions(
+        selectedRigPositions.filter((item) => item !== RigPost)
+      );
+    } else {
+      setselectedRigPositions((prev) => [...prev, RigPost]);
+    }
+  };
+  return (
+    <div>
+      <div className="drilling-container">
+        <div className="drilling-menu">
+          <span className="drilling-header">
+            <span></span>
+            {drillData.drillingRigs.title}
+            <span></span>
+          </span>
+          <div className={`drilling-items open`}>
+            {drillData.drillingRigs.content.map((el, i) => (
+              <div
+                key={i}
+                onClick={() => handleDrillingRigs(el)}
+                className={`drilling-item ${
+                  selectedDrillingRigs.includes(el) && "selected"
+                }`}
+              >
+                {el}
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="drilling-menu">
+          <span
+            onClick={() => toggleAccordion(drillData.drillingPositions.title)}
+            className={`drilling-header ${
+              activeMenu === "Drilling positions" && openMenu && "open"
+            }`}
+          >
+            <span></span>
+            {drillData.drillingPositions.title}
+            {activeMenu === "Drilling positions"&&openMenu?<ArrowDropDownCircleRounded className='rotate'/> : <ArrowDropDownCircleRounded/>} 
+          </span>
+          <div
+            className={`drilling-items ${
+              activeMenu === "Drilling positions" && openMenu && "open"
+            }`}
+          >
+            {drillData.drillingPositions.content.map((el, i) => (
+              <div
+                key={i}
+                onClick={() => handleDrillingPositions(el)}
+                className={`drilling-item ${
+                  selectedDrillingPositions.includes(el) && "selected"
+                }`}
+              >
+                {el}
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="drilling-menu">
+          <span
+            onClick={() => toggleAccordion(drillData.rigPositions.title)}
+            className={`drilling-header ${
+              activeMenu === "Rig positions" && openMenu && "open"
+            }`}
+          >
+            <span></span>
+            {drillData.rigPositions.title}
+            {activeMenu === "Rig positions"&&openMenu?<ArrowDropDownCircleRounded className='rotate'/> : <ArrowDropDownCircleRounded/>} 
+          </span>
+          <div
+            className={`drilling-items ${
+              activeMenu === "Rig positions" && openMenu && "open"
+            }`}
+          >
+            {drillData.rigPositions.content.map((el, i) => (
+              <div
+                key={i}
+                onClick={() => handleRigPositions(el)}
+                className={`drilling-item ${
+                  selectedRigPositions.includes(el) && "selected"
+                }`}
+              >
+                {el}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-
-//     const toggleAccordion = (index) => {
-//       setselected(prev => activeIndex !== index || !prev)
-//       setActiveIndex(index)
-//     };
-//     const handleItemClick = (i, j) => {
-//       const newSelectedItems = [...selectedIndexes];
-
-//       const index = newSelectedItems.findIndex((item) => item.i === i && item.j === j);
-
-//       if (index === -1) {
-//         newSelectedItems.push({ i, j });
-//       } else {
-//         newSelectedItems.splice(index, 1);
-//       }
-
-//       setSelectedIndexes(newSelectedItems);
-//   };
-//   return (
-//     <div>
-//     <div className="drilling-container">
-//     {drillData.drilling.map((el,i)=>
-//             <div className='drilling-menu'>
-//                 <span className='drilling-header'><span></span>{el.title}<span></span></span>
-//                 <div className={`drilling-items open`}>
-//                   {el.content.map((el,j)=> 
-//                 <div onClick={() => handleItemClick(i+2,j)} className={`drilling-item ${selectedIndexes.some((item) => item.i === i+2 && item.j === j) ? 'selected' : ''}`}>
-//                   {el}
-//                 </div> )}
-//                 </div>
-//             </div>)}
-//     {drillData.second.map((el,i)=>
-//             <div className='drilling-menu'>
-//                 <span onClick={() => toggleAccordion(i)} className={`drilling-header ${selected&&activeIndex === i && 'open'}`}>  
-//                   <span></span> <span>{el.title}</span>
-//                   {selected&&activeIndex === i ?<ArrowDropDownCircleRounded className='rotate'/> : <ArrowDropDownCircleRounded/>} 
-//                   </span>
-//                 <div className={`drilling-items ${selected&&activeIndex === i && 'open'}`}>
-//                   {el.content.map((el,j)=> 
-//                 <div onClick={() => handleItemClick(i, j)} className={`drilling-item ${selectedIndexes.some((item) => item.i === i && item.j === j) ? 'selected' : ''}`}>
-//                   {el}
-//                 </div> )}
-//                 </div>
-//             </div>)}
-//     </div>
-//     </div>
-    
-//   )
-// }
-
-// export default Drilling
+export default Drilling;
