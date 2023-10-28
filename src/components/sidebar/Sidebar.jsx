@@ -7,7 +7,8 @@ import candidates from "../../data/candidates";
 import IndustriesFilter from "../filters/industries/IndustriesFilter";
 import TableLayout from "../table/Table";
 import ClientsFilter from "../filters/clients/ClientsFilter";
-import Drilling from "../filters/drilling/Drilling2";
+import Drilling from "../filters/drilling/Drilling";
+import AgeFilter from "../filters/age/Age";
 
 const Sidebar = props => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -31,10 +32,12 @@ const Sidebar = props => {
         return <TableLayout title={title} />;
       case 1:
         return <IndustriesFilter />;
-      case 5:
-        return <ClientsFilter />;
       case 4:
         return <Drilling />;
+      case 5:
+        return <ClientsFilter />;
+      case 10:
+        return <AgeFilter />;
       default:
         return <TableLayout  title={title} />; 
     }
