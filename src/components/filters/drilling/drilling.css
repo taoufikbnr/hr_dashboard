@@ -43,5 +43,6 @@
 }
 
 .drilling-item.selected{
-    background: #000;
+    background:rgb(1, 44, 51);
+    color: white;
 }
