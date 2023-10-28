@@ -6,7 +6,7 @@ import {ArrowDropDownCircleRounded} from '@mui/icons-material';
 const Drilling = () => {
     const [selected, setselected] = useState(false)
     const [activeIndex, setActiveIndex] = useState(0);
-    const [selectedIndexes, setSelectedIndexes] = useState({ i: null, j: null });
+    const [selectedIndexes, setSelectedIndexes] = useState([]);
 
 
     const toggleAccordion = (index) => {
@@ -14,12 +14,18 @@ const Drilling = () => {
       setActiveIndex(index)
     };
     const handleItemClick = (i, j) => {
-      if (selectedIndexes.i === i && selectedIndexes.j === j) {
-        setSelectedIndexes({ i: null, j: null });
+      const newSelectedItems = [...selectedIndexes];
+
+      const index = newSelectedItems.findIndex((item) => item.i === i && item.j === j);
+
+      if (index === -1) {
+        newSelectedItems.push({ i, j });
       } else {
-        setSelectedIndexes({ i, j });
+        newSelectedItems.splice(index, 1);
       }
-    };
+
+      setSelectedIndexes(newSelectedItems);
+  };
   return (
     <div>
     <div className="drilling-container">
@@ -28,7 +34,7 @@ const Drilling = () => {
                 <span className='drilling-header'><span></span>{el.title}<span></span></span>
                 <div className={`drilling-items open`}>
                   {el.content.map((el,j)=> 
-                <div onClick={() => handleItemClick(i+2,j)} className={`drilling-item ${selectedIndexes.i === i+2 && selectedIndexes.j === j ? 'selected' : ''}`}>
+                <div onClick={() => handleItemClick(i+2,j)} className={`drilling-item ${selectedIndexes.some((item) => item.i === i+2 && item.j === j) ? 'selected' : ''}`}>
                   {el}
                 </div> )}
                 </div>
@@ -41,7 +47,7 @@ const Drilling = () => {
                   </span>
                 <div className={`drilling-items ${selected&&activeIndex === i && 'open'}`}>
                   {el.content.map((el,j)=> 
-                <div onClick={() => handleItemClick(i, j)} className={`drilling-item ${selectedIndexes.i === i && selectedIndexes.j === j ? 'selected' : ''}`}>
+                <div onClick={() => handleItemClick(i, j)} className={`drilling-item ${selectedIndexes.some((item) => item.i === i && item.j === j) ? 'selected' : ''}`}>
                   {el}
                 </div> )}
                 </div>
