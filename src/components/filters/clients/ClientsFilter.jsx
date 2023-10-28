@@ -6,7 +6,6 @@ const ClientsFilter = () => {
     const [filtredData, setfiltredData] = useState(clientsDATA.clients);
     const [selectedItems, setSelectedItems] = useState([]);
     const [seach, setseach] = useState("");
-    console.log(clientsDATA.clients);
     const handleClick = (index)=>{
       const selectedItem = filtredData[index];
       setfiltredData(prevData => prevData.filter((el,i) => i !== index))
