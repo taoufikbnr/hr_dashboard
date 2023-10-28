@@ -22,7 +22,7 @@ const ClientsFilter = () => {
         <div className='clients-item'>
          <input className='clients-search' type="text" onChange={(e)=>setseach(e.target.value)} placeholder='________________________' />
         </div>
-      {filtredData.filter(word=>word.toLocaleLowerCase().includes(seach.toLocaleLowerCase())).map((el,i)=>
+      {filtredData.sort().filter(word=>word.toLocaleLowerCase().includes(seach.toLocaleLowerCase())).map((el,i)=>
         <div className='clients-item' key={i} onClick={()=>handleClick(i)}>
             {el}
         </div>  
