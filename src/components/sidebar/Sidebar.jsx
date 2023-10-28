@@ -6,8 +6,8 @@ import PopUp from "../pop-up/PopUp";
 import candidates from "../../data/candidates";
 import IndustriesFilter from "../filters/industries/IndustriesFilter";
 import TableLayout from "../table/Table";
-import Drilling from "../filters/drilling/Drilling";
 import ClientsFilter from "../filters/clients/ClientsFilter";
+import Drilling from "../filters/drilling/Drilling2";
 
 const Sidebar = props => {
   const [anchorEl, setAnchorEl] = useState(null);

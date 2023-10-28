@@ -1,5 +1,5 @@
 {
-    "drilling":[
+    "drillingRigs":
         {
             "title":"Drilling rigs",
             "content":[
@@ -12,8 +12,8 @@
 
             ]
         }
-    ],
-    "second":[
+    ,
+    "drillingPositions":
         {
             "title":"Drilling positions",
             "content":[
@@ -39,9 +39,9 @@
                 "HSE advisor",
                 "Completion engineer",
                 "Inspector"
-            ]
-        },
-        {
+            ]}
+        ,
+        "rigPositions": {
             "title":"Rig positions",
             "content":[
                 "Rig manager",
@@ -56,8 +56,6 @@
                 "Chief electrical",
                 "Satefy advisor",
                 "Electrical technician"
-         
             ]
         }
-    ]
 }
