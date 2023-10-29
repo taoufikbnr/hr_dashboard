@@ -11,6 +11,7 @@ import Drilling from "../filters/drilling/Drilling";
 import AgeFilter from "../filters/age/Age";
 import AvailabilitiesFilter from "../filters/availabilities/Availabilities";
 import NationalitiesFilter from "../filters/nationalities/NationalitiesFilter";
+import ResidenciesFilter from "../residencies/ResidenciesFilter";
 
 const Sidebar = props => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -38,6 +39,8 @@ const Sidebar = props => {
         return <Drilling />;
       case 5:
         return <ClientsFilter />;
+      case 7:
+        return <ResidenciesFilter />;
       case 9:
         return <NationalitiesFilter />;
       case 10:
