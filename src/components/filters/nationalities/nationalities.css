@@ -35,8 +35,8 @@
     background: green;
     color: white;
 }
-.selected-items .closeBtn{
-    height: 15px;
+.selected-nationalities .closeBtn{
+    height: 20px;
     cursor: pointer;
 }
 .hidden{
