@@ -1,0 +1,48 @@
+
+.residencies-menu{
+    margin-bottom: 10px;
+}
+.residencies-items{
+    display: none;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap:2px
+}
+.residencies-menu .rotate{
+    transform: rotate(180deg);
+}
+.residencies-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    font-weight: 400;
+    text-decoration: underline;
+    margin-bottom: 5px;
+    padding: 5px;
+    cursor: pointer;
+    border: 1px solid rgb(1, 44, 51);;
+    border-radius: 10px;
+}
+.residencies-item{
+    background: lightcyan;
+    width: 48%;
+    padding:5px;
+    border-radius: 10px;
+}
+.residencies-item:hover{
+    background: lightskyblue;
+}
+
+.residencies-items.open{
+    display: block;
+
+}
+.residencies-header.open{
+    background:rgb(1, 44, 51);
+}
+
+.residencies-item.selected{
+    background:rgb(1, 44, 51);
+    color: white;
+}
