@@ -18,8 +18,8 @@
 }
 .keywords-items{
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    width: max-content;
     padding: 5px 10px;
     border-radius: 10px;
     background: lightblue;

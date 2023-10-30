@@ -6,7 +6,7 @@ import { Keyword_filled } from '../../../data/icons'
 const KeywordFilter = () => {
     const [keyword, setKeyword] = useState("")
     const [keywords, setKeywords] = useState([])
-    console.log(keywords);
+
     const handleAddKeyword = (e) => {
         if (keyword.trim() !== '') {
             if (!keywords.includes(keyword.trim())) {
