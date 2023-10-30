@@ -12,6 +12,7 @@ import AgeFilter from "../filters/age/Age";
 import AvailabilitiesFilter from "../filters/availabilities/Availabilities";
 import NationalitiesFilter from "../filters/nationalities/NationalitiesFilter";
 import ResidenciesFilter from "../residencies/ResidenciesFilter";
+import KeywordFilter from "../filters/keyword/KeywordFilter";
 
 const Sidebar = props => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -32,7 +33,7 @@ const Sidebar = props => {
   const getPopupContent = (index) => {
     switch (index) {
       case 0:
-        return <TableLayout title={title} />;
+        return <KeywordFilter />;
       case 1:
         return <IndustriesFilter />;
       case 4:
