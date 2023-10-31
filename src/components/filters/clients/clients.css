@@ -7,7 +7,7 @@
 .clients-item{
     background: lightcyan;
     padding:5px 10px;
-    border-radius: 15px;
+    border-radius: 10px;
 }
 .clients-item:hover{
     background: lightgreen;
@@ -23,14 +23,14 @@
     outline: none;
     height: 100%;
     width: 100%;
-    border-radius: 15px;
+    border-radius: 10px;
 }
 .selected-items{
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding:5px 10px;
-    border-radius: 15px;
+    border-radius: 10px;
     background: green;
     color: white;
 }

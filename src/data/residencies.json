@@ -24,5 +24,25 @@
                 "North America",
                 "South America"
             ]
+        },
+        "countries":{
+            "title":"Country",
+            "content":[
+                {
+                    "country": "Afghanistan",
+                    "location": "Southern and Central Asia"
+                },
+                {
+                    "country": "Albania",
+                    "location": "Southern Europe"
+                },
+                {
+                    "country": "Algeria",
+                    "location": "Northern Africa"
+                },
+                {
+                    "country": "American Samoa",
+                    "location": "Polynesia"
+                }]
         }
 }
