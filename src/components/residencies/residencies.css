@@ -31,11 +31,11 @@
     border-radius: 10px;
 }
 .residencies-item:hover{
-    background: lightskyblue;
+    background: lightgreen;
 }
 
 .residencies-items.open{
-    display: block;
+    display: flex;
 
 }
 .residencies-header.open{
@@ -43,6 +43,6 @@
 }
 
 .residencies-item.selected{
-    background:rgb(1, 44, 51);
+    background:green;
     color: white;
 }
