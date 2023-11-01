@@ -34,27 +34,23 @@ const ResidenciesFilter = () => {
       setselectedglobalRegions((prev) => [...prev, RigPost]);
     }
   };
-  const [filtredData, setfiltredData] = useState(residenciesData.countries.content);
-  const [selectedItems, setSelectedItems] = useState([]);
-  const [selectedLocation, setSelectedLocation] = useState([]);
+
   const [seach, setseach] = useState("");
   const [selectedCountries, setSelectedCountries] = useState([]);
   const [filteredCountries, setFilteredCountries] = useState(residenciesData.countries.content);
 
-  const handleCountrySelect = (index) => {
-    const selectedCountry = filteredCountries[index];
+  const handleCountrySelect = (selectedCountry) => {
     const updatedSelectedCountries = [...selectedCountries, selectedCountry];
     setSelectedCountries(updatedSelectedCountries);
     setFilteredCountries((prevFilteredCountries) =>
-      prevFilteredCountries.filter((country, i) => i !== index)
+      prevFilteredCountries.filter((el, i) => el.country !== selectedCountry.country)
     );
   };
-  const handleCountryDeselect = (index) => {
-    const deselectedCountry = selectedCountries[index];
-    const updatedFilteredCountries = [...filteredCountries, deselectedCountry];
+  const handleCountryDeselect = (dselectedCountry) => {
+    const updatedFilteredCountries = [...filteredCountries, dselectedCountry];
     setFilteredCountries(updatedFilteredCountries);
     setSelectedCountries((prevSelectedCountries) =>
-      prevSelectedCountries.filter((country, i) => i !== index)
+      prevSelectedCountries.filter((el, i) => el.country !== dselectedCountry.country)
     );
   };
 
@@ -129,14 +125,14 @@ const ResidenciesFilter = () => {
           {selectedCountries.map((el, i) => (
               <div className='selected-countries' key={i}>
                 {el.country}
-                <Close className='closeBtn' onClick={() => handleCountryDeselect(i)}/>
+                <Close className='closeBtn' onClick={() => handleCountryDeselect(el)}/>
               </div>
             ))}
             <div className='country-item country-search'>
             <input type="text" onChange={(e)=>setseach(e.target.value)} placeholder='________________________' />
             </div>
         {filteredCountries.filter(word=>word.country.toLocaleLowerCase().includes(seach.toLocaleLowerCase())).slice(0,1).map((el,i)=>
-          <div className={`country-item ${!seach && 'hide'}`} key={i} onClick={()=>handleCountrySelect(i)}>
+          <div className={`country-item ${!seach && 'hide'}`} key={i} onClick={()=>handleCountrySelect(el)}>
               {el.country}
           </div>  
           )}
@@ -147,7 +143,7 @@ const ResidenciesFilter = () => {
         </span>
         {selectedCountries.map((el, i) => (
           <div className='selected-countries' key={i}>
-              {el.location}
+              {el.continent}
             </div>
           ))}
           <div className="country-item"><span style={{visibility:'hidden'}} >placeholder</span></div>
