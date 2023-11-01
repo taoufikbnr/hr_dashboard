@@ -57,7 +57,7 @@ const Sidebar = props => {
       <div className="sidebarWrapper" ref={sidebarContainerRef} id="sidebar">
         <ul className="sidebarItems">
           {sidebarData.map((item, i) => (
-            <a onClick={handleClick("left", i)} className={`link ${currentIndex === i && open && "active"}`} href={item?.path}>
+            <a key={i} onClick={handleClick("left", i)} className={`link ${currentIndex === i && open && "active"}`} href={item?.path}>
               <li key={i} className={`sidebarItem ${open && "active"}`}>
                 <img className="icons" width={item.size} src={currentIndex === i && open ? item.icon : item.iconEmpty} alt="" />{" "}
                 <span className={`${currentIndex === i && open && "active"}`} ref={title}>
