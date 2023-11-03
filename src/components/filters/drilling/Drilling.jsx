@@ -3,10 +3,13 @@ import { useState } from "react";
 import drillData from "../../../data/drilling.json";
 import "./drilling.css";
 import { ArrowDropDownCircleRounded } from "@mui/icons-material";
+import { useFilters } from "../../../context/FiltersContext/FiltersContext";
 const Drilling = () => {
-  const [selectedDrillingRigs, setselectedDrillingRigs] = useState([]);
-  const [selectedDrillingPositions, setselectedDrillingPositions] = useState([]);
-  const [selectedRigPositions, setselectedRigPositions] = useState([]);
+
+  const {selectedDrillingRigs, setselectedDrillingRigs,
+    selectedDrillingPositions, setselectedDrillingPositions,
+    selectedRigPositions, setselectedRigPositions } = useFilters();
+
   const [openMenu, setopenMenu] = useState(
     drillData.drillingPositions.title ? true : false
   );

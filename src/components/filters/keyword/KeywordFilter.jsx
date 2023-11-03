@@ -3,9 +3,10 @@ import React from 'react'
 import { useState } from 'react'
 import "./keyword.css"
 import { Keyword_filled } from '../../../data/icons'
+import { useFilters } from '../../../context/FiltersContext/FiltersContext'
 const KeywordFilter = () => {
     const [keyword, setKeyword] = useState("")
-    const [keywords, setKeywords] = useState([])
+    const { keywords, setKeywords } = useFilters();
 
     const handleAddKeyword = (e) => {
         if (keyword.trim() !== '') {
