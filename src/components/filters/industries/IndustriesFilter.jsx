@@ -1,9 +1,10 @@
 import "./industriesFilter.css"
 import indusData from "../../../data/industries.json"
 import { useState } from "react"
+import { useFilters } from "../../../context/FiltersContext/FiltersContext";
 const IndustriesFilter = () => {
 
-  const [selectedIndustries, setSelectedIndustries] = useState([]);
+  const { selectedIndustries, setSelectedIndustries } = useFilters();
 
   const handleItemClick = (industry) => {
       if (selectedIndustries.includes(industry)) {
