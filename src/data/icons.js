@@ -40,9 +40,13 @@ import Arrow_Empty from "../assets/icons/Arrow_Empty.svg"
 import Arrow_Filled from "../assets/icons/Arrow_Filled.svg"
 import CVs_Candidate_parameters_Empty from "../assets/icons/CVs_Candidate parameters_Empty.svg"
 import CVs_Candidate_parameters_Filled from "../assets/icons/CVs_Candidate parameters_Filled.svg"
+import Experience_Candidate_parameters_Empty from "../assets/icons/Experience_Candidate parameters_Empty.svg"
+import Experience_Candidate_parameters_Filled from "../assets/icons/Experience_Candidate parameters_Filled.svg"
 
 
 export {
+    Experience_Candidate_parameters_Empty,
+    Experience_Candidate_parameters_Filled,
     CVs_Candidate_parameters_Empty,
     CVs_Candidate_parameters_Filled,
     Arrow_Filled,
