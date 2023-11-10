@@ -1,17 +1,17 @@
 body {
   font-family: "Lato", sans-serif;
 }
-
+/*delete this*/
 .sidebar {
   height: 100%;
   width: 85px;
   position: fixed;
-  left: 0;
-  top: 0;
+  left: 0; 
+  top: 0;/*delete this*/ 
   background-color: rgba(211, 211, 211);
   transition: 0.5s;
   overflow-x: hidden;
-  /* padding-top: 40px; */
+  padding-top: 40px;
   white-space: nowrap;
 }
 .sidebarWrapper{

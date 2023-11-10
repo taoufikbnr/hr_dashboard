@@ -15,6 +15,7 @@ import ResidenciesFilter from "../residencies/ResidenciesFilter";
 import KeywordFilter from "../filters/keyword/KeywordFilter";
 import CVs from "../filters/CVs/CVs";
 import ContractsFilter from "../filters/contracts/ContractsFilter";
+import ExperienceFilter from "../filters/experience/ExperienceFilter";
 
 const Sidebar = props => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -52,6 +53,8 @@ const Sidebar = props => {
         return <AvailabilitiesFilter />;
       case 15:
         return <ContractsFilter />;
+      case 16:
+        return <ExperienceFilter />;
       case 17:
           return <CVs />;
       default:
