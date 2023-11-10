@@ -5,7 +5,7 @@ import { Close } from "@mui/icons-material";
 const ContractsFilter = () => {
 
   const [users, setUsers] = useState([
-    { column1: "First name", inputs: "35", actual: "" },
+    { column1: "First name", inputs: "", actual: "" },
     { column1: "Last name", inputs: "", actual: "" },
     { column1: "Email 01", inputs: "", actual: "" },
     { column1: "Email 02", inputs: "", actual: "" },
@@ -32,7 +32,7 @@ const ContractsFilter = () => {
           <tr key={index}>
             <td style={{ width: "20%" }}>{user.column1}</td>
             <td style={{ width: "40%" }} className="contracts-actual">
-              <input className="contacts-input"
+              <input className="contracts-input"
                 type="text"
                 value={user.inputs}
                 onChange={(e) => handleInputChange(index, e.target.value)}
