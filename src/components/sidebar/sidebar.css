@@ -7,7 +7,6 @@ body {
   width: 85px;
   position: fixed;
   left: 0; 
-  top: 0;/*delete this*/ 
   background-color: rgba(211, 211, 211);
   transition: 0.5s;
   overflow-x: hidden;
