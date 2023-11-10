@@ -13,6 +13,8 @@ import AvailabilitiesFilter from "../filters/availabilities/Availabilities";
 import NationalitiesFilter from "../filters/nationalities/NationalitiesFilter";
 import ResidenciesFilter from "../residencies/ResidenciesFilter";
 import KeywordFilter from "../filters/keyword/KeywordFilter";
+import CVs from "../filters/CVs/CVs";
+import ContractsFilter from "../filters/contracts/ContractsFilter";
 
 const Sidebar = props => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -48,6 +50,10 @@ const Sidebar = props => {
         return <AgeFilter />;
       case 11:
         return <AvailabilitiesFilter />;
+      case 15:
+        return <ContractsFilter />;
+      case 17:
+          return <CVs />;
       default:
         return <TableLayout  title={title} />; 
     }
