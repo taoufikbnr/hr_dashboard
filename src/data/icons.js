@@ -38,9 +38,13 @@ import Linkedin_in from "../assets/icons/Linkedin_in.svg"
 import Linkedin_in_white from "../assets/icons/Linkedin_in_white.svg"
 import Arrow_Empty from "../assets/icons/Arrow_Empty.svg"
 import Arrow_Filled from "../assets/icons/Arrow_Filled.svg"
+import CVs_Candidate_parameters_Empty from "../assets/icons/CVs_Candidate parameters_Empty.svg"
+import CVs_Candidate_parameters_Filled from "../assets/icons/CVs_Candidate parameters_Filled.svg"
 
 
 export {
+    CVs_Candidate_parameters_Empty,
+    CVs_Candidate_parameters_Filled,
     Arrow_Filled,
     Arrow_Empty,
     Linkedin_in_white,
