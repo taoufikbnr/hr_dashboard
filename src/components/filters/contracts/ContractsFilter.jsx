@@ -7,10 +7,10 @@ const ContractsFilter = () => {
   const [users, setUsers] = useState([
     { column1: "First name", inputs: "35", actual: "" },
     { column1: "Last name", inputs: "", actual: "" },
-    { column1: "Email 01", inputs: "", email: "" },
-    { column1: "Email 02", inputs: "", email: "" },
-    { column1: "Phone 01", inputs: "", email: "" },
-    { column1: "Phone 02", inputs: "", email: "" },
+    { column1: "Email 01", inputs: "", actual: "" },
+    { column1: "Email 02", inputs: "", actual: "" },
+    { column1: "Phone 01", inputs: "", actual: "" },
+    { column1: "Phone 02", inputs: "", actual: "" },
     { column1: "LinkedIn link", inputs: "", actual: "" }
   ]);
   const handleInputChange = (index, value) => {
@@ -42,7 +42,7 @@ const ContractsFilter = () => {
                 <Close className='closeBtn' onClick={() => handleInputChange(index, "")}/>
               </div>
             </td>
-            <td style={{ width: "40%" }}>{user.email}</td>
+            <td style={{ width: "40%" }}>{user.actual}</td>
           </tr>
         ))}
       </tbody>
