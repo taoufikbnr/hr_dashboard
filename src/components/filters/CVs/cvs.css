@@ -1,0 +1,30 @@
+.cv-container .title{
+    color: white;
+    text-align: center;
+    margin: 10px 0px;
+}
+.cv-upload{
+    display: flex;
+    justify-content: center;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background: teal;
+    color: white;
+    text-align: center;
+}
+.cv-upload span{
+    margin-right: 10px;
+}
+.attach-icon{
+    height: 25px;
+    /* margi+-n-left: 20px; */
+}
+.drag-drop-cv{
+    background: teal; 
+    height: 250px;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+.closeBtn{
+    cursor: pointer;
+}
