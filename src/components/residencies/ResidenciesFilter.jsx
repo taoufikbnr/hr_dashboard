@@ -35,7 +35,7 @@ const ResidenciesFilter = () => {
     }
   };
 
-  const [seach, setseach] = useState("");
+  const [search, setsearch] = useState("");
   const [selectedCountries, setSelectedCountries] = useState([]);
   const [filteredCountries, setFilteredCountries] = useState(residenciesData.countries.content);
 
@@ -129,10 +129,10 @@ const ResidenciesFilter = () => {
               </div>
             ))}
             <div className='country-item country-search'>
-            <input type="text" onChange={(e)=>setseach(e.target.value)} placeholder='________________________' />
+            <input type="text" onChange={(e)=>setsearch(e.target.value)} placeholder='________________________' />
             </div>
-        {filteredCountries.filter(word=>word.country.toLocaleLowerCase().includes(seach.toLocaleLowerCase())).slice(0,1).map((el,i)=>
-          <div className={`country-item ${!seach && 'hide'}`} key={i} onClick={()=>handleCountrySelect(el)}>
+        {filteredCountries.filter(word=>word.country.toLocaleLowerCase().includes(search.toLocaleLowerCase())).slice(0,1).map((el,i)=>
+          <div className={`country-item ${!search && 'hide'}`} key={i} onClick={()=>handleCountrySelect(el)}>
               {el.country}
           </div>  
           )}

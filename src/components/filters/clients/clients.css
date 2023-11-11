@@ -3,7 +3,10 @@
     justify-content: space-between;
     gap: 2px;
 }
-
+.clients-container h4{
+    text-align:center;
+    color: white;
+}
 .clients-item{
     background: lightcyan;
     padding:5px 10px;
@@ -17,6 +20,10 @@
     flex-direction: column;
     width: 50%;
     gap: 2px;
+}
+
+.clients-item:has(input){
+    background: white;
 }
 .clients-search{
     border: none;
