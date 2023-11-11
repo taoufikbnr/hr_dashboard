@@ -67,6 +67,10 @@
     color: white;
     border-radius: 50%;
 }
+.experience-item.filled{
+background-color: green;
+color: white;
+}
 .experience-item-date{
     align-items: center;
     justify-content: space-around;
