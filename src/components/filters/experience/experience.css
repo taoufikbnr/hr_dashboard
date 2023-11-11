@@ -41,7 +41,7 @@
     width: 100%;
     font-size: 14px;
     height: 32px;  
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 .experience-item span{
     margin-left: 10px;
@@ -88,5 +88,10 @@ color: white;
 }
 .placeholder{
     visibility: hidden;
+}
+.experience-calendar{
+    background: white;
+    position: absolute;
+    bottom: 40px;
 }
 
