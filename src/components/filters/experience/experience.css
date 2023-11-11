@@ -33,7 +33,6 @@
     gap: 2px;
 }
 .experience-item{
-    height: 32px;
     border-radius: 10px;
     margin-bottom: 1px;
     display: flex;
@@ -41,15 +40,26 @@
     background-color: lightblue;
     width: 100%;
     font-size: 14px;
+    height: 32px;  
     overflow: hidden;
 }
+.experience-item span{
+    margin-left: 10px;
+}
 .experience-item input{
+    border-radius: 10px;  
     border: none;
+    height: 100%;
     width: 100%;
     outline: none;
-    height: 100%;
+    padding-left: 10px;
 }
-
+.experience-item:has(.css-b62m3t-container){
+    overflow: visible;
+}
+.experience-item .css-b62m3t-container{
+    width: 100%;
+}
 .experience-item-icon{
     display: flex;
     align-items: center;
