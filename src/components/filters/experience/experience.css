@@ -16,43 +16,61 @@
     align-items: center;
     justify-content: space-between;
     color: rgb(1, 44, 51);
+    width: 100%;
     font-weight: 400;
     text-decoration: underline;
     margin-bottom: 1px;
-    height: 32px;
     cursor: pointer;
     box-sizing: border-box;
     border: 1px solid rgb(1, 44, 51);
     border-radius: 10px;
     background: lightblue;
-    vertical-align: top;
     padding: 0 5px;
-
+    height: 32px;
+}
+.experience-header-container,.experience-item-container,.experience-item-date{
+    display: flex;
+    gap: 2px;
 }
 .experience-item{
-    background: lightgreen;
     height: 32px;
     border-radius: 10px;
     margin-bottom: 1px;
     display: flex;
     align-items: center;
-    padding: 0 2px;
+    background-color: lightblue;
+    width: 100%;
+    font-size: 14px;
+    overflow: hidden;
 }
+.experience-item input{
+    border: none;
+    width: 100%;
+    outline: none;
+    height: 100%;
+}
+
 .experience-item-icon{
+    display: flex;
+    align-items: center;
     background: white;
     border-radius: 10px;
     height:32px;
     padding:0 5px;
     margin-bottom: 1px;
-
+}
+.experience-item-icon.selected{
+    background: rgb(1, 44, 51);
+}
+.experience-item-icon.navigate{
+    background: rgb(1, 44, 51);
+    color: white;
+    border-radius: 50%;
 }
 .experience-item-date{
-    display: flex;
     align-items: center;
-    justify-content: space-between;
-}
-.experience-item-date .experience-item{
-    width:50% !important;
+    justify-content: space-around;
+    /* width:50% !important; */
 }
 .placeholder{
     visibility: hidden;
