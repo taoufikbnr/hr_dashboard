@@ -6,8 +6,8 @@ import Select from 'react-select';
 import clientsOptions from '../../../data/experience.json'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
 import dayjs from "dayjs";
+import { DatePicker, MonthCalendar, PickersDay } from "@mui/x-date-pickers";
 
 const ExperienceFilter = () => {
   const [lastExperiencePosition, setlastExperiencePosition] = useState("")
@@ -21,7 +21,7 @@ const ExperienceFilter = () => {
   const [acutalAvailabilityTo, setacutalAvailabilityTo] = useState(dayjs(new Date()))
 
   const [editableItem, setEditableItem] = useState("");
-  const [showFromCalendar, setShowFromCalendar] = useState("");
+  const [showFromCalendar, setShowFromCalendar] = useState(null);
 
   const handleSelectItem = (itemType) => {
       setEditableItem(itemType);
@@ -84,6 +84,7 @@ return (
                       defaultInputValue={lastExperienceClients}
                       onChange={(selectedOption) => setlastExperienceClients(selectedOption.value)}
                       menuPlacement="top"
+                      menuIsOpen={true} 
                     />
                   ) : (
                     <span>{lastExperienceClients}</span>  
@@ -94,29 +95,36 @@ return (
            <div className={`experience-item-icon ${editableItem==="Availabilities"&&"selected"}`} onClick={() => handleSelectItem('Availabilities')} >
                   <img src={Availabilities_Empty} width={25} alt="" />
           </div>
-          <span className="experience-item" id="from-calendar-portal" onClick={()=>toggleCalendar("from")}>
-          {editableItem === 'Availabilities'&&showFromCalendar==="from" ? (
-            <LocalizationProvider  dateAdapter={AdapterDayjs}>
-                  <DateCalendar 
+          <span className={`experience-item ${editableItem==="Availabilities"&&"fill"}`} id="from-calendar-portal" onClick={()=>toggleCalendar("from")}>
+          {editableItem === 'Availabilities'? (
+        <>
+              <LocalizationProvider  dateAdapter={AdapterDayjs}>
+                  <DatePicker 
+                    views={['year', 'month']}
+                    maxDate={lastExperienceAvailabilityTo}
                     menuPlacement="top"
                     menuPortalTarget={document.getElementById('from-calendar-portal')}
                     className="experience-calendar"  value={lastExperienceAvailabilityFrom}
                     onChange={(newValue) => handleDateChange('from', newValue)} />
             </LocalizationProvider>
+        </>
                   ) : (
                     dayjs(lastExperienceAvailabilityFrom).format('MMMM YYYY')
                   )}
           </span>
           <ArrowForwardIosOutlined/>
-          <span className="experience-item" id="to-calendar-portal" onClick={()=>toggleCalendar("to")}>
-          {editableItem === 'Availabilities'&&showFromCalendar==="to" ? (
-            <LocalizationProvider  dateAdapter={AdapterDayjs}>
-                  <DateCalendar 
+          <span className={`experience-item ${editableItem==="Availabilities"&&"fill"}`} id="to-calendar-portal" onClick={()=>toggleCalendar("to")}>
+          {editableItem === 'Availabilities' ? (
+            <>
+              <LocalizationProvider  dateAdapter={AdapterDayjs}>
+                  <DatePicker
+                    views={['year', 'month']}
                     menuPlacement="top"
-                    menuPortalTarget={document.getElementById('to-calendar-portal')}
+                    minDate={lastExperienceAvailabilityFrom}
                     className="experience-calendar"  value={lastExperienceAvailabilityTo}
                     onChange={(newValue) => handleDateChange('to', newValue)} />
             </LocalizationProvider>
+            </>
                   ) : (
                     dayjs(lastExperienceAvailabilityTo).format('MMMM YYYY')
                   )}
