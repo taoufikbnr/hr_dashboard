@@ -81,6 +81,9 @@
 background-color: green;
 color: white;
 }
+.experience-item.fill{
+    background: white;
+}
 .experience-item-date{
     align-items: center;
     justify-content: space-around;
@@ -91,7 +94,23 @@ color: white;
 }
 .experience-calendar{
     background: white;
-    position: absolute;
-    bottom: 40px;
+    /* position: absolute; */
+    /* bottom: 40px; */
 }
 
+.css-1hb7zxy-IndicatorsContainer{
+   display:none !important;
+   background-color: red;
+}
+/*selection*/
+.css-1n6sfyn-MenuList{
+    max-height: 100px !important;
+}
+.css-nxo287-MuiInputBase-input-MuiOutlinedInput-input{
+padding: 2px  !important;
+font-size: 14px !important;
+height: 100% !important;
+}
+.css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root{
+    padding: 1px !important;
+}
