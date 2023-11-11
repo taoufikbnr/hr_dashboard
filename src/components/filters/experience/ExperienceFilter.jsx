@@ -1,7 +1,9 @@
-import { ArrowForward, ArrowForwardIosOutlined, ArrowForwardOutlined, ArrowRight, NavigateBefore } from "@mui/icons-material"
+import { ArrowForward, ArrowForwardIosOutlined, ArrowForwardOutlined, ArrowRight, NavigateBefore, Spa } from "@mui/icons-material"
 import { Availabilities_Empty, Clients_Empty, Copy_paste, Positions_Empty } from "../../../data/icons"
 import "./experience.css"
 import { useState } from "react"
+import Select from 'react-select';
+import clientsOptions from '../../../data/experience.json'
 
 const ExperienceFilter = () => {
   const [lastExperiencePosition, setlastExperiencePosition] = useState("")
@@ -26,6 +28,7 @@ const ExperienceFilter = () => {
     setacutalAvailabilityTo(lastExperienceAvailabilityTo)
     handleSelectItem("");
   }
+
 return (
   <div className="experience-container">
   <div className="experience-block">
@@ -48,7 +51,7 @@ return (
           {editableItem === 'Positions' ? (
                       <input type="text" value={lastExperiencePosition} onChange={(e) => setlastExperiencePosition(e.target.value)} />
                   ) : (
-                      lastExperiencePosition
+                    <span>{lastExperiencePosition}</span>  
                   )}
           </span>
       </div>
@@ -58,9 +61,14 @@ return (
           </div>
           <span className={`experience-item`}>
           {editableItem === 'Clients' ? (
-                      <input type="text" value={lastExperienceClients} onChange={(e) => setlastExperienceClients(e.target.value)} />
+                  <Select
+                      options={clientsOptions.clients}
+                      defaultInputValue={lastExperienceClients}
+                      onChange={(selectedOption) => setlastExperienceClients(selectedOption.value)}
+                      menuPlacement="top"
+                    />
                   ) : (
-                      lastExperienceClients
+                    <span>{lastExperienceClients}</span>  
                   )}
           </span>
       </div>
@@ -103,18 +111,18 @@ return (
       </span>
   </div>
           <span className={`experience-item ${acutalPosition&&"filled"}` }>
-          {acutalPosition}
+          <span>{acutalPosition}</span>
           </span>
           <span className={`experience-item ${acutalClients&&"filled"}` }>
-          {acutalClients}
+          <span>{acutalClients}</span>
           </span>
     <div className="experience-item-date">
           <span className={`experience-item ${acutalAvailabilityFrom&&"filled"}` }>
-          {acutalAvailabilityFrom}
+          <span>{acutalAvailabilityFrom}</span>
           </span>
           <ArrowForwardIosOutlined/>
           <span className={`experience-item ${acutalAvailabilityTo&&"filled"}` }>
-          {acutalAvailabilityTo}
+          <span>{acutalAvailabilityTo}</span>
           </span>
     </div>
   </div>
