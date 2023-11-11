@@ -10,7 +10,7 @@ const KeywordFilter = () => {
 
     const handleAddKeyword = (e) => {
         if (keyword.trim() !== '') {
-            if (!keywords.includes(keyword.trim())) {
+            if (!keywords.some(el=>el.toLowerCase()=== keyword.toLowerCase().trim())) {
               setKeywords((prevKeywords) => [...prevKeywords, keyword.trim()]);
             }
             setKeyword(''); 
