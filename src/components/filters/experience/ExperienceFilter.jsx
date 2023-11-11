@@ -9,7 +9,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import dayjs from "dayjs";
 import { DatePicker, MonthCalendar, PickersDay } from "@mui/x-date-pickers";
 
-const ExperienceFilter = () => {
+const ExperienceFilter = ({title}) => {
   const [lastExperiencePosition, setlastExperiencePosition] = useState("")
   const [lastExperienceClients, setlastExperienceClients] = useState("")
   const [lastExperienceAvailabilityFrom, setlastExperienceAvailabilityFrom] = useState(dayjs(new Date()))
@@ -51,13 +51,14 @@ return (
   <div className="experience-container">
   <div className="experience-block">
   <h4>New</h4>
+  <>
   <div className="experience-header-container">
      {<div className={`experience-item-icon navigate ${!editableItem&&"placeholder"}`} onClick={handleValidation}>
           <NavigateBefore/>
       </div>}
       <span className={`experience-header`}>
           <span></span>
-          Last/current experience
+          {title}
           <img src={Copy_paste} width={15} alt=""/>
       </span>
   </div>
@@ -130,32 +131,35 @@ return (
                   )}
           </span>
     </div>
+  </>
   </div>
-  <div className="experience-block">
-  <h4>Actual</h4>
-  <div className="experience-header-container">
-      <span className={`experience-header`}>
-          <span></span>
-          Last/current experience
-          <img src={Copy_paste} width={15} alt=""/>
-      </span>
-  </div>
-          <span className={`experience-item ${acutalPosition&&"filled"}` }>
-          <span>{acutalPosition}</span>
-          </span>
-          <span className={`experience-item ${acutalClients&&"filled"}` }>
-          <span>{acutalClients}</span>
-          </span>
-    <div className="experience-item-date">
-          <span className={`experience-item ${acutalAvailabilityFrom&&"filled"}` }>
-          <span>{dayjs(acutalAvailabilityFrom).format('MMMM YYYY')}</span>
-          </span>
-          <ArrowForwardIosOutlined/>
-          <span className={`experience-item ${acutalAvailabilityTo&&"filled"}` }>
-          <span>{dayjs(acutalAvailabilityTo).format('MMMM YYYY')}</span>
-          </span>
+    <div className="experience-block">
+    <h4>Actual</h4>
+    <>
+    <div className="experience-header-container">
+        <span className={`experience-header`}>
+            <span></span>
+            {title}
+            <img src={Copy_paste} width={15} alt=""/>
+        </span>
     </div>
-  </div>
+            <span className={`experience-item ${acutalPosition&&"filled"}` }>
+            <span>{acutalPosition}</span>
+            </span>
+            <span className={`experience-item ${acutalClients&&"filled"}` }>
+            <span>{acutalClients}</span>
+            </span>
+        <div className="experience-item-date">
+            <span className={`experience-item ${acutalAvailabilityFrom&&"filled"}` }>
+            <span>{dayjs(acutalAvailabilityFrom).format('MMMM YYYY')}</span>
+            </span>
+            <ArrowForwardIosOutlined/>
+            <span className={`experience-item ${acutalAvailabilityTo&&"filled"}` }>
+            <span>{dayjs(acutalAvailabilityTo).format('MMMM YYYY')}</span>
+            </span>
+        </div>
+    </>
+    </div>
   </div>
   )
 }
