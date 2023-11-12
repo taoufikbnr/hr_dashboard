@@ -47,6 +47,24 @@ const ExperienceFilter = ({title}) => {
         setShowFromCalendar(field);
     }
   };
+
+  const handleDrag = (event) => {
+    const allText = `${acutalPosition}\n${acutalClients}\n${acutalAvailabilityFrom}\n${acutalAvailabilityTo}`;
+        event.dataTransfer.setData("text/plain", allText)
+  };
+  const handleDragOver = (event) => {
+    event.preventDefault();
+  };
+
+  const handleDrop = (event) => {
+    event.preventDefault();
+    const draggedText = event.dataTransfer.getData("text/plain");
+    const lines = draggedText.split("\n");
+    setlastExperiencePosition(lines[0]);
+    setlastExperienceClients(lines[1]);
+    setlastExperienceAvailabilityFrom(lines[2]);
+    setlastExperienceAvailabilityTo(lines[3]);
+  };
 return (
   <div className="experience-container">
   <div className="experience-block">
@@ -59,7 +77,11 @@ return (
       <span className={`experience-header`}>
           <span></span>
           {title}
-          <img src={Copy_paste} width={15} alt=""/>
+          <img src={Copy_paste} width={15} alt=""
+                   onDragOver={handleDragOver}
+                   onDrop={(e) => handleDrop(e)} 
+                   draggable="false"
+          />
       </span>
   </div>
       <div className="experience-item-container">
@@ -140,7 +162,9 @@ return (
         <span className={`experience-header`}>
             <span></span>
             {title}
-            <img src={Copy_paste} width={15} alt=""/>
+            <img src={Copy_paste} width={15} alt=""
+            onDragStart={(e) => handleDrag(e)}
+            />
         </span>
     </div>
             <span className={`experience-item ${acutalPosition&&"filled"}` }>
