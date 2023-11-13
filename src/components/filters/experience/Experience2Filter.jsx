@@ -12,13 +12,13 @@ import { DatePicker, MonthCalendar, PickersDay } from "@mui/x-date-pickers";
 const Experience2Filter = ({title}) => {
   const [newExperience2Position, setnewExperience2Position] = useState("")
   const [newExperience2Clients, setnewExperience2Clients] = useState("")
-  const [newExperience2AvailabilityFrom, setnewExperience2AvailabilityFrom] = useState(dayjs(new Date()))
-  const [newExperience2AvailabilityTo, setnewExperience2AvailabilityTo] = useState(dayjs(new Date()))
+  const [newExperience2AvailabilityFrom, setnewExperience2AvailabilityFrom] = useState((null))
+  const [newExperience2AvailabilityTo, setnewExperience2AvailabilityTo] = useState((null))
 
   const [actualExperience2Position, setactualExperience2Position] = useState("")
   const [actualExperience2Clients, setactualExperience2Clients] = useState("")
-  const [actualExperience2AvailabilityFrom, setactualExperience2AvailabilityFrom] = useState(dayjs(new Date()))
-  const [actualExperience2AvailabilityTo, setactualExperience2AvailabilityTo] = useState(dayjs(new Date()))
+  const [actualExperience2AvailabilityFrom, setactualExperience2AvailabilityFrom] = useState((null))
+  const [actualExperience2AvailabilityTo, setactualExperience2AvailabilityTo] = useState((null))
 
   const [editableItemExperience2, setEditableItemExperience2] = useState("");
   const [showFromCalendarExperience2, setShowFromCalendarExperience2] = useState(null);
@@ -131,7 +131,7 @@ return (
             </LocalizationProvider>
         </>
                   ) : (
-                    dayjs(newExperience2AvailabilityFrom).format('MMMM YYYY')
+                    newExperience2AvailabilityFrom&&dayjs(newExperience2AvailabilityFrom).format('MMMM YYYY')
                   )}
           </span>
           <ArrowForwardIosOutlined/>
@@ -148,7 +148,7 @@ return (
             </LocalizationProvider>
             </>
                   ) : (
-                    dayjs(newExperience2AvailabilityTo).format('MMMM YYYY')
+                    newExperience2AvailabilityTo&&dayjs(newExperience2AvailabilityTo).format('MMMM YYYY')
                   )}
           </span>
     </div>
@@ -173,11 +173,11 @@ return (
             </span>
         <div className="experience-item-date">
             <span className={`experience-item ${actualExperience2AvailabilityFrom&&"filled"}` }>
-            <span>{dayjs(actualExperience2AvailabilityFrom).format('MMMM YYYY')}</span>
+            <span>{actualExperience2AvailabilityFrom&&dayjs(actualExperience2AvailabilityFrom).format('MMMM YYYY')}</span>
             </span>
             <ArrowForwardIosOutlined/>
             <span className={`experience-item ${actualExperience2AvailabilityTo&&"filled"}` }>
-            <span>{dayjs(actualExperience2AvailabilityTo).format('MMMM YYYY')}</span>
+            <span>{actualExperience2AvailabilityTo&&dayjs(actualExperience2AvailabilityTo).format('MMMM YYYY')}</span>
             </span>
         </div>
     </>

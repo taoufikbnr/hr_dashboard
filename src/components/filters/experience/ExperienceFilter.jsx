@@ -12,13 +12,13 @@ import { DatePicker, MonthCalendar, PickersDay } from "@mui/x-date-pickers";
 const ExperienceFilter = ({title}) => {
   const [lastExperiencePosition, setlastExperiencePosition] = useState("")
   const [lastExperienceClients, setlastExperienceClients] = useState("")
-  const [lastExperienceAvailabilityFrom, setlastExperienceAvailabilityFrom] = useState(dayjs(new Date()))
-  const [lastExperienceAvailabilityTo, setlastExperienceAvailabilityTo] = useState(dayjs(new Date()))
+  const [lastExperienceAvailabilityFrom, setlastExperienceAvailabilityFrom] = useState(null)
+  const [lastExperienceAvailabilityTo, setlastExperienceAvailabilityTo] = useState(null)
 
   const [acutalPosition, setacutalPosition] = useState("")
   const [acutalClients, setacutalClients] = useState("")
-  const [acutalAvailabilityFrom, setacutalAvailabilityFrom] = useState(dayjs(new Date()))
-  const [acutalAvailabilityTo, setacutalAvailabilityTo] = useState(dayjs(new Date()))
+  const [acutalAvailabilityFrom, setacutalAvailabilityFrom] = useState(null)
+  const [acutalAvailabilityTo, setacutalAvailabilityTo] = useState(null)
 
   const [editableItem, setEditableItem] = useState("");
   const [showFromCalendar, setShowFromCalendar] = useState(null);
@@ -132,7 +132,7 @@ return (
             </LocalizationProvider>
         </>
                   ) : (
-                    dayjs(lastExperienceAvailabilityFrom).format('MMMM YYYY')
+                    lastExperienceAvailabilityFrom?dayjs(lastExperienceAvailabilityFrom).format('MMMM YYYY'):""
                   )}
           </span>
           <ArrowForwardIosOutlined/>
@@ -149,7 +149,7 @@ return (
             </LocalizationProvider>
             </>
                   ) : (
-                    dayjs(lastExperienceAvailabilityTo).format('MMMM YYYY')
+                    lastExperienceAvailabilityTo?dayjs(lastExperienceAvailabilityTo).format('MMMM YYYY'):""
                   )}
           </span>
     </div>
@@ -175,11 +175,11 @@ return (
             </span>
         <div className="experience-item-date">
             <span className={`experience-item ${acutalAvailabilityFrom&&"filled"}` }>
-            <span>{dayjs(acutalAvailabilityFrom).format('MMMM YYYY')}</span>
+            <span>{acutalAvailabilityFrom&&dayjs(acutalAvailabilityFrom).format('MMMM YYYY')}</span>
             </span>
             <ArrowForwardIosOutlined/>
             <span className={`experience-item ${acutalAvailabilityTo&&"filled"}` }>
-            <span>{dayjs(acutalAvailabilityTo).format('MMMM YYYY')}</span>
+            <span>{acutalAvailabilityTo&&dayjs(acutalAvailabilityTo).format('MMMM YYYY')}</span>
             </span>
         </div>
     </>
