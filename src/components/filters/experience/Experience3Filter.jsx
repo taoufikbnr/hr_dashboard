@@ -26,6 +26,7 @@ const Experience3Filter = ({title}) => {
   const handleSelectItemExperience2 = (itemType) => {
       setEditableItemExperience2(itemType);
   };
+  
   const handleValidationExperience2 = () => {
     setactualExperience2Position(newExperience2Position);
     setactualExperience2Clients(newExperience2Clients);
