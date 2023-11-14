@@ -1,5 +1,5 @@
 import { ArrowForward, ArrowForwardIosOutlined, ArrowForwardOutlined, ArrowRight, NavigateBefore, Spa } from "@mui/icons-material"
-import { Availabilities_Empty, Clients_Empty, Copy_paste, Positions_Empty } from "../../../data/icons"
+import { Availabilities_Empty, Clients_Empty, Copy_paste, Copy_paste_empty, Positions_Empty } from "../../../data/icons"
 import "./experience.css"
 import { useState } from "react"
 import Select from 'react-select';
@@ -9,7 +9,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import dayjs from "dayjs";
 import { DatePicker, MonthCalendar, PickersDay } from "@mui/x-date-pickers";
 
-const Experience3Filter = ({title}) => {
+const Experience3Filter = ({title,isDragged,setIsDragged}) => {
   const [newExperience2Position, setnewExperience2Position] = useState("")
   const [newExperience2Clients, setnewExperience2Clients] = useState("")
   const [newExperience2AvailabilityFrom, setnewExperience2AvailabilityFrom] = useState(null)
@@ -52,6 +52,7 @@ const Experience3Filter = ({title}) => {
   const handleDrag = (event) => {
     const allText = `${actualExperience2Position}\n${actualExperience2Clients}\n${actualExperience2AvailabilityFrom}\n${actualExperience2AvailabilityTo}`;
         event.dataTransfer.setData("text/plain", allText)
+        setIsDragged(true);
   };
   const handleDragOver = (event) => {
     event.preventDefault();
@@ -77,11 +78,18 @@ return (
       <span className={`experience-header`}>
           <span></span>
           {title}
-          <img src={Copy_paste} width={15} alt=""
-                    onDragOver={handleDragOver}
-                    onDrop={(e) => handleDrop(e)} 
-                    draggable="false"
+          {isDragged?
+          <img src={Copy_paste_empty} width={15} alt=""
+          onDragOver={handleDragOver}
+          onDrop={(e) => handleDrop(e)} 
+          draggable="false"
+          /> 
+          :<img src={Copy_paste} width={15} alt=""
+          onDragOver={handleDragOver}
+          onDrop={(e) => handleDrop(e)} 
+          draggable="false"
           />
+          }
       </span>
   </div>
       <div className="experience-item-container">
@@ -163,6 +171,7 @@ return (
             {title}
             <img src={Copy_paste} width={15} alt="actual_copy"
             onDragStart={(e) => handleDrag(e)}
+            onDragEnd={()=>setIsDragged(false)}
             />
         </span>
     </div>
