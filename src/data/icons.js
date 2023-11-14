@@ -31,6 +31,7 @@ import Phases_Filled from "../assets/icons/Phases_Filled.svg"
 import Keyword_filled from "../assets/icons/keyword_filled.svg"
 import Keyword_empty from "../assets/icons/Keyword_empty.svg"
 import Copy_paste from "../assets/icons/Copy paste.svg"
+import Copy_paste_empty from "../assets/icons/Copy_paste_empty.svg"
 import LinkedIn from "../assets/icons/LinkedIn.svg"
 import Message_Empty from "../assets/icons/Message_Empty.svg"
 import PFS_CV_Empty from "../assets/icons/PFS CV_Empty.svg"
@@ -45,6 +46,7 @@ import Experience_Candidate_parameters_Filled from "../assets/icons/Experience_C
 
 
 export {
+    Copy_paste_empty,
     Experience_Candidate_parameters_Empty,
     Experience_Candidate_parameters_Filled,
     CVs_Candidate_parameters_Empty,
