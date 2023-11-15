@@ -6,13 +6,13 @@ table{
     text-align: center;
     color: white !important;
 }
-tr{
+.contracts-container tr{
     display: flex;
     gap: 5px;
     padding: 2px;
 }
 
-td{
+.contracts-container td{
     border-radius: 5px;
     padding: 5px;
     background-color: lightblue;

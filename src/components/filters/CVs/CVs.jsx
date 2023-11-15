@@ -31,9 +31,9 @@ const CVs = () => {
       setSelectedWebsites([...selectedWebsites, source]);
     }
 };
-console.log(selectedWebsites);
+console.log(file);
   return (
-<div ref={drop} className={`cv-container`}>
+<div  className={`cv-container`}>
       <h4 className="title">Add new a CV</h4>
       <label htmlFor="file" className="cv-upload">
         <span className="label-content">
@@ -41,7 +41,7 @@ console.log(selectedWebsites);
         </span>
         <input id="file" type="file" style={{ display: 'none' }} onChange={handleFileChange} />
       </label>
-      <div className={`drag-drop-cv ${isOver ? 'drag-over' : ''}`}>
+      <div ref={drop} className={`drag-drop-cv ${isOver ? '' : ''}`}>
         <span>
           {isOver ? <Add/> : 'Drag and drop the new CV here'}
         </span>
