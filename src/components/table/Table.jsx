@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import "./table.css";
 import { Clear } from "@mui/icons-material";
 
 const TableLayout = ({ title }) => {
-  const users = [
-    { fistName: "John", lastName: "Wer",CandidateExisting: "Last name"},
+  const usersData = [
+    { id: Math.floor(Math.random()*100), fistName: "John", lastName: "Wer",CandidateExisting: "Last name"},
+    { id: Math.floor(Math.random()*100), fistName: "John", lastName: "Wer",CandidateExisting: "Last name"},
+    { id: Math.floor(Math.random()*100), fistName: "John", lastName: "Wer",CandidateExisting: "Last name"},
+    { id: Math.floor(Math.random()*100), fistName: "John", lastName: "Wer",CandidateExisting: "Last name"},
   ];
+  const [users, setusers] = useState(usersData)
+  const handleDelete = (id) =>{
+    const filtredData = users.filter((el,i)=>el.id !== id)
+    setusers(filtredData)
+  }
 
   return (
     <table className="import-cv-table-container">
@@ -27,7 +35,7 @@ const TableLayout = ({ title }) => {
             <td style={{ width: "20%" }}>{user.fistName}</td>
             <td style={{ width: "20%" }}>{user.lastName}</td>
             <td style={{ width: "50%" }}>{user.CandidateExisting}</td>
-            <td style={{ width: "5%" }} className="removeBtn"><Clear  /></td>
+            <td style={{ width: "5%" }} className="removeBtn"><Clear onClick={()=>handleDelete(user.id)}  /></td>
           </tr>
         ))}
         </tbody>
