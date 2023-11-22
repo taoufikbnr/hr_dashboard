@@ -1,3 +1,3 @@
-export const ItemTypes = {
-    FILE: 'file',
-  };
+// export const ItemTypes = {
+//     FILE: 'file',
+//   };
