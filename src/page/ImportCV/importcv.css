@@ -3,7 +3,7 @@
 }
 .cv-upload-container{
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     gap: 50px;
     margin-bottom: 30px;
@@ -14,6 +14,8 @@
     padding: 10px;
     border-radius: 10px;
     width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 .personal-cv-upload-label,.linkedin-cv-upload-label{
     display: flex;
@@ -48,3 +50,20 @@
     border: 3px dashed white;
     opacity: 0.6;
 }
+.react-pdf__Page__annotations.annotationLayer{
+    display: none !important;
+}
+
+.previewPdfBtn{
+    border: none;
+    background: white;
+    color: teal;
+    padding: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.resizeBtnPDF{
+    z-index: 99 !important;
+    margin: 10px;
+}
+
