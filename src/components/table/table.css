@@ -19,8 +19,5 @@ th.table-header{
     color: #0077b5 ;
 }
 .removeBtn{
-    color: lightcoral;
     cursor: pointer;
-    display: flex;
-    align-items: center;
 }

@@ -1,0 +1,54 @@
+{
+    "messageHistory": [
+      {
+        "header": {
+          "status": "Open",
+          "image": "path/to/tick_box_empty",
+          "title": "Senior electrical engineer - Perenco - Congo - 17 Feb 2023 - MAGRY",
+          "duration": "6 months"
+        },
+        "body":[
+             {
+          "interests": "Interested by mission",
+          "details": {
+            "dailyRate": "400 EURO Daily rate",
+            "availability": "Available asap",
+            "date": "03 Feb 2023",
+            "reference": "MAGRY",
+            "callIcon": "path/to/Outgoing_call_Empty"
+          }
+        }
+    ]
+      },
+      {
+        "header": {
+          "status": "Current",
+          "image": "path/to/tick_box_empty",
+          "title": "Senior electrical engineer - Perenco - Congo - 17 Feb 2023 - MAGRY",
+          "duration": "6 months"
+        },
+        "body": [
+            {
+          "interests": "Interested by mission",
+          "details": {
+            "dailyRate": "400 EURO Daily rate",
+            "availability": "Available asap",
+            "date": "03 Feb 2023",
+            "reference": "MAGRY",
+            "callIcon": "path/to/Outgoing_call_Empty"
+            }
+          },
+            {
+          "interests": "Interested by mission",
+          "details": {
+            "dailyRate": "400 EURO Daily rate",
+            "availability": "Available asap",
+            "date": "03 Feb 2023",
+            "reference": "MAGRY",
+            "callIcon": "path/to/Outgoing_call_Empty"
+            }
+          }
+      ]
+      }
+    ]
+  }
