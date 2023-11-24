@@ -43,9 +43,32 @@ import CVs_Candidate_parameters_Empty from "../assets/icons/CVs_Candidate parame
 import CVs_Candidate_parameters_Filled from "../assets/icons/CVs_Candidate parameters_Filled.svg"
 import Experience_Candidate_parameters_Empty from "../assets/icons/Experience_Candidate parameters_Empty.svg"
 import Experience_Candidate_parameters_Filled from "../assets/icons/Experience_Candidate parameters_Filled.svg"
+import Email_white from "../assets/icons/Email_white.svg";
+import Incoming_call_Empty from "../assets/icons/Incoming_call_Empty.svg";
+import Outgoing_call_Empty from "../assets/icons/Outgoing_call_Empty.svg";
+import Email_received_Empty from "../assets/icons/Email_received_Empty.svg";
+import Email_sent_Empty from "../assets/icons/Email_sent_Empty.svg";
+import LinkedIn_message_received_Empty from "../assets/icons/LinkedIn_message_received_Empty.svg";
+import LinkedIn_message_sent_Empty from "../assets/icons/LinkedIn_message_sent_Empty.svg";
+import SMS_received_Empty from "../assets/icons/SMS_received_Empty.svg";
+import SMS_sent_Empty from "../assets/icons/SMS_sent_Empty.svg";
+import tick_box_empty from "../assets/icons/tick_box_empty.svg";
+import Cross from "../assets/icons/Cross.svg";
+
 
 
 export {
+    Cross,
+    tick_box_empty,
+    Incoming_call_Empty,
+    Outgoing_call_Empty,
+    Email_received_Empty,
+    Email_sent_Empty,
+    LinkedIn_message_received_Empty,
+    LinkedIn_message_sent_Empty,
+    SMS_received_Empty,
+    SMS_sent_Empty,
+    Email_white,
     Copy_paste_empty,
     Experience_Candidate_parameters_Empty,
     Experience_Candidate_parameters_Filled,

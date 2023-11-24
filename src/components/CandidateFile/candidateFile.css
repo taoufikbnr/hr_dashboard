@@ -1,0 +1,146 @@
+
+form.candidate-file-email-form {
+    border-radius: 10px;
+    border: 1px solid teal;
+    overflow: hidden;
+    margin-top: 10px;
+  }
+
+  form.candidate-file-email-form textarea {
+    width: 100%;
+    height: 150px;
+    resize: none;
+    line-height:1.9rem;
+    position: relative;
+    border: none;
+    box-sizing: border-box;
+    outline:none;
+  }
+  .lines-textarea{
+  background-image: repeating-linear-gradient(
+     white,
+     white 1.7rem,
+      lightblue 1.8rem 1.85rem
+      ) !important;
+  }
+
+  hr {
+    border: 1px solid #ccc;
+    margin: 20px 0;
+  }
+.candidate-file .contact-icons-container{
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid teal;
+    background: lightblue;
+    gap: 20px;
+    height: 40px;  
+
+}
+.contact-icons-container img{
+    width: 30px;
+}
+.contact-icons-container .left{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex: 11;
+}
+.contact-icons-container .right{
+    flex: 1;
+    background: orange;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+}
+
+.contact-icons-container .left img{
+    background: white;
+    padding:2px 5px;
+    border-radius: 10px;
+}
+.candidate-file-message-history{
+    margin-top: 10px;
+}
+.message-history-buttons{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.message-history-buttons button{
+    display: flex;
+    align-items: center;
+    border: none;
+    width: 100px;
+    padding: 5px;
+    border-radius: 10px;
+    color: white;
+}
+.message-history-buttons img{
+    width: 20px;
+    
+}
+.message-history-buttons span{
+    flex: 2;
+}
+.Open{
+    background-color:rgba(102, 51, 153, 0.788);
+}
+.Current{
+    background-color:lightgreen;
+}
+.Finished{
+    background-color:lightpink;
+}
+.Closed{
+    background-color:lightcoral;
+}
+.Message{
+    background-color:white;
+    color: teal !important;
+    border: 1px solid teal !important;
+}
+
+.message-history-content .message-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-size: 14px;
+    padding: 5px;  
+    border-radius: 10px;
+    color: white;
+}
+.message-header img{
+width: 20px;
+margin-right: 10px;
+}
+.message-history-content .message-header .info{
+    flex: 7;
+}
+.message-history-content .message-header .month{
+    flex: 1;
+}
+.message-body{
+    margin-top: 10px;
+    border-radius: 10px;
+    background: white;
+    border: 1px solid teal;
+    overflow: hidden;
+}
+.message-body p{
+    padding: 2px 5px;
+    border: 0.5px solid teal;
+    font-size: 14px;
+}
+.message-body p.info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+}
+.message-body p.info span{
+    flex:1;
+}
+

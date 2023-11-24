@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./table.css";
 import { Clear } from "@mui/icons-material";
+import { Cross } from "../../data/icons";
 
 const TableLayout = ({ title }) => {
   const usersData = [
@@ -35,7 +36,7 @@ const TableLayout = ({ title }) => {
             <td style={{ width: "20%" }}>{user.fistName}</td>
             <td style={{ width: "20%" }}>{user.lastName}</td>
             <td style={{ width: "50%" }}>{user.CandidateExisting}</td>
-            <td style={{ width: "5%" }} className="removeBtn"><Clear onClick={()=>handleDelete(user.id)}  /></td>
+            <td style={{ width: "5%" }} className="removeBtn"><img src={Cross} width={15} alt="" onClick={()=>handleDelete(user.id)} /></td>
           </tr>
         ))}
         </tbody>
