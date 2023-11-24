@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from "./page/login/Login";
 import { useState } from "react";
 import { useFilters } from "./context/FiltersContext/FiltersContext";
+import CandidateFile from "./components/CandidateFile/CandidateFile";
 function App() {
   const [selectedCandidates, setSelectedCandidates] = useState(0);
   const { keywords,selectedIndustries,selectedDrillingRigs } = useFilters();
@@ -24,7 +25,7 @@ function App() {
         <Switch>
           <Route path="/login">
             <div className="contentLogin">
-              <Login />
+              <CandidateFile />
             </div>
           </Route>
           <Route path="/">
