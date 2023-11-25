@@ -1,27 +1,30 @@
 
-.contracts-header th{
-    text-align: center;
-    color: white !important;
+.contacts-container table{
+    width: 100%;
+    height: 100%;
 }
-.contracts-container tr{
+.contacts-header th{
+    text-align: center;
+}
+.contacts-container tr{
     display: flex;
     gap: 5px;
     padding: 2px;
 }
 
-.contracts-container td{
+.contacts-container td{
     border-radius: 5px;
     padding: 5px;
     background-color: lightblue;
 }
-.contracts-actual{
+.contacts-actual{
     overflow: hidden;
     padding:5px 10px;
     border-radius: 10px;
-    background: white;
+    background: white !important;
     position: relative;
 }
-.contracts-actual-data{
+.contacts-actual-data{
     position: absolute;
     justify-content: space-between;
     align-items: center;
@@ -33,19 +36,23 @@
     width: 100%;
     display: none;
 }
-.contracts-input{
+.contacts-input{
     display: block;
     margin: auto;
-    width: 95%;
+    width: 100%;
     outline: none;
     border: none;
+    height: 100%;
+    box-sizing: border-box;
 }
-.contracts-actual-data.filled{
+.contacts-actual-data.filled{
     display: flex;
+    font-size: 14px;
 }
-.contracts-actual-data span{
+.contacts-actual-data span{
     margin-left: 10px;
 }
-.contracts-actual-data .closeBtn{
-    margin-right: 10px;
+.contacts-actual-data .closeBtn{
+    position: absolute;
+    right: 0;
 }
