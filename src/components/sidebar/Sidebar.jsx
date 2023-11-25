@@ -14,7 +14,7 @@ import NationalitiesFilter from "../filters/nationalities/NationalitiesFilter";
 import ResidenciesFilter from "../residencies/ResidenciesFilter";
 import KeywordFilter from "../filters/keyword/KeywordFilter";
 import CVs from "../filters/CVs/CVs";
-import ContractsFilter from "../filters/contracts/ContractsFilter";
+import ContactsFilter from "../filters/contacts/ContactsFilter";
 import ExperienceFilter from "../filters/experience/ExperienceFilter";
 import ExperienceLayout from "../filters/experience/ExperienceLayout";
 
@@ -53,7 +53,7 @@ const Sidebar = props => {
       case 11:
         return <AvailabilitiesFilter />;
       case 15:
-        return <ContractsFilter />;
+        return <ContactsFilter />;
       case 16:
         return <ExperienceLayout />;
       case 17:
