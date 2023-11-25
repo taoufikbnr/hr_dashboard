@@ -12,7 +12,6 @@ const ContactsFilter = () => {
     { column1: "Email 02", inputs: "", actual: "",type:"email" },
     { column1: "Phone 01",countryCode: "+33",  inputs: "", actual: "",type:"number" },
     { column1: "Phone 02",countryCode: "+33",  inputs: "", actual: "",type:"number" },
-    { column1: "Country Code", inputs: "", actual: "", type: "text" },
     { column1: "LinkedIn link", inputs: "", actual: "",type:"url" }
   ]);
   const handleInputChange = (index, value) => {
@@ -43,12 +42,13 @@ const ContactsFilter = () => {
               ?
               <>
                  <select
+                    style={{width:"40%"}}
                     className="contacts-input"
                     onChange={(e) => handleCountryCodeChange(index, e.target.value)}
                     value={user.countryCode}
                   >
                     {countryCodes.map(country=>
-                      (<option value={country.dial_code}>{country.dial_code} ({country.code})</option>)
+                      (<option value={country.dial_code}>{country.dial_code}</option>)
                       )}
      
                     
