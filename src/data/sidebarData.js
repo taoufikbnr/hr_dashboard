@@ -109,7 +109,7 @@ const sidebarData = [
       size:25
     },
     {
-      title:"Contracts",
+      title:"Contacts",
       icon:Contracts_Filled,
       iconEmpty:Contracts_Empty,
       path:"/",
