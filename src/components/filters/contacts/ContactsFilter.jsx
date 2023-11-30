@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./contacts.css"
 import { Close } from "@mui/icons-material";
 import countryCodes from "../../../data/CountryCodes.json"
+import { Box, Modal } from "@mui/material";
 
 const ContactsFilter = () => {
 
@@ -24,8 +25,63 @@ const ContactsFilter = () => {
     updatedUsers[index].countryCode = value;
     setUsers(updatedUsers);
   };
+  const componentRef = useRef(null);
+
+  const [close, setclose] = useState(false)
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (componentRef.current && !componentRef.current.contains(e.target)) {
+        // Clicked outside the component
+        if (users[0].inputs === "" || users[1].inputs === "") {
+          setOpen(true)
+        } else {
+        }
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [users]);
+  const [open, setOpen] = useState(false);
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 450,
+    bgcolor: 'background.paper',
+    border: '1px solid lightgrey',
+    boxShadow: 24,
+    borderRadius:3,
+    p: 4,
+    display:'flex',
+    alignItems:'center',
+    flexDirection:'column',
+    gap:3
+    
+  };
   return (
-    <div className="contacts-container">
+    <div  ref={componentRef} className="contacts-container">
+          <Modal
+      open={open}
+      aria-labelledby="modal-title"
+      aria-describedby="modal-description"
+      onClick={handleClose}
+    >
+      <Box sx={style}>
+        <h5 id="modal-title">Validate First Name and LAST NAME to create the candidate file.</h5>
+        <p id="modal-description">
+          <button className="modal-btn" onClick={handleClose}>OK</button>
+        </p>
+      </Box>
+    </Modal>
     <table>
       <tbody>
         <tr className="contacts-header">
