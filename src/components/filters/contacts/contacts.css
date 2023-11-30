@@ -56,3 +56,13 @@
     position: absolute;
     right: 0;
 }
+
+.modal-btn{
+    cursor: pointer;
+    background:#2196f3;
+    color: white;
+    border: none;
+    padding: 5px;
+    width: 100px;
+    border-radius: 10px;
+}
