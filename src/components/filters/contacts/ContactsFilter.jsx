@@ -27,11 +27,9 @@ const ContactsFilter = () => {
   };
   const componentRef = useRef(null);
 
-  const [close, setclose] = useState(false)
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (componentRef.current && !componentRef.current.contains(e.target)) {
-        // Clicked outside the component
         if (users[0].inputs === "" || users[1].inputs === "") {
           setOpen(true)
         } else {
