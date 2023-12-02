@@ -54,10 +54,30 @@ import SMS_received_Empty from "../assets/icons/SMS_received_Empty.svg";
 import SMS_sent_Empty from "../assets/icons/SMS_sent_Empty.svg";
 import tick_box_empty from "../assets/icons/tick_box_empty.svg";
 import Cross from "../assets/icons/Cross.svg";
+import Voicemail_Empty from "../assets/icons/Voicemail_Empty.svg";
+import Physical_meeting_Empty from "../assets/icons/Physical_meeting_Empty.svg";
+import Physical_meeting_Filled from "../assets/icons/Physical_meeting_Filled.svg";
+import Availabilities_Green_border from "../assets/icons/Availabilities_Green_border.svg";
+import Availabilities_Full_green from "../assets/icons/Availabilities_Full_green.svg";
+import Salaries_Green_border from "../assets/icons/Salaries_Green_border.svg";
+import Salaries_Full_green from "../assets/icons/Salaries_Full_green.svg";
+import Star_Filled from "../assets/icons/Star_Filled.svg";
+import Star_Green_border from "../assets/icons/Star_Green_border.svg";
+import Star_Empty from "../assets/icons/Star_Empty.svg";
 
 
 
 export {
+    Salaries_Full_green,
+    Star_Green_border,
+    Star_Filled,
+    Star_Empty,
+    Salaries_Green_border,
+    Availabilities_Full_green,
+    Availabilities_Green_border,
+    Physical_meeting_Filled,
+    Physical_meeting_Empty,
+    Voicemail_Empty,
     Cross,
     tick_box_empty,
     Incoming_call_Empty,
