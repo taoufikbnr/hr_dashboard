@@ -154,6 +154,12 @@ gap: 2px;
     color: teal !important;
     border: 1px solid teal !important;
 }
+.Message.checked{
+    background-color:teal;
+    color: white;
+    border: 1px solid white;
+    color: white !important;
+}
 .message-history-content{
     max-height:400px;
     overflow-y: scroll;
@@ -192,6 +198,7 @@ margin-right: 10px;
     overflow: hidden;
     padding: 2px 15px;
     position: relative;
+    line-height:24px;
 }
 .message-body p.info1 .icon{
     position: absolute;
