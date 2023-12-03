@@ -31,7 +31,6 @@ const CVs = () => {
       setSelectedWebsites([...selectedWebsites, source]);
     }
 };
-console.log(file);
   return (
 <div  className={`cv-container`}>
       <h4 className="title">Add new a CV</h4>

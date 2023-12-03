@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import "./candidateFile.css"
-import { ArrowDropDownCircleRounded, Email, Phone } from '@mui/icons-material';
+import { ArrowDropDownCircleRounded, Email, Phone, TaskAlt } from '@mui/icons-material';
 import { Arrow_Empty, Arrow_Filled, Availabilities_Filled, Availabilities_Full_green, Availabilities_Green_border, Cross, Email_received_Empty, Email_sent_Empty, Email_white, Incoming_call_Empty, LinkedIn_message_received_Empty, LinkedIn_message_sent_Empty, Outgoing_call_Empty, Physical_meeting_Empty, Physical_meeting_Filled, SMS_received_Empty, SMS_sent_Empty, Salaries_Filled, Salaries_Full_green, Salaries_Green_border, Star_Empty, Star_Filled, Star_Green_border, Voicemail_Empty, tick_box_empty } from '../../data/icons';
 import message from "../../data/messageHistory.json"
 const CandidateFile = () => {
@@ -35,11 +35,22 @@ const CandidateFile = () => {
       showSalary:selectedSalary
     };
     setMessageHistory((prevMessages) => [...prevMessages, newMessage]);
-
 }
+const [selectedStatus, setSelectedStatus] = useState([])
+const handleCheckboxChange = (status) => {
+  if(selectedStatus.includes(status)){
+    setSelectedStatus(selectedStatus.filter((s) => s !== status));
+  }else{
+    setSelectedStatus(prev=>[...prev,status])
+  }
+};
 const StatusBtn = ({status}) =>{
-    return <button className={status} >{status!=="Message"&&<img src={tick_box_empty} alt={status+"Icon"} />}<span>{status}</span></button>
+    return <label className={`${status} ${selectedStatus.includes(status)&&'checked'}`}><input type="checkbox" 
+    checked={selectedStatus.includes(status)}
+       onChange={()=>handleCheckboxChange(status)}  />{status!=="Message"&& <TaskAlt className='icon' /> }<span>{status}</span></label>
 }
+console.log(selectedStatus);
+
 const handleSelectIcon = (e) =>{
   setIsSelected(prev=>!prev);
   setSelectedIcon(e.target.src);
@@ -74,7 +85,15 @@ const oppo = [{
   "title": "Senior electrical engineer - Perenco - Congo - MAGRY",
   "date":"18 Feb 2023",
   "duration": "6 months"
-}]
+}
+,{
+  "status": "Finished",
+  "image": "path/to/tick_box_empty",
+  "title": "Senior electrical engineer - Perenco - Congo - MAGRY",
+  "date":"18 Feb 2023",
+  "duration": "6 months"
+}
+]
   return (
     <div className='candidate-file'>
         <form className='candidate-file-email-form'>
@@ -134,7 +153,7 @@ const oppo = [{
             <StatusBtn status={"Message"} />
         </div>
         <div className='message-history-content'>
-            {oppo.map(el=>
+            {oppo.filter(el=>!selectedStatus.includes(el.status)).map(el=>
             <div className={`message-header ${el.status}`}>
                 <img src={tick_box_empty} alt="" />
                 <span className='info'>{el.title}</span>
