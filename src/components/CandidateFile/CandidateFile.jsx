@@ -1,12 +1,15 @@
 import React, { useState } from 'react'
 import "./candidateFile.css"
-import { ArrowDropDownCircleRounded, Email, Phone, TaskAlt } from '@mui/icons-material';
+import {TaskAlt } from '@mui/icons-material';
 import { Arrow_Empty, Arrow_Filled, Availabilities_Filled, Availabilities_Full_green, Availabilities_Green_border, Cross, Email_received_Empty, Email_sent_Empty, Email_white, Incoming_call_Empty, LinkedIn_message_received_Empty, LinkedIn_message_sent_Empty, Outgoing_call_Empty, Physical_meeting_Empty, Physical_meeting_Filled, SMS_received_Empty, SMS_sent_Empty, Salaries_Filled, Salaries_Full_green, Salaries_Green_border, Star_Empty, Star_Filled, Star_Green_border, Voicemail_Empty, tick_box_empty } from '../../data/icons';
 import message from "../../data/messageHistory.json"
 import dayjs from 'dayjs';
+import { canddidateFileicons } from '../../data/candidateFileIcons';
 const CandidateFile = () => {
     const [emailContent, setEmailContent] = useState([]);
     const [selectedIcon, setSelectedIcon] = useState(null);
+    const [selectedIconName, setSelectedIconName] = useState("");
+    const [selectedStatus, setSelectedStatus] = useState([])
 
     const [readMore, setReadMore] = useState(false);
     const [activeMenu, setactiveMenu] = useState(null);
@@ -27,9 +30,9 @@ const CandidateFile = () => {
 
     setEmailContent(paragraphs);
   };
-console.log(emailContent);
   const handleSubmit = (e) => {
-    e.preventDefault();
+    if(emailContent.length>0&&emailContent[0].trim()!==""){
+      e.preventDefault();
 
     const newMessage = {
       content:emailContent,
@@ -37,14 +40,15 @@ console.log(emailContent);
       showAvailability:selectedAvailibility,
       showSalary:selectedSalary,
       date:dayjs(new Date()),
-      status:"Message"
+      status:"Message",
+      icon:selectedIconName
     };
     setMessageHistory((prevMessages) => [...prevMessages, newMessage]);
     setEmailContent([]);
     handleClose();
-  
+    }
   }
-const [selectedStatus, setSelectedStatus] = useState([])
+
 const handleCheckboxChange = (status) => {
   if(selectedStatus.includes(status)){
     setSelectedStatus(selectedStatus.filter((s) => s !== status));
@@ -60,10 +64,12 @@ const StatusBtn = ({status}) =>{
 const handleSelectIcon = (e) =>{
   setIsSelected(prev=>!prev);
   setSelectedIcon(e.target.src);
+  setSelectedIconName(e.target.alt)
 }
 const handleClose = (e) =>{
   setIsSelected(prev=>!prev);
   setSelectedIcon(null);
+  setSelectedIconName("");
   setSelectedcdAvailibility(false);
   setSelectedcdSalary(false);
   setSelectedcdStar(false);
@@ -83,28 +89,38 @@ const msg = {
   "availability": "Available asap",
   "receiver":"MAGRY"
 }
-const oppo = [{
-  "status": "Open",
-  "image": "path/to/tick_box_empty",
-  "title": "Senior electrical engineer - Perenco - Congo - MAGRY",
-  "date":"17 Feb 2023",
-  "duration": "6 months"
-},{
-  "status": "Current",
-  "image": "path/to/tick_box_empty",
-  "title": "Senior electrical engineer - Perenco - Congo - MAGRY",
-  "date":"18 Feb 2023",
-  "duration": "6 months"
-}
-,{
-  "status": "Finished",
-  "image": "path/to/tick_box_empty",
-  "title": "Senior electrical engineer - Perenco - Congo - MAGRY",
-  "date":"18 Feb 2023",
-  "duration": "6 months"
-}
+const oppo = [
+  {
+    "status": "Open",
+    "title": "Electrical engineer",
+    "sender": "Pe",
+    "country": "Congo",
+    "receiver": "MAG",
+    "date":"16 Feb 2023",
+    "duration": "6 months"
+  },
+  {
+    "status": "Open",
+    "title": "Junior electrical engineer",
+    "sender": "Jon",
+    "country": "France",
+    "receiver": "MAGRY",
+    "date":"17 Feb 2023",
+    "duration": "6 months"
+  },
+  {
+    "status": "Open",
+    "title": "Senior electrical engineer",
+    "sender": "Perenco",
+    "country": "Germany",
+    "receiver": "MAGRY",
+    "date":"18 Feb 2023",
+    "duration": "6 months"
+  },
 ]
-  return (
+
+
+return (
     <div className='candidate-file'>
         <form className='candidate-file-email-form'>
         <label htmlFor="email"></label>
@@ -166,18 +182,21 @@ const oppo = [{
             {oppo.filter(el=>!selectedStatus.includes(el.status)).map(el=>
             <div className={`message-header ${el.status}`}>
                 <img src={tick_box_empty} alt="" />
-                <span className='info'>{el.title}</span>
-                <span className='info'>{el.date}</span>
-                <span className='month'>{el.duration}</span>
+                <span className='title'>{el.title}</span>
+                <span className='info'>{el.sender}</span>
+                <span className='info'>{el.country}</span>
+                <span className='info'>{el.receiver}</span>
+                <span className='month'>{el.date}</span>
+                <span className='info'>{el.duration}</span>
               </div>)}
               {messageHistory.sort((a,b)=> new Date(b.date) - new Date(a.date)).filter(el=>!selectedStatus.includes(el.status)).map((message, index) => (
                           <div className='message-body'>
-                                  <p className={`info1 ${activeMenu===index&&readMore&& 'read-more'}`} onClick={()=>handleReadMore(index)}>
-                                    {message.content.map(el=> <div>{el}</div> )}
-                               {message.content.length>1&&   <span className='icon'>{activeMenu === index&&readMore?
+                                  <div className={`info1 ${(message.content.length>1|| message.content[0].length>80)&&activeMenu===index&&readMore&& 'read-more'}`} onClick={()=>handleReadMore(index)}>
+                                    {message.content.map(el=> <p>{el}</p> )}
+                               {(message.content.length>1 || message.content[0].length>80) &&   <span className='icon'>{activeMenu === index&&readMore?
                                   <img src={Arrow_Filled} width={20} alt="" className='rotate' />: <img width={20} src={Arrow_Empty} alt="" />} 
                                   </span>}
-                                  </p>
+                                  </div>
                                   <p className='info2'>
                                     <span className='img'>
                                      {message.important&&<img src={Star_Empty} alt="" />}
@@ -186,7 +205,7 @@ const oppo = [{
                                     <span>{message.showAvailability&& msg.availability}</span>
                                     <span>{dayjs(message.date).format('DD MMM YYYY')}</span>
                                     <span>{msg.receiver}</span>
-                                    <img className='img' src={selectedIcon} alt={""} />
+                                    <img className='img' src={canddidateFileicons[message.icon]} alt={message.icon} />
                                   </p>
                         </div>
         ))}
