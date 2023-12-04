@@ -91,7 +91,7 @@ const msg = {
 }
 const oppo = [
   {
-    "status": "Open",
+    "status": "Current",
     "title": "Electrical engineer",
     "sender": "Pe",
     "country": "Congo",
@@ -105,20 +105,23 @@ const oppo = [
     "sender": "Jon",
     "country": "France",
     "receiver": "MAGRY",
-    "date":"17 Feb 2023",
+    "date":"01 Feb 2023",
     "duration": "6 months"
   },
   {
-    "status": "Open",
+    "status": "Finished",
     "title": "Senior electrical engineer",
     "sender": "Perenco",
     "country": "Germany",
     "receiver": "MAGRY",
-    "date":"18 Feb 2023",
+    "date":"18 Feb 2021",
     "duration": "6 months"
   },
 ]
-
+const combinedArray = oppo
+  .filter((el) => !selectedStatus.includes(el.status))
+  .concat(messageHistory.filter((el) => !selectedStatus.includes(el.status)))
+  .sort((a, b) => new Date(b.date) - new Date(a.date));
 
 return (
     <div className='candidate-file'>
@@ -179,36 +182,41 @@ return (
             <StatusBtn status={"Message"} />
         </div>
         <div className='message-history-content'>
-            {oppo.filter(el=>!selectedStatus.includes(el.status)).map(el=>
-            <div className={`message-header ${el.status}`}>
-                <img src={tick_box_empty} alt="" />
-                <span className='title'>{el.title}</span>
-                <span className='info'>{el.sender}</span>
-                <span className='info'>{el.country}</span>
-                <span className='info'>{el.receiver}</span>
-                <span className='month'>{el.date}</span>
-                <span className='info'>{el.duration}</span>
-              </div>)}
-              {messageHistory.sort((a,b)=> new Date(b.date) - new Date(a.date)).filter(el=>!selectedStatus.includes(el.status)).map((message, index) => (
-                          <div className='message-body'>
-                                  <div className={`info1 ${(message.content.length>1|| message.content[0].length>80)&&activeMenu===index&&readMore&& 'read-more'}`} onClick={()=>handleReadMore(index)}>
-                                    {message.content.map(el=> <p>{el}</p> )}
-                               {(message.content.length>1 || message.content[0].length>80) &&   <span className='icon'>{activeMenu === index&&readMore?
-                                  <img src={Arrow_Filled} width={20} alt="" className='rotate' />: <img width={20} src={Arrow_Empty} alt="" />} 
-                                  </span>}
-                                  </div>
-                                  <p className='info2'>
-                                    <span className='img'>
-                                     {message.important&&<img src={Star_Empty} alt="" />}
-                                    </span>
-                                    <span>{message.showSalary&&msg.salary}</span>
-                                    <span>{message.showAvailability&& msg.availability}</span>
-                                    <span>{dayjs(message.date).format('DD MMM YYYY')}</span>
-                                    <span>{msg.receiver}</span>
-                                    <img className='img' src={canddidateFileicons[message.icon]} alt={message.icon} />
-                                  </p>
-                        </div>
-        ))}
+          {
+combinedArray.map((item, index) => (
+  <div key={index} className={`message-${item.content ? 'body' : 'header'} ${item.content?"":item.status}`}>
+    {item.content ? (
+      <div className={`info1 ${(item.content.length > 1 || item.content[0]?.length > 80) && activeMenu === index && readMore && 'read-more'}`} onClick={() => handleReadMore(index)}>
+        {item.content.map(el => <p key={el}>{el}</p>)}
+        {(item.content.length > 1 || item.content[0]?.length > 80) && <span className='icon'>{activeMenu === index && readMore ?
+          <img src={Arrow_Filled} width={20} alt="" className='rotate' /> : <img width={20} src={Arrow_Empty} alt="" />}
+        </span>}
+      </div>
+    ) : (
+      <>
+        <img src={tick_box_empty} alt="" />
+        <span className='title'>{item.title}</span>
+        <span className='info'>{item.sender}</span>
+        <span className='info'>{item.country}</span>
+        <span className='info'>{item.receiver}</span>
+        <span className='month'>{item.date}</span>
+        <span className='info'>{item.duration}</span>
+      </>
+    )}
+    {item.content && (
+      <p className='info2'>
+        <span className='img'>
+          {item.important && <img src={Star_Empty} alt="" />}
+        </span>
+        <span>{item.showSalary && msg.salary}</span>
+        <span>{item.showAvailability && msg.availability}</span>
+        <span>{dayjs(item.date).format('DD MMM YYYY')}</span>
+        <span>{msg.receiver}</span>
+        <img className='img' src={canddidateFileicons[item.icon]} alt={item.icon} />
+      </p>
+    )}
+  </div>
+))}
     </div>
       </div>
     </div>
