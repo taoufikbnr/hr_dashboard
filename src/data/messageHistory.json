@@ -10,7 +10,7 @@
           "date": "03 Feb 2023",
           "receiver": "MAGRY",
           "status":"Message",
-          "icon":"LinkedIn_message_received_Empty"  
+          "icon":"Incoming_call_Empty"  
       },    
       {
           "content": ["Interested by mission","more"],
@@ -35,7 +35,7 @@
           "date": "03 Jan 2023",
           "receiver": "MAGRY",
           "status":"Message",
-          "icon":"LinkedIn_message_received_Empty"  
+          "icon":"Voicemail_Empty"  
 
       }    
     ]
