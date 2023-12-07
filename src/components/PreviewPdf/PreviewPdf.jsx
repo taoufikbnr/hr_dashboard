@@ -14,7 +14,7 @@ const PreviewPdf = ({searchText,pdf}) => {
     };
     function highlightPattern(text, pattern) {
       const regex = new RegExp(pattern, 'gi');
-      return text.replace(regex, (value) => `<mark class=".high">${value}</mark>`);
+      return text.replace(regex, (value) => `<mark class="highlight-word">${value}</mark>`);
     }
     const textRenderer = useCallback(
       (textItem) => highlightPattern(textItem.str, searchText),
@@ -32,8 +32,8 @@ const PreviewPdf = ({searchText,pdf}) => {
                                     key={`page_${index + 1}`}
                                     pageNumber={index + 1}
                                     // renderTextLayer={false}
-                                    renderInteractiveForms={false}
-                                    renderMode="canvas"
+                                    // renderInteractiveForms={false}
+                                    // renderMode="canvas"
                                     customTextRenderer={textRenderer}
 
                                 />
