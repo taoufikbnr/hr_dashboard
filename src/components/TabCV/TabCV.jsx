@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Keyword_empty, LinkedIn, Linkedin_in, Linkedin_in_white, PFS_CV_Empty } from "../../data/icons";
 import "./tabcv.css";
 
-const TabCV = () => {
+const TabCV = ({searchText,setSearchText}) => {
   const [selectedTab, setSelectedTab] = useState("CV 1");
 
   const handleTabClick = tabName => {
@@ -26,7 +26,7 @@ const TabCV = () => {
       </div>
       <div className="tabCv-right">
         <img width={25} src={Keyword_empty} alt="" />
-        <input type="text" placeholder="Research on CV" style={{ background: "transparent" }} />
+        <input onChange={(e)=>setSearchText(e.target.value)} type="text" placeholder="Research on CV" style={{ background: "transparent" }} />
       </div>
     </div>
   );

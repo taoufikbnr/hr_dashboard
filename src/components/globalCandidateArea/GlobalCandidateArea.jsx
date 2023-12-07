@@ -8,11 +8,15 @@ import CandidatePersonalinformations from "../candidate-info/CandidatePersonalin
 import styles from "./styles.module.css";
 import candidates from "../../data/candidates";
 import ReactPaginate from "react-paginate";
+import PreviewPdf from "../PreviewPdf/PreviewPdf";
+import { resume } from "../../data/icons";
 
 const GlobalCandidateArea = props => {
   const ref = useRef(null);
   const [isItemFocused, setIsItemFocused] = useState(0);
   const [countCvs, setCountCvs] = useState(0);
+  const [searchText, setSearchText] = useState('');
+
 
   const collapsePanel = () => {
     const panel = ref.current;
@@ -81,14 +85,15 @@ const GlobalCandidateArea = props => {
             </Panel>
             <ResizeHandle resizeAction={collapsePanel} />
             <Panel className={styles.Panel} collapsible={false} order={2} minSize={50}>
-              <TabCV />
+              <TabCV searchText={searchText} setSearchText={setSearchText} />
               <div className="listCandidates">
-                {candidates[isItemFocused].resume1.map((item, index) => (
+                {/* {candidates[isItemFocused].resume1.map((item, index) => (
                   <>
                     <img src={item} style={{ width: "100%" }} />
                     <br />
                   </>
-                ))}
+                ))} */}
+                <PreviewPdf searchText={searchText} pdf={resume} />
                 {/* <embed src="https://www.africau.edu/images/default/sample.pdf" style={{ width: "100%", height: "92vh" }} /> */}
               </div>
             </Panel>
