@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { Keyword_empty, LinkedIn, Linkedin_in, Linkedin_in_white, PFS_CV_Empty } from "../../data/icons";
 import "./tabcv.css";
+import ReactSearch from "../reactPdfViewer/ReactSearch";
+import { toolbarPlugin } from "@react-pdf-viewer/toolbar";
 
-const TabCV = ({searchText,setSearchText}) => {
+const TabCV = ({Toolbar}) => {
+
   const [selectedTab, setSelectedTab] = useState("CV 1");
 
   const handleTabClick = tabName => {
@@ -25,8 +28,8 @@ const TabCV = ({searchText,setSearchText}) => {
         </span>
       </div>
       <div className="tabCv-right">
-        <img width={25} src={Keyword_empty} alt="" />
-        <input onChange={(e)=>setSearchText(e.target.value)} type="text" placeholder="Research on CV" style={{ background: "transparent" }} />
+        {/* <img width={25} src={Keyword_empty} alt="" /> */}
+        <Toolbar/>
       </div>
     </div>
   );

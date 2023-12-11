@@ -7,6 +7,7 @@ import Login from "./page/login/Login";
 import { useState } from "react";
 import { useFilters } from "./context/FiltersContext/FiltersContext";
 import CandidateFile from "./components/CandidateFile/CandidateFile";
+import ReactPdfViewer from "./components/reactPdfViewer/ReactPdfViewer";
 function App() {
   const [selectedCandidates, setSelectedCandidates] = useState(0);
   const { keywords,selectedIndustries,selectedDrillingRigs } = useFilters();
