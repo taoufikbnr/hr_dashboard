@@ -34,3 +34,6 @@
   outline: none;
   border: none;
 }
+.rpv-toolbar__right,.rpv-search__popover-label {
+  display: none !important;
+}

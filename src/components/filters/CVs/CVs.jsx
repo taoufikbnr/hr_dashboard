@@ -1,7 +1,6 @@
 import { Add, AttachFile, PlusOne } from "@mui/icons-material"
 import "./cvs.css"
 import { useDrag,useDrop } from 'react-dnd'
-import {ItemTypes} from "../../dragAndDrop/ItemTypes.js"
 import { useState } from "react"
 import { NativeTypes } from 'react-dnd-html5-backend';
 

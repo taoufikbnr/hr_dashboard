@@ -31,14 +31,15 @@ const PreviewPdf = ({searchText,pdf}) => {
                                 <Page
                                     key={`page_${index + 1}`}
                                     pageNumber={index + 1}
-                                    // renderTextLayer={false}
+                                    renderTextLayer={false}
                                     // renderInteractiveForms={false}
                                     // renderMode="canvas"
                                     customTextRenderer={textRenderer}
 
                                 />
                             ))}
-                </Document>  
+                </Document>
+                <iframe src="https://pii.or.id/uploads/dummies.pdf" frameborder="0"></iframe>
     </div>
   )
 }
