@@ -39,7 +39,6 @@ const PreviewPdf = ({searchText,pdf}) => {
                                 />
                             ))}
                 </Document>
-                <iframe src="https://pii.or.id/uploads/dummies.pdf" frameborder="0"></iframe>
     </div>
   )
 }
