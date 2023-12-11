@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { Keyword_empty, LinkedIn, Linkedin_in, Linkedin_in_white, PFS_CV_Empty } from "../../data/icons";
 import "./tabcv.css";
-import ReactSearch from "../reactPdfViewer/ReactSearch";
-import { toolbarPlugin } from "@react-pdf-viewer/toolbar";
+
 
 const TabCV = ({Toolbar}) => {
 

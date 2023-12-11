@@ -1,8 +1,6 @@
 import * as React from 'react';
-import { Icon, MinimalButton, Position, Tooltip, Viewer } from '@react-pdf-viewer/core';
-import { toolbarPlugin } from '@react-pdf-viewer/toolbar';
+import { Viewer } from '@react-pdf-viewer/core';
 
-import { searchPlugin } from '@react-pdf-viewer/search';
 import '@react-pdf-viewer/core/lib/styles/index.css';
 import '@react-pdf-viewer/toolbar/lib/styles/index.css';
 
