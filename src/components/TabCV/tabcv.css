@@ -21,6 +21,7 @@
 }
 .tabCv-right {
   display: flex;
+  align-items: center;
   border: 1px solid teal;
   border-radius: 15px 15px 0 0;
   overflow: hidden;
