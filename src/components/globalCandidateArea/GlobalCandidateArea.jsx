@@ -13,12 +13,12 @@ import { resume } from "../../data/icons";
 import { Viewer } from "@react-pdf-viewer/core";
 import '@react-pdf-viewer/core/lib/styles/index.css';
 import ReactPdfViewer from "../reactPdfViewer/ReactPdfViewer";
-import { toolbarPlugin } from "@react-pdf-viewer/toolbar";
+import { searchPlugin } from "@react-pdf-viewer/search";
 
 const GlobalCandidateArea = props => {
-  const toolbarPluginInstance = toolbarPlugin();
 
-  const { Toolbar } = toolbarPluginInstance;
+  const searchPluginInstance = searchPlugin();
+  const { Search } = searchPluginInstance;
   const ref = useRef(null);
   const [isItemFocused, setIsItemFocused] = useState(0);
   const [countCvs, setCountCvs] = useState(0);
@@ -91,7 +91,7 @@ const GlobalCandidateArea = props => {
             </Panel>
             <ResizeHandle resizeAction={collapsePanel} />
             <Panel className={styles.Panel} collapsible={false} order={2} minSize={50}>
-              <TabCV Toolbar={Toolbar} />
+              <TabCV Search={Search} />
               <div className="listCandidates">
                 {/* {candidates[isItemFocused].resume1.map((item, index) => (
                   <>
@@ -99,7 +99,7 @@ const GlobalCandidateArea = props => {
                     <br />
                   </>
                 ))} */}
-                    <ReactPdfViewer resume={resume} toolbarPluginInstance={toolbarPluginInstance} />
+                    <ReactPdfViewer resume={resume} searchPluginInstance={searchPluginInstance} />
                 {/* <embed src="https://www.africau.edu/images/default/sample.pdf" style={{ width: "100%", height: "92vh" }} /> */}
               </div>
             </Panel>
