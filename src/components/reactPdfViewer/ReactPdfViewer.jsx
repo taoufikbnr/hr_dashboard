@@ -5,7 +5,7 @@ import { NextIcon, PreviousIcon, RenderSearchProps, searchPlugin } from '@react-
 import '@react-pdf-viewer/core/lib/styles/index.css';
 import '@react-pdf-viewer/search/lib/styles/index.css';
 
-const ReactPdfViewer = ({ resume,searchPluginInstance }) => {
+const ReactPdfViewer = ({ resume,searchPluginInstance,zoomPluginInstance }) => {
     return (
         <div
         className="rpv-core__viewer"
@@ -18,23 +18,12 @@ const ReactPdfViewer = ({ resume,searchPluginInstance }) => {
     >
         <div
             style={{
-                alignItems: 'center',
-                backgroundColor: '#eeeeee',
-                borderBottom: '1px solid rgba(0, 0, 0, 0.1)',
-                display: 'flex',
-                padding: '4px',
-            }}
-        >
- 
-        </div>
-        <div
-            style={{
                 flex: 1,
                 overflow: 'hidden',
             }}
         >
             <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
-                     <Viewer fileUrl={resume} plugins={[searchPluginInstance]} />
+                     <Viewer fileUrl={resume} plugins={[searchPluginInstance,zoomPluginInstance]} />
             </Worker>
 
         </div>
