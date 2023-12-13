@@ -8,6 +8,9 @@ import { useState } from "react";
 import { useFilters } from "./context/FiltersContext/FiltersContext";
 import CandidateFile from "./components/CandidateFile/CandidateFile";
 import ReactPdfViewer from "./components/reactPdfViewer/ReactPdfViewer";
+import Client from "./page/client/Client";
+import clientSidebarData from "./data/clientPageSidebar";
+import sidebarData from "./data/sidebarData";
 function App() {
   const [selectedCandidates, setSelectedCandidates] = useState(0);
   const { keywords,selectedIndustries,selectedDrillingRigs } = useFilters();
@@ -29,11 +32,19 @@ function App() {
               <CandidateFile />
             </div>
           </Route>
+          <Route path="/client">
+          <div className="container">
+                <Sidebar sidebarData={clientSidebarData} pageName={"client"} />
+                <div className="content">
+                  <Client />
+                </div>
+              </div>
+          </Route>
           <Route path="/">
             <div>
               <Navbar />
               <div className="container">
-                <Sidebar selectedCandidates={selectedCandidates} />
+                <Sidebar pageName={"home"} sidebarData={sidebarData} selectedCandidates={selectedCandidates} />
                 <div className="content">
                   <GlobalCandidateArea selectedItem={item => setSelectedCandidates(item)} />
                 </div>

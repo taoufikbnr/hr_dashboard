@@ -66,7 +66,7 @@ const Sidebar = props => {
     <div className={`sidebar ${open && "active"}`}>
       <div className="sidebarWrapper" ref={sidebarContainerRef} id="sidebar">
         <ul className="sidebarItems">
-          {sidebarData.map((item, i) => (
+          {props.sidebarData.map((item, i) => (
             <a key={i} onClick={handleClick("left", i)} className={`link ${currentIndex === i && open && "active"}`} href={item?.path}>
               <li key={i} className={`sidebarItem ${open && "active"}`}>
                 <img className="icons" width={item.size} src={currentIndex === i && open ? item.icon : item.iconEmpty} alt="" />{" "}
@@ -76,7 +76,7 @@ const Sidebar = props => {
               </li>
             </a>
           ))}
-          <li key={"keyCvsCount"} className={`sidebarItem active"`}>
+{props.pageName==='home'&&<li key={"keyCvsCount"} className={`sidebarItem active"`}>
             {/* <img className="icons" width={25} alt="" />{" "} */}
             <span
               className={`${currentIndex === 1 && open && "active"}`}
@@ -87,7 +87,7 @@ const Sidebar = props => {
               <br />
               {props.selectedCandidates !== 0 ? props.selectedCandidates + " CVs sélectionnés" : null}
             </span>
-          </li>
+          </li>}
         </ul>
         <PopUp  content={getPopupContent(currentIndex)} title={title} setOpen={setOpen} open={open} anchorEl={anchorEl} placement={placement} index={currentIndex} />
       </div>
