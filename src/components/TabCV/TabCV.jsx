@@ -3,11 +3,13 @@ import { Keyword_empty, LinkedIn, Linkedin_in, Linkedin_in_white, PFS_CV_Empty }
 import "./tabcv.css";
 import { Icon, MinimalButton, Position, Tooltip} from '@react-pdf-viewer/core';
 import { NextIcon, PreviousIcon} from '@react-pdf-viewer/search';
+import '@react-pdf-viewer/zoom/lib/styles/index.css';
 
 import '@react-pdf-viewer/core/lib/styles/index.css';
 import '@react-pdf-viewer/search/lib/styles/index.css';
 
-const TabCV = ({Search}) => {
+const TabCV = ({Search,buttons}) => {
+
 
   const [selectedTab, setSelectedTab] = useState("CV 1");
 
@@ -41,8 +43,7 @@ const TabCV = ({Search}) => {
                                 <input
                                     style={{
                                         border: 'none',
-                                        padding: '8px',
-                                        width: '200px',
+                                        width:100
                                     }}
                                     placeholder="Enter to search"
                                     type="text"
@@ -59,10 +60,11 @@ const TabCV = ({Search}) => {
 
                             </div>
                             {(
-                                        <div >
-                                            {renderSearchProps.currentMatch} of {renderSearchProps.numberOfMatches}
+                                        <div>
+                                            {renderSearchProps.currentMatch} / {renderSearchProps.numberOfMatches}
                                         </div>
                                     )}
+                        <buttons.ZoomPopover />
                             <div style={{ padding: '0 2px' }}>
                                 <Tooltip
                                     position={Position.BottomCenter}

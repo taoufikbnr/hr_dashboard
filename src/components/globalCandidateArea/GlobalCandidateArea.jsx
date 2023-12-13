@@ -14,11 +14,15 @@ import { Viewer } from "@react-pdf-viewer/core";
 import '@react-pdf-viewer/core/lib/styles/index.css';
 import ReactPdfViewer from "../reactPdfViewer/ReactPdfViewer";
 import { searchPlugin } from "@react-pdf-viewer/search";
+import { zoomPlugin } from '@react-pdf-viewer/zoom';
 
 const GlobalCandidateArea = props => {
 
   const searchPluginInstance = searchPlugin();
+  const zoomPluginInstance = zoomPlugin();
   const { Search } = searchPluginInstance;
+  const { ZoomInButton, ZoomOutButton, ZoomPopover } = zoomPluginInstance;
+
   const ref = useRef(null);
   const [isItemFocused, setIsItemFocused] = useState(0);
   const [countCvs, setCountCvs] = useState(0);
@@ -89,9 +93,10 @@ const GlobalCandidateArea = props => {
         activeClassName={"active current"}
       />
             </Panel>
+            
             <ResizeHandle resizeAction={collapsePanel} />
             <Panel className={styles.Panel} collapsible={false} order={2} minSize={50}>
-              <TabCV Search={Search} />
+              <TabCV Search={Search} buttons={{ZoomInButton,ZoomOutButton,ZoomPopover}} />
               <div className="listCandidates">
                 {/* {candidates[isItemFocused].resume1.map((item, index) => (
                   <>
@@ -99,8 +104,7 @@ const GlobalCandidateArea = props => {
                     <br />
                   </>
                 ))} */}
-                    <ReactPdfViewer resume={resume} searchPluginInstance={searchPluginInstance} />
-                {/* <embed src="https://www.africau.edu/images/default/sample.pdf" style={{ width: "100%", height: "92vh" }} /> */}
+                    <ReactPdfViewer resume={resume} searchPluginInstance={searchPluginInstance} zoomPluginInstance={zoomPluginInstance} />
               </div>
             </Panel>
           </PanelGroup>
