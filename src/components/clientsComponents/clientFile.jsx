@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import {TaskAlt } from '@mui/icons-material';
-import { Arrow_Empty, Arrow_Filled, Availabilities_Filled, Availabilities_Full_green, Availabilities_Green_border, CVs_Candidate_parameters_Filled, CVs_Filled, Cross, Email_received_Empty, Email_sent_Empty, Email_white, Incoming_call_Empty, LinkedIn_message_received_Empty, LinkedIn_message_sent_Empty, Modify_opportunity_Activities_page, Outgoing_call_Empty, Physical_meeting_Empty, Physical_meeting_Filled, SMS_received_Empty, SMS_sent_Empty, Salaries_Filled, Salaries_Full_green, Salaries_Green_border, Selected_opportunity_Activities_page, Star_Empty, Star_Filled, Star_Green_border, Voicemail_Empty, tick_box_empty } from '../../data/icons';
+import { Arrow_Empty, Arrow_Filled, Availabilities_Filled, Availabilities_Full_green, Availabilities_Green_border, CVs_Candidate_parameters_Filled, CVs_Filled, Clients_Filled, Cross, Email_received_Empty, Email_sent_Empty, Email_white, From_To_Client_page, Incoming_call_Empty, LinkedIn_message_received_Empty, LinkedIn_message_sent_Empty, Modify_opportunity_Activities_page, Outgoing_call_Empty, Physical_meeting_Empty, Physical_meeting_Filled, SMS_received_Empty, SMS_sent_Empty, Salaries_Filled, Salaries_Full_green, Salaries_Green_border, Selected_opportunity_Activities_page, Star_Empty, Star_Filled, Star_Green_border, Voicemail_Empty, tick_box_empty } from '../../data/icons';
 import message from "../../data/messageHistory.json"
 import dayjs from 'dayjs';
 import { canddidateFileicons } from '../../data/candidateFileIcons';
 import "./clientFile.css"
+
 const ClientFile = () => {
     const [emailContent, setEmailContent] = useState([]);
     const [selectedIcon, setSelectedIcon] = useState(null);
@@ -60,6 +61,11 @@ const StatusBtn = ({status}) =>{
     return <label className={`${status} ${selectedStatus.includes(status)&&'checked'}`}><input type="checkbox" 
     checked={selectedStatus.includes(status)}
        onChange={()=>handleCheckboxChange(status)}  />{status!=="Message"&& <TaskAlt className='icon' /> }<span>{status}</span></label>
+}
+const OpportunityBtn = ({src,content})=>{
+  return (<button className='opportunityBtn'> <img src={src} width={25} alt="" />
+   <span>{content}</span></button>)
+
 }
 const handleSelectIcon = (e) =>{
   setIsSelected(prev=>!prev);
@@ -122,6 +128,7 @@ const combinedArray = oppo
   .filter((el) => !selectedStatus.includes(el.status))
   .concat(messageHistory.filter((el) => !selectedStatus.includes(el.status)))
   .sort((a, b) => new Date(b.date) - new Date(a.date));
+  const [anchorEl, setAnchorEl] = useState(null);
 
 return (
     <div className='client-file'>
@@ -216,16 +223,25 @@ combinedArray.map((item, index) => (
           <span className='info'>{item.duration}</span>
         </div>
         <div className='header-tabs'>
-          <button className='testBtn'> <img src={Modify_opportunity_Activities_page} alt="" /> <span>Modify</span></button>
-          <button className='testBtn'> <img src={CVs_Filled} alt="" /> <span>CVs</span></button>
-          <button className='testBtn'> <img src={Selected_opportunity_Activities_page} alt="" /> <span>Selected</span></button>
+          <OpportunityBtn src={Modify_opportunity_Activities_page} content={"Modify"} />
+          <OpportunityBtn src={CVs_Filled} content={"Cvs"} />
+          <OpportunityBtn src={Selected_opportunity_Activities_page} content={"Selected"} />
         </div>
       </>
     )}
 
   </div>
 ))}
-    </div>
+        </div>
+        <div className='message-history-footer'>
+          <div className='left'>
+           <OpportunityBtn src={Clients_Filled} content="All Clients"/>
+          </div>
+          <div  className='right'>
+            <OpportunityBtn src={From_To_Client_page} content={`From`}/>
+            <OpportunityBtn src={From_To_Client_page} content="To"/>
+          </div>
+        </div>
       </div>
     </div>
   )
