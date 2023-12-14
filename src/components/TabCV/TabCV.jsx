@@ -59,12 +59,7 @@ const TabCV = ({Search,buttons}) => {
                                 />
 
                             </div>
-                            {(
-                                        <div>
-                                            {renderSearchProps.currentMatch} / {renderSearchProps.numberOfMatches}
-                                        </div>
-                                    )}
-                        <buttons.ZoomPopover />
+                        {/* <buttons.ZoomPopover /> */}
                             <div style={{ padding: '0 2px' }}>
                                 <Tooltip
                                     position={Position.BottomCenter}
