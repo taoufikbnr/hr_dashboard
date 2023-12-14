@@ -23,7 +23,7 @@ const ReactPdfViewer = ({ resume,searchPluginInstance,zoomPluginInstance }) => {
             }}
         >
             <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
-                     <Viewer fileUrl={resume} plugins={[searchPluginInstance,zoomPluginInstance]} />
+                     <Viewer  defaultScale={'PageWidth'} fileUrl={resume} plugins={[searchPluginInstance,zoomPluginInstance]} />
             </Worker>
 
         </div>
