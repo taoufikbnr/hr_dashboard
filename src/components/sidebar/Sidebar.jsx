@@ -34,10 +34,10 @@ const Sidebar = props => {
   };
 
   const sidebarContainerRef = useRef(null);
-  const getPopupContent = (index) => {
+  const getPopupContent = (index,pageType) => {
     switch (index) {
       case 0:
-        return <KeywordFilter />;
+        return pageType==='home'? <KeywordFilter />:<ContactsFilter />;
       case 1:
         return <IndustriesFilter />;
       case 4:
@@ -89,7 +89,7 @@ const Sidebar = props => {
             </span>
           </li>}
         </ul>
-        <PopUp  content={getPopupContent(currentIndex)} title={title} setOpen={setOpen} open={open} anchorEl={anchorEl} placement={placement} index={currentIndex} />
+        <PopUp  content={getPopupContent(currentIndex,props.pageName)} title={title} setOpen={setOpen} open={open} anchorEl={anchorEl} placement={placement} index={currentIndex} />
       </div>
     </div>
   );

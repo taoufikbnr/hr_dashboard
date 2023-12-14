@@ -64,12 +64,18 @@ import Salaries_Full_green from "../assets/icons/Salaries_Full_green.svg";
 import Star_Filled from "../assets/icons/Star_Filled.svg";
 import Star_Green_border from "../assets/icons/Star_Green_border.svg";
 import Star_Empty from "../assets/icons/Star_Empty.svg";
+import Selected_opportunity_Activities_page from "../assets/icons/Selected_opportunity_Activities_page.svg";
+import Modify_opportunity_Activities_page from "../assets/icons/Modify_opportunity_Activities_page.svg";
+import CVs_Filled from "../assets/icons/CVs_Filled.svg";
 import resume from "../assets/resume.pdf";
 
 
 
 export {
     resume,
+    CVs_Filled,
+    Modify_opportunity_Activities_page,
+    Selected_opportunity_Activities_page,
     Salaries_Full_green,
     Star_Green_border,
     Star_Filled,
