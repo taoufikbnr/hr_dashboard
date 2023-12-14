@@ -29,13 +29,20 @@ const LocationClient = () => {
     const [filteredCities, setFilteredCities] = useState(frenchCities);
 
     const handleCitySelect = (selectedCity) => {
-        const updatedSelectedCities = [...selectedCities];
-        const regionsWithSameCity = filteredCities.filter(
-          (city) => city.city === selectedCity.city
-        );
-        updatedSelectedCities.push(...regionsWithSameCity);
-        setSelectedCities(updatedSelectedCities);
-      };
+      const updatedselectedCities = [...selectedCities, selectedCity];
+      setSelectedCities(updatedselectedCities);
+      setFilteredCities((prevFilteredCities) =>
+        prevFilteredCities.filter((el, i) => el.city !== selectedCity.city)
+      );
+    };
+    // const handleCitySelect = (selectedCity) => {
+    //     const updatedSelectedCities = [...selectedCities];
+    //     const regionsWithSameCity = filteredCities.filter(
+    //       (city) => city.city === selectedCity.city
+    //     );
+    //     updatedSelectedCities.push(...regionsWithSameCity);
+    //     setSelectedCities(updatedSelectedCities);
+    //   };
     const handleCityDeselect = (dselectedcity) => {
       const updatedFilteredCities = [...filteredCities, dselectedcity];
       setFilteredCities(updatedFilteredCities);
