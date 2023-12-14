@@ -68,7 +68,7 @@ const GlobalCandidateArea = props => {
         <div className={styles.BottomRow}>
           <PanelGroup autoSaveId="example" direction="horizontal">
             <Panel className={styles.Panel} collapsible={true} order={1} defaultSize={50} ref={ref}>
-              <CandidatePersonalinformations data={candidates} selectedItemInfos={isItemFocused} />
+              <CandidatePersonalinformations pageName={"candidates"} data={candidates} selectedItemInfos={isItemFocused} />
               <div className="listCandidates">
                 {currentCandidates.map((item, index) => (
                   <CandidateInfoCard
