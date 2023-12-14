@@ -5,7 +5,7 @@
     cursor: pointer;
 }
 form.client-file-email-form {
-    border-radius: 10px;
+    border-radius: 0 0 10px 10px;
     border: 1px solid teal;
     overflow: hidden;
     /* margin-top: 10px; */
@@ -168,7 +168,7 @@ gap: 2px;
     text-decoration: line-through;
 }
 .client-file .message-history-content{
-    max-height:400px;
+    max-height:300px;
     overflow-y: scroll;
 }
 .client-file .message-history-content .message-header-client .header-content{
@@ -198,24 +198,8 @@ width: 20px;
 .message-header-client .header-tabs{
     display: flex;
 }
-.message-header-client .header-tabs button{
-    padding: 5px;
-    margin: 5px;
-    border-radius: 10px;
-    background: white;
-    border: none;
-    color: teal;
-    width: 130px;
-}
-.message-header-client .header-tabs img{
-   width: 20px;
-}
-.message-header-client .header-tabs span{
-    flex: 3;
- }
- .testBtn{
-    display: flex;
- }
+
+ 
 .message-body{
     margin-top: 10px;
     border-radius: 10px;
@@ -264,3 +248,35 @@ width: 20px;
     transform: rotate(180deg);
 }
 
+/*foooter*/
+.message-history-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    background-color: rgb(198, 224, 233);
+    border-radius: 0 0 10px 10px;
+    border: 1px solid teal;
+}
+.message-history-footer .right{
+    display: flex;
+}
+/* buttons */
+.opportunityBtn{
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid teal;
+    border-radius: 10px;
+    background: white;
+    color: teal;
+    width: 130px;
+    cursor: pointer;
+ }
+.opportunityBtn img{
+   width: 20px;
+}
+.opportunityBtn span{
+    flex: 3;
+ }

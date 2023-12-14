@@ -67,12 +67,16 @@ import Star_Empty from "../assets/icons/Star_Empty.svg";
 import Selected_opportunity_Activities_page from "../assets/icons/Selected_opportunity_Activities_page.svg";
 import Modify_opportunity_Activities_page from "../assets/icons/Modify_opportunity_Activities_page.svg";
 import CVs_Filled from "../assets/icons/CVs_Filled.svg";
+import Add_new_opportunity from "../assets/icons/Add_new_opportunity.svg";
+import From_To_Client_page from "../assets/icons/From_To_Client_page.svg";
 import resume from "../assets/resume.pdf";
 
 
 
 export {
     resume,
+    From_To_Client_page,
+    Add_new_opportunity,
     CVs_Filled,
     Modify_opportunity_Activities_page,
     Selected_opportunity_Activities_page,
