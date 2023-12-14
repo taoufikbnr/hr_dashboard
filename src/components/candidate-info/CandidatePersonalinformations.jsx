@@ -1,8 +1,7 @@
-import { CopyAllOutlined, Try } from "@mui/icons-material";
+import { AddTask, CopyAllOutlined, Try } from "@mui/icons-material";
 import "./personalinformations.css";
 import { Copy_paste, LinkedIn, Message_Empty } from "../../data/icons";
 import { useState } from "react";
-import candidates from "../../data/candidates";
 
 const CandidatePersonalinformations = props => {
   const handleClick = text => {
@@ -15,8 +14,6 @@ const CandidatePersonalinformations = props => {
         console.error("Failed to copy text: ", error);
       });
   };
-  const [first, setfirst] = useState("first name");
-  const [last, setlast] = useState("last name");
 
   return (
     <div className="personal-info-wrapper">
@@ -30,6 +27,7 @@ const CandidatePersonalinformations = props => {
           <img onClick={() => handleClick(props.data[props.selectedItemInfos].email)} width={15} src={Copy_paste} alt="" />
         </p>
       </div>
+      {props.pageName==='clients'&&<AddTask style={{color:"teal"}} />}
       <a href={props.data[props.selectedItemInfos].linkedinURL}>
         <img width={30} src={LinkedIn} alt="LinkedIn" />
       </a>
@@ -43,7 +41,7 @@ const CandidatePersonalinformations = props => {
           <img onClick={() => handleClick(props.data[props.selectedItemInfos].phone2)} width={15} src={Copy_paste} alt="" />
         </p>
       </div>
-      <img width={30} src={Message_Empty} alt="" />
+      {props.pageName === 'candidates'&& <img width={30} src={Message_Empty} alt="" />}
     </div>
   );
 };
