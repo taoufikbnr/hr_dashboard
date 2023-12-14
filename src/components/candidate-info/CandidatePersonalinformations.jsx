@@ -1,6 +1,6 @@
 import { AddTask, CopyAllOutlined, Try } from "@mui/icons-material";
 import "./personalinformations.css";
-import { Copy_paste, LinkedIn, Message_Empty } from "../../data/icons";
+import { Add_new_opportunity, Copy_paste, LinkedIn, Message_Empty } from "../../data/icons";
 import { useState } from "react";
 
 const CandidatePersonalinformations = props => {
@@ -27,8 +27,8 @@ const CandidatePersonalinformations = props => {
           <img onClick={() => handleClick(props.data[props.selectedItemInfos].email)} width={15} src={Copy_paste} alt="" />
         </p>
       </div>
-      {props.pageName==='clients'&&<AddTask style={{color:"teal"}} />}
-      <a href={props.data[props.selectedItemInfos].linkedinURL}>
+      {props.pageName==='clients'&& <img src={Add_new_opportunity} width={30} alt="Add_new_opportunity" /> }
+      <a className="linkedin-url" href={props.data[props.selectedItemInfos].linkedinURL}>
         <img width={30} src={LinkedIn} alt="LinkedIn" />
       </a>
       <div className="personal-info-phone">
