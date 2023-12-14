@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import "./candidateFile.css"
 import {TaskAlt } from '@mui/icons-material';
-import { Arrow_Empty, Arrow_Filled, Availabilities_Filled, Availabilities_Full_green, Availabilities_Green_border, Cross, Email_received_Empty, Email_sent_Empty, Email_white, Incoming_call_Empty, LinkedIn_message_received_Empty, LinkedIn_message_sent_Empty, Outgoing_call_Empty, Physical_meeting_Empty, Physical_meeting_Filled, SMS_received_Empty, SMS_sent_Empty, Salaries_Filled, Salaries_Full_green, Salaries_Green_border, Star_Empty, Star_Filled, Star_Green_border, Voicemail_Empty, tick_box_empty } from '../../data/icons';
+import { Arrow_Empty, Arrow_Filled, Availabilities_Filled, Availabilities_Full_green, Availabilities_Green_border, CVs_Candidate_parameters_Filled, CVs_Filled, Cross, Email_received_Empty, Email_sent_Empty, Email_white, Incoming_call_Empty, LinkedIn_message_received_Empty, LinkedIn_message_sent_Empty, Modify_opportunity_Activities_page, Outgoing_call_Empty, Physical_meeting_Empty, Physical_meeting_Filled, SMS_received_Empty, SMS_sent_Empty, Salaries_Filled, Salaries_Full_green, Salaries_Green_border, Selected_opportunity_Activities_page, Star_Empty, Star_Filled, Star_Green_border, Voicemail_Empty, tick_box_empty } from '../../data/icons';
 import message from "../../data/messageHistory.json"
 import dayjs from 'dayjs';
 import { canddidateFileicons } from '../../data/candidateFileIcons';
-const CandidateFile = () => {
+import "./clientFile.css"
+const ClientFile = () => {
     const [emailContent, setEmailContent] = useState([]);
     const [selectedIcon, setSelectedIcon] = useState(null);
     const [selectedIconName, setSelectedIconName] = useState("");
@@ -124,8 +124,8 @@ const combinedArray = oppo
   .sort((a, b) => new Date(b.date) - new Date(a.date));
 
 return (
-    <div className='candidate-file'>
-        <form className='candidate-file-email-form'>
+    <div className='client-file'>
+        <form className='client-file-email-form'>
         <label htmlFor="email"></label>
         <textarea
           id="email"
@@ -173,7 +173,7 @@ return (
             }   
         </div>
       </form>
-      <div className='candidate-file-message-history'>
+      <div className='client-file-message-history'>
         <div className='message-history-buttons'>
             <StatusBtn status={"Open"} />
             <StatusBtn status={"Current"} />
@@ -184,7 +184,7 @@ return (
         <div className='message-history-content'>
           {
 combinedArray.map((item, index) => (
-  <div key={index} className={`message-${item.content ? 'body' : 'header'} ${item.content?"":item.status}`}>
+  <div key={index} className={`message-${item.content ? 'body' : 'header-client'} ${item.content?"":item.status}`}>
     {item.content ? (
       <>
       <div className={`info1 ${(item.content.length > 1 || item.content[0]?.length > 80) && activeMenu === index && readMore && 'read-more'}`} onClick={() => handleReadMore(index)}>
@@ -206,13 +206,20 @@ combinedArray.map((item, index) => (
       </>    
     ) : (
       <>
-        <img src={tick_box_empty} alt="" />
-        <span className='title'>{item.title}</span>
-        <span className='info'>{item.sender}</span>
-        <span className='info'>{item.country}</span>
-        <span className='info'>{item.receiver}</span>
-        <span className='month'>{item.date}</span>
-        <span className='info'>{item.duration}</span>
+        <div className='header-content'>
+          <img src={tick_box_empty} alt="" />
+          <span className='title'>{item.title}</span>
+          <span className='info'>{item.sender}</span>
+          <span className='info'>{item.country}</span>
+          <span className='info'>{item.receiver}</span>
+          <span className='month'>{item.date}</span>
+          <span className='info'>{item.duration}</span>
+        </div>
+        <div className='header-tabs'>
+          <button className='testBtn'> <img src={Modify_opportunity_Activities_page} alt="" /> <span>Modify</span></button>
+          <button className='testBtn'> <img src={CVs_Filled} alt="" /> <span>CVs</span></button>
+          <button className='testBtn'> <img src={Selected_opportunity_Activities_page} alt="" /> <span>Selected</span></button>
+        </div>
       </>
     )}
 
@@ -224,4 +231,4 @@ combinedArray.map((item, index) => (
   )
 }
 
-export default CandidateFile
+export default ClientFile

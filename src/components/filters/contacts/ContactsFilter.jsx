@@ -27,22 +27,22 @@ const ContactsFilter = () => {
   };
   const componentRef = useRef(null);
 
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (componentRef.current && !componentRef.current.contains(e.target)) {
-        if (users[0].inputs === "" || users[1].inputs === "") {
-          setOpen(true)
-        } else {
-        }
-      }
-    };
+  // useEffect(() => {
+  //   const handleClickOutside = (e) => {
+  //     if (componentRef.current && !componentRef.current.contains(e.target)) {
+  //       if (users[0].inputs === "" || users[1].inputs === "") {
+  //         setOpen(true)
+  //       } else {
+  //       }
+  //     }
+  //   };
 
-    document.addEventListener("mousedown", handleClickOutside);
+  //   document.addEventListener("mousedown", handleClickOutside);
 
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [users]);
+  //   return () => {
+  //     document.removeEventListener("mousedown", handleClickOutside);
+  //   };
+  // }, [users]);
   const [open, setOpen] = useState(false);
 
   const handleClose = () => {

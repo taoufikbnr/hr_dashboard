@@ -8,7 +8,7 @@ import { useState } from "react";
 import { useFilters } from "./context/FiltersContext/FiltersContext";
 import CandidateFile from "./components/CandidateFile/CandidateFile";
 import ReactPdfViewer from "./components/reactPdfViewer/ReactPdfViewer";
-import Client from "./page/client/Client";
+import Clients from "./page/clients/Clients";
 import clientSidebarData from "./data/clientPageSidebar";
 import sidebarData from "./data/sidebarData";
 function App() {
@@ -32,13 +32,16 @@ function App() {
               <CandidateFile />
             </div>
           </Route>
-          <Route path="/client">
-          <div className="container">
-                <Sidebar sidebarData={clientSidebarData} pageName={"client"} />
+          <Route path="/clients">
+          <div>
+              <Navbar />
+              <div className="container">
+                <Sidebar pageName={"clients"} sidebarData={clientSidebarData}/>
                 <div className="content">
-                  <Client />
+                  <Clients  />
                 </div>
               </div>
+            </div>
           </Route>
           <Route path="/">
             <div>

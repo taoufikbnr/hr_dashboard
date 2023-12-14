@@ -1,17 +1,17 @@
-.candidate-file{
+.client-file{
     margin: 0 auto;
 }
-.candidate-file img{
+.client-file img{
     cursor: pointer;
 }
-form.candidate-file-email-form {
+form.client-file-email-form {
     border-radius: 10px;
     border: 1px solid teal;
     overflow: hidden;
     /* margin-top: 10px; */
   }
 
-  form.candidate-file-email-form textarea {
+  form.client-file-email-form textarea {
     width: 100%;
     height: 150px;
     resize: none;
@@ -33,7 +33,7 @@ form.candidate-file-email-form {
     border: 1px solid #ccc;
     margin: 20px 0;
   }
-.candidate-file .contact-icons-container{
+.client-file .contact-icons-container{
     display: flex;
     justify-content: space-between;
     border-top: 1px solid teal;
@@ -41,7 +41,7 @@ form.candidate-file-email-form {
     gap: 20px;
     height: 40px;  
 }
-.candidate-file .contact-icons-container .selected{
+.client-file .contact-icons-container .selected{
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -51,7 +51,7 @@ form.candidate-file-email-form {
     height: 40px;
     padding: 0 20px;  
 }
-.candidate-file .contact-icons-container .selected div{
+.client-file .contact-icons-container .selected div{
 display: flex;
 gap: 2px;
 }
@@ -84,7 +84,7 @@ gap: 2px;
     padding:2px 5px;
     border-radius: 10px;
 }
-.candidate-file-message-history{
+.client-file-message-history{
     margin-top: 10px;
 }
 .message-history-buttons{
@@ -96,7 +96,7 @@ gap: 2px;
     display: flex;
     align-items: center;
     border: none;
-    width: 100px;
+    width: 120px;
     padding: 5px;
     border-radius: 10px;
     height: 32px;
@@ -167,11 +167,11 @@ gap: 2px;
     color: white !important;
     text-decoration: line-through;
 }
-.message-history-content{
+.client-file .message-history-content{
     max-height:400px;
     overflow-y: scroll;
 }
-.message-history-content .message-header{
+.client-file .message-history-content .message-header-client .header-content{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -182,19 +182,40 @@ gap: 2px;
     color: white;
     gap: 10px;
 }
-.message-header img{
+.client-file .message-header-client .header-content img{
 width: 20px;
 }
-.message-history-content .message-header .title{
+.client-file .message-history-content .message-header-client .header-content .title{
     width: 30%;
 }
 
-.message-history-content .message-header .info{
+.client-file .message-history-content .message-header-client .header-content .info{
     flex: 6;
 }
-.message-history-content .message-header .month{
+.client-file .message-history-content .message-header-client .header-content .month{
     width:15%;
 }
+.message-header-client .header-tabs{
+    display: flex;
+}
+.message-header-client .header-tabs button{
+    padding: 5px;
+    margin: 5px;
+    border-radius: 10px;
+    background: white;
+    border: none;
+    color: teal;
+    width: 130px;
+}
+.message-header-client .header-tabs img{
+   width: 20px;
+}
+.message-header-client .header-tabs span{
+    flex: 3;
+ }
+ .testBtn{
+    display: flex;
+ }
 .message-body{
     margin-top: 10px;
     border-radius: 10px;
