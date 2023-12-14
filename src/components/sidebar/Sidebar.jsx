@@ -17,6 +17,7 @@ import CVs from "../filters/CVs/CVs";
 import ContactsFilter from "../filters/contacts/ContactsFilter";
 import ExperienceFilter from "../filters/experience/ExperienceFilter";
 import ExperienceLayout from "../filters/experience/ExperienceLayout";
+import ContactsAddNewClient from "../clientsComponents/ContactsAddNewClient";
 
 const Sidebar = props => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -37,7 +38,7 @@ const Sidebar = props => {
   const getPopupContent = (index,pageType) => {
     switch (index) {
       case 0:
-        return pageType==='home'? <KeywordFilter />:<ContactsFilter />;
+        return pageType==='home'? <KeywordFilter />:<ContactsAddNewClient />;
       case 1:
         return <IndustriesFilter />;
       case 4:

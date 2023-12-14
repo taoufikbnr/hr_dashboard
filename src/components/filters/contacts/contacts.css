@@ -7,8 +7,8 @@
     text-align: center;
 }
 .contacts-container tr{
-    display: flex;
-    gap: 5px;
+    /* display: flex; */
+    /* gap: 5px; */
     padding: 2px;
 }
 
