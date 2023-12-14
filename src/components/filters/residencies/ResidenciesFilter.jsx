@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import residenciesData from "../../data/residencies.json";
+import residenciesData from "../../../data/residencies.json";
 import "./residencies.css";
 import { ArrowDropDownCircleRounded, Close } from "@mui/icons-material";
 

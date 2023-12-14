@@ -11,13 +11,14 @@ import Drilling from "../filters/drilling/Drilling";
 import AgeFilter from "../filters/age/Age";
 import AvailabilitiesFilter from "../filters/availabilities/Availabilities";
 import NationalitiesFilter from "../filters/nationalities/NationalitiesFilter";
-import ResidenciesFilter from "../residencies/ResidenciesFilter";
 import KeywordFilter from "../filters/keyword/KeywordFilter";
 import CVs from "../filters/CVs/CVs";
 import ContactsFilter from "../filters/contacts/ContactsFilter";
 import ExperienceFilter from "../filters/experience/ExperienceFilter";
 import ExperienceLayout from "../filters/experience/ExperienceLayout";
 import ContactsAddNewClient from "../clientsComponents/ContactsAddNewClient";
+import ResidenciesFilter from "../filters/residencies/ResidenciesFilter";
+import LocationClient from "../clientsComponents/LocationClient";
 
 const Sidebar = props => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -40,7 +41,9 @@ const Sidebar = props => {
       case 0:
         return pageType==='home'? <KeywordFilter />:<ContactsAddNewClient />;
       case 1:
-        return <IndustriesFilter />;
+        return pageType==='home'?<IndustriesFilter />:<LocationClient/>;
+      case 2:
+        return pageType==='home'?<IndustriesFilter />:<LocationClient/>;
       case 4:
         return <Drilling />;
       case 5:
