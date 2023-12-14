@@ -22,25 +22,25 @@ const CandidatePersonalinformations = props => {
     <div className="personal-info-wrapper">
       <div className="personal-info-name">
         <p>
-          <b> {candidates[props.selectedItemInfos].fullName} </b>{" "}
-          <img onClick={() => handleClick(candidates[props.selectedItemInfos].fullName)} width={15} src={Copy_paste} alt="" />
+          <b> {props.data[props.selectedItemInfos].fullName} </b>{" "}
+          <img onClick={() => handleClick(props.data[props.selectedItemInfos].fullName)} width={15} src={Copy_paste} alt="" />
         </p>
         <p>
-          {candidates[props.selectedItemInfos].email}{" "}
-          <img onClick={() => handleClick(candidates[props.selectedItemInfos].email)} width={15} src={Copy_paste} alt="" />
+          {props.data[props.selectedItemInfos].email}{" "}
+          <img onClick={() => handleClick(props.data[props.selectedItemInfos].email)} width={15} src={Copy_paste} alt="" />
         </p>
       </div>
-      <a href={candidates[props.selectedItemInfos].linkedinURL}>
+      <a href={props.data[props.selectedItemInfos].linkedinURL}>
         <img width={30} src={LinkedIn} alt="LinkedIn" />
       </a>
       <div className="personal-info-phone">
         <p>
-          {candidates[props.selectedItemInfos].phone1}
-          <img onClick={() => handleClick(candidates[props.selectedItemInfos].phone1)} width={15} src={Copy_paste} alt="" />
+          {props.data[props.selectedItemInfos].phone1}
+          <img onClick={() => handleClick(props.data[props.selectedItemInfos].phone1)} width={15} src={Copy_paste} alt="" />
         </p>
         <p>
-          {candidates[props.selectedItemInfos].phone2}
-          <img onClick={() => handleClick(candidates[props.selectedItemInfos].phone2)} width={15} src={Copy_paste} alt="" />
+          {props.data[props.selectedItemInfos].phone2}
+          <img onClick={() => handleClick(props.data[props.selectedItemInfos].phone2)} width={15} src={Copy_paste} alt="" />
         </p>
       </div>
       <img width={30} src={Message_Empty} alt="" />

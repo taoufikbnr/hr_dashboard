@@ -15,6 +15,7 @@ import AdbIcon from '@mui/icons-material/Adb';
 import { useState } from 'react';
 import "./navbar.css"
 import { Input } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const pages = ['Cvs', 'Clients', 'Activities'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -91,9 +92,12 @@ function ResponsiveAppBar() {
               }}
             >
               {pages.map((page) => (
+                <Link to={page}>
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
+                </Link>
+
               ))}
             </Menu>
           </Box>
@@ -118,14 +122,17 @@ function ResponsiveAppBar() {
           </Typography>
           <Box className='navlink' sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
+              <Link to={page}> 
               <Button
-              
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'teal', display: 'block' }}
-              >
-                {page}
-              </Button>
+             
+              key={page}
+              onClick={handleCloseNavMenu}
+              sx={{ my: 2, color: 'teal', display: 'block' }}
+            >
+              {page}
+            </Button>
+              </Link>
+  
             ))}
            <Input type="text" placeholder='search' className='search'/>
 
