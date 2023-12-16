@@ -35,12 +35,7 @@ function App() {
           <Route path="/clients">
           <div>
               <Navbar />
-              <div className="container">
-                <Sidebar pageName={"clients"} sidebarData={clientSidebarData}/>
-                <div className="content">
                   <Clients  />
-                </div>
-              </div>
             </div>
           </Route>
           <Route path="/">
