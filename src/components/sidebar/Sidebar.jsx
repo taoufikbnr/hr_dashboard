@@ -19,6 +19,7 @@ import ExperienceLayout from "../filters/experience/ExperienceLayout";
 import ContactsAddNewClient from "../clientsComponents/ContactsAddNewClient";
 import ResidenciesFilter from "../filters/residencies/ResidenciesFilter";
 import LocationClient from "../clientsComponents/LocationClient";
+import ModifyClient from "../clientsComponents/ModifyClient";
 
 const Sidebar = props => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -39,7 +40,7 @@ const Sidebar = props => {
   const getPopupContent = (index,pageType) => {
     switch (index) {
       case 0:
-        return pageType==='home'? <KeywordFilter />:<ContactsAddNewClient />;
+        return pageType==='home'? <KeywordFilter />: props.clientModification? <ModifyClient/> :"";
       case 1:
         return pageType==='home'?<IndustriesFilter />:<LocationClient/>;
       case 2:
@@ -62,8 +63,6 @@ const Sidebar = props => {
         return <ExperienceLayout />;
       case 17:
           return <CVs />;
-      default:
-        return <TableLayout  title={title} />; 
     }
   };
   return (
@@ -75,7 +74,7 @@ const Sidebar = props => {
               <li key={i} className={`sidebarItem ${open && "active"}`}>
                 <img className="icons" width={item.size} src={currentIndex === i && open ? item.icon : item.iconEmpty} alt="" />{" "}
                 <span className={`${currentIndex === i && open && "active"}`} ref={title}>
-                  {item.title}
+                  {props.pageName==='home'?item.title:props.clientModification&&item.title==="New Client"?item?.title2:item.title}
                 </span>
               </li>
             </a>

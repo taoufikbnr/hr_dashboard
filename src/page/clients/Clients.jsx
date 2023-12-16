@@ -5,7 +5,11 @@ import CandidateInfoCard from '../../components/candidate-info/CandidateInfoCard
 import './clientsPage.css'
 import ClientFile from '../../components/clientsComponents/clientFile'
 import ReactPaginate from 'react-paginate'
+import Sidebar from '../../components/sidebar/Sidebar'
+import clientSidebarData from '../../data/clientPageSidebar'
 const Clients = () => {
+
+  const [clientModification, setclientModification] = useState(false);
   const [countCvs, setCountCvs] = useState(0);
   const [isItemFocused, setIsItemFocused] = useState(0);
   const itemsPerPage = 5; 
@@ -27,8 +31,13 @@ const Clients = () => {
   const handlePageClick = ({ selected }) => {
     setCurrentPage(selected);
   };
+  const handleClientModification = () =>{
+    setclientModification(!clientModification)
+  }
   return (
-     <div className='clients-page'>
+<>
+  <Sidebar clientModification={clientModification} pageName={"clients"} sidebarData={clientSidebarData}/>
+  <div className='clients-page'>
       <div className='page-block'>
       <div className="listCandidates">
                 {currentCandidates.map((item, index) => (
@@ -55,10 +64,11 @@ const Clients = () => {
       />
       </div>
        <div className='page-block'>
-           <CandidatePersonalinformations pageName={"clients"} data={candidates} selectedItemInfos={isItemFocused} />
+           <CandidatePersonalinformations handleClientModification={handleClientModification} pageName={"clients"} data={candidates} selectedItemInfos={isItemFocused} />
          <ClientFile/>         
        </div>
     </div>
+</>
   )
 }
 
