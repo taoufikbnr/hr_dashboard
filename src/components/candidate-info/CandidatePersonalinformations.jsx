@@ -8,7 +8,7 @@ const CandidatePersonalinformations = props => {
     navigator.clipboard
       .writeText(text)
       .then(() => {
-        console.log(text);
+        // console.log(text);
       })
       .catch(error => {
         console.error("Failed to copy text: ", error);
@@ -17,10 +17,11 @@ const CandidatePersonalinformations = props => {
 
   return (
     <div className="personal-info-wrapper">
-      <div className="personal-info-name">
+      <div className="personal-info-name" onClick={() => props.handleClientModification()}>
         <p>
           <b> {props.data[props.selectedItemInfos].fullName} </b>{" "}
-          <img onClick={() => handleClick(props.data[props.selectedItemInfos].fullName)} width={15} src={Copy_paste} alt="" />
+          <img onClick={() => handleClick(props.data[props.selectedItemInfos].fullName)
+} width={15} src={Copy_paste} alt="" />
         </p>
         <p>
           {props.data[props.selectedItemInfos].email}{" "}

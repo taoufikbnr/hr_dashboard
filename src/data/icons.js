@@ -69,12 +69,20 @@ import Modify_opportunity_Activities_page from "../assets/icons/Modify_opportuni
 import CVs_Filled from "../assets/icons/CVs_Filled.svg";
 import Add_new_opportunity from "../assets/icons/Add_new_opportunity.svg";
 import From_To_Client_page from "../assets/icons/From_To_Client_page.svg";
+import Add_new_client_Filled from "../assets/icons/Add_new_client_Filled.svg";
+import Add_new_client_Empty from "../assets/icons/Add_new_client_Empty.svg";
+import Ghost_modify_client_Filled from "../assets/icons/Ghost_modify_client_Filled.svg";
+import Ghost_modify_client_Empty from "../assets/icons/Ghost_modify_client_Empty.svg";
 import resume from "../assets/resume.pdf";
 
 
 
 export {
     resume,
+    Ghost_modify_client_Empty,
+    Ghost_modify_client_Filled,
+    Add_new_client_Empty,
+    Add_new_client_Filled,
     From_To_Client_page,
     Add_new_opportunity,
     CVs_Filled,
