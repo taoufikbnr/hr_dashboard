@@ -5,6 +5,8 @@ import message from "../../data/messageHistory.json"
 import dayjs from 'dayjs';
 import { canddidateFileicons } from '../../data/candidateFileIcons';
 import "./clientFile.css"
+import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 
 const ClientFile = () => {
     const [emailContent, setEmailContent] = useState([]);
@@ -21,6 +23,10 @@ const ClientFile = () => {
     const [selectedSalary, setSelectedcdSalary] = useState(false);
     const [selectedStar, setSelectedcdStar] = useState(false);
     const [messageHistory, setMessageHistory] = useState(message.messageHistory);
+    
+    const [clientFrom, setClientFrom] = useState(null);
+    const [clientTo, setClientTo] = useState(null);
+    const [calendarOpen, setCalendarOpen] = useState({isOpen:false,field:null});
 
   const handleReadMore = (index) =>{
     setReadMore(prev => activeMenu !== index || !prev);
@@ -90,6 +96,22 @@ const handleSelectSalary = (e) =>{
 const handleSelectStar= (e) =>{
   setSelectedcdStar(prev=>!prev);
 }
+const handleCalendarOpen = (field) => {
+  setCalendarOpen({
+    isOpen:!calendarOpen.isOpen,
+    field:field
+  });
+};
+console.log(calendarOpen);
+
+const handleDateChange = (field, newValue) => {  
+  if (field === 'from') {
+      setClientFrom(newValue);
+  } else if (field === 'to') {
+    setClientTo(newValue);
+  }
+};
+
 const msg = {
   "salary":"400 EURO Daily rate",
   "availability": "Available asap",
@@ -238,8 +260,39 @@ combinedArray.map((item, index) => (
            <OpportunityBtn src={Clients_Filled} content="All Clients"/>
           </div>
           <div  className='right'>
-            <OpportunityBtn src={From_To_Client_page} content={`From`}/>
-            <OpportunityBtn src={From_To_Client_page} content="To"/>
+            {/* <OpportunityBtn src={From_To_Client_page} content={`From`}/> */}
+            <button className='opportunityBtn'> <img onClick={()=>handleCalendarOpen("from")} src={From_To_Client_page} width={25} alt="" />
+            <span>
+          {calendarOpen.isOpen&&calendarOpen.field==='from'?    
+          <LocalizationProvider  dateAdapter={AdapterDayjs}>
+                  <DatePicker 
+                    views={['day','year', 'month']}
+                    maxDate={clientTo}
+                    menuPlacement="top"
+                    className="experience-calendar"  value={clientFrom}
+                    onChange={(newValue) => handleDateChange('from',newValue)}
+                    open={calendarOpen.isOpen}
+                     />
+            </LocalizationProvider>
+            :clientFrom?dayjs(clientFrom).format("DD/MMM/YYYY"):"From"}
+            </span>
+            </button>
+            <button className='opportunityBtn'> <img onClick={()=>handleCalendarOpen("to")} src={From_To_Client_page} width={25} alt="" />
+            <span>
+          {calendarOpen.isOpen&&calendarOpen.field==='to'?    
+          <LocalizationProvider  dateAdapter={AdapterDayjs}>
+                  <DatePicker 
+                    views={['day','year', 'month']}
+                    minDate={clientFrom}
+                    menuPlacement="top"
+                    className="experience-calendar"  value={clientTo}
+                    onChange={(newValue) => handleDateChange('to',newValue)}
+                    open={calendarOpen.isOpen}
+                     />
+            </LocalizationProvider>
+            :clientTo?dayjs(clientTo).format("DD/MMM/YYYY"):"To"}
+            </span>
+            </button>
           </div>
         </div>
       </div>
