@@ -261,6 +261,11 @@ width: 20px;
 .message-history-footer .right{
     display: flex;
 }
+div.message-history-footer > div.right > button > 
+span > div > div > div > button > svg
+{
+display: none;
+}
 /* buttons */
 .opportunityBtn{
     display: flex;
@@ -280,3 +285,4 @@ width: 20px;
 .opportunityBtn span{
     flex: 3;
  }
+ 
