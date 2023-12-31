@@ -11,6 +11,7 @@ import ReactPdfViewer from "./components/reactPdfViewer/ReactPdfViewer";
 import Clients from "./page/clients/Clients";
 import clientSidebarData from "./data/clientPageSidebar";
 import sidebarData from "./data/sidebarData";
+import RecruitmentButton from "./components/recruitmentBtn/RecruitmentButton";
 function App() {
   const [selectedCandidates, setSelectedCandidates] = useState(0);
   const { keywords,selectedIndustries,selectedDrillingRigs } = useFilters();
@@ -29,7 +30,8 @@ function App() {
         <Switch>
           <Route path="/login">
             <div className="contentLogin">
-              <CandidateFile />
+              {/* <CandidateFile /> */}
+              <RecruitmentButton/>
             </div>
           </Route>
           <Route path="/clients">
