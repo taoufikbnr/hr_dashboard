@@ -9,7 +9,7 @@ const clientSidebarData = [
     size:25
   },
     {
-      title:"Contacts",
+      title:"Contracts",
       icon:Contracts_Filled,
       iconEmpty:Contracts_Empty,
       path:"/",

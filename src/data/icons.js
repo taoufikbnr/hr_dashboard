@@ -73,12 +73,16 @@ import Add_new_client_Filled from "../assets/icons/Add_new_client_Filled.svg";
 import Add_new_client_Empty from "../assets/icons/Add_new_client_Empty.svg";
 import Ghost_modify_client_Filled from "../assets/icons/Ghost_modify_client_Filled.svg";
 import Ghost_modify_client_Empty from "../assets/icons/Ghost_modify_client_Empty.svg";
+import Information_Clients_Empty from "../assets/icons/Information_Clients_Empty.svg";
+import Information_Clients_Filled from "../assets/icons/Information_Clients_Filled.svg";
 import resume from "../assets/resume.pdf";
 
 
 
 export {
     resume,
+    Information_Clients_Empty,
+    Information_Clients_Filled,
     Ghost_modify_client_Empty,
     Ghost_modify_client_Filled,
     Add_new_client_Empty,
