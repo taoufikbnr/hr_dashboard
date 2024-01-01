@@ -77,12 +77,16 @@ import Information_Clients_Empty from "../assets/icons/Information_Clients_Empty
 import Information_Clients_Filled from "../assets/icons/Information_Clients_Filled.svg";
 import Number_Add_opportunity_Clients_Empty from "../assets/icons/Number_Add_opportunity_Clients_Empty.svg";
 import Number_Add_opportunity_Clients_Filled from "../assets/icons/Number_Add_opportunity_Clients_Filled.svg";
+import Position_name_Add_opportunity_Clients_Empty from "../assets/icons/Position_name_Add_opportunity_Clients_Empty.svg";
+import Position_name_Add_opportunity_Clients_Filled from "../assets/icons/Position_name_Add_opportunity_Clients_Filled.svg";
 import resume from "../assets/resume.pdf";
 
 
 
 export {
     resume,
+    Position_name_Add_opportunity_Clients_Empty,
+    Position_name_Add_opportunity_Clients_Filled,
     Number_Add_opportunity_Clients_Empty,
     Number_Add_opportunity_Clients_Filled,
     Information_Clients_Empty,
