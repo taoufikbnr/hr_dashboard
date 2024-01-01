@@ -1,4 +1,4 @@
-import { Ages_Empty, Ages_Filled, Availabilities_Empty, Availabilities_Filled, CVs_Candidate_parameters_Empty, CVs_Candidate_parameters_Filled, Clients_Empty, Clients_Filled, Contracts_Empty, Contracts_Filled, Drilling_Empty, Drilling_Filled, Educations_Empty, Educations_Filled, Experience_Candidate_parameters_Empty, Experience_Candidate_parameters_Filled, Industries_Empty, Industries_Filled, Information_Clients_Empty, Information_Clients_Filled, Keyword_empty, Keyword_filled, Languages_Empty, Languages_Filled, Mobilities_Empty, Mobilities_Filled, Nationalities_Empty, Nationalities_Filled, Phases_Empty, Phases_Filled, Positions_Empty, Positions_Filled, Residencies_Empty, Residencies_Filled, Salaries_Empty, Salaries_Filled, Softwares_Empty, Softwares_Filled, tick_box_empty } from './icons';
+import { Ages_Empty, Ages_Filled, Availabilities_Empty, Availabilities_Filled, CVs_Candidate_parameters_Empty, CVs_Candidate_parameters_Filled, Clients_Empty, Clients_Filled, Contracts_Empty, Contracts_Filled, Drilling_Empty, Drilling_Filled, Educations_Empty, Educations_Filled, Experience_Candidate_parameters_Empty, Experience_Candidate_parameters_Filled, Industries_Empty, Industries_Filled, Information_Clients_Empty, Information_Clients_Filled, Keyword_empty, Keyword_filled, Languages_Empty, Languages_Filled, Mobilities_Empty, Mobilities_Filled, Nationalities_Empty, Nationalities_Filled, Number_Add_opportunity_Clients_Empty, Number_Add_opportunity_Clients_Filled, Phases_Empty, Phases_Filled, Positions_Empty, Positions_Filled, Residencies_Empty, Residencies_Filled, Salaries_Empty, Salaries_Filled, Softwares_Empty, Softwares_Filled, tick_box_empty } from './icons';
 const sidebarData = [
 
     {
@@ -119,6 +119,13 @@ const sidebarData = [
       iconEmpty:Contracts_Empty,
       path:"/",
       size:25
+    },
+    {
+      title:"Number",
+      icon:Number_Add_opportunity_Clients_Filled,
+      iconEmpty:Number_Add_opportunity_Clients_Empty,
+      path:"/",
+      size:30
     },
     {
       title:"Experience",

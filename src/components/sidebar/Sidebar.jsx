@@ -21,6 +21,7 @@ import ResidenciesFilter from "../filters/residencies/ResidenciesFilter";
 import LocationClient from "../clientsComponents/LocationClient";
 import ModifyClient from "../clientsComponents/ModifyClient";
 import Information from "../filters/information/Information";
+import Number from "../filters/number/Number";
 const Sidebar = props => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [open, setOpen] = useState(false);
@@ -64,10 +65,12 @@ const Sidebar = props => {
       case 16:
         return <ContactsFilter />;
       case 17:
-        return <ExperienceLayout />;
+        return <Number />;
       case 18:
-          return <CVs />;
+        return <ExperienceLayout />;
       case 19:
+          return <CVs />;
+      case 120:
           return <OpportunitiesFilter />;
       default :
       return "";
