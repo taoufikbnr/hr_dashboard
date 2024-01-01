@@ -22,6 +22,7 @@ import LocationClient from "../clientsComponents/LocationClient";
 import ModifyClient from "../clientsComponents/ModifyClient";
 import Information from "../filters/information/Information";
 import Number from "../filters/number/Number";
+import PositionName from "../filters/positionName/PositionName";
 const Sidebar = props => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [open, setOpen] = useState(false);
@@ -67,10 +68,12 @@ const Sidebar = props => {
       case 17:
         return <Number />;
       case 18:
-        return <ExperienceLayout />;
+        return <PositionName />;
       case 19:
+        return <ExperienceLayout />;
+      case 20:
           return <CVs />;
-      case 120:
+      case 21:
           return <OpportunitiesFilter />;
       default :
       return "";
