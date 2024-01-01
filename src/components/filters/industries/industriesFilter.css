@@ -7,7 +7,7 @@
 .industries-item{
     background: lightcyan;
     padding:5px 10px;
-    border-radius: 15px;
+    border-radius: 10px;
 }
 .industries-item:hover{
     background: lightgreen;
