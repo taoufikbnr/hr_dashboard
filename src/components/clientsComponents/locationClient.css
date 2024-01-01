@@ -1,7 +1,4 @@
-.location-client{
-    display: flex;
-    gap: 1px;
-}
+
 .location-header{
     display: flex;
     align-items: center;
@@ -21,10 +18,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding:5px;
+    padding:2px;
     border-radius: 10px;
     font-size: 14px;
     background: green;
     color: white;
     height: 30px;
+    margin-bottom: 5px;
 }

@@ -52,9 +52,9 @@ const LocationClient = () => {
     };
   return (
     <div className='location-client'>
-<div className="residencies-menu">
-<div className="country-filter">
-  <div className="country-left">
+<div className="">
+<div className="">
+  <div className="">
   <span className={`location-header`}>
   {"City"}
 </span>
@@ -73,7 +73,7 @@ const LocationClient = () => {
   </div>  
   )}
 </div>
-<div className='country-right'>
+<div className=''>
 <span className={`location-header`}>
   {"French Local regions"}
 </span>
@@ -86,13 +86,19 @@ const LocationClient = () => {
   </div>
 </div>
 </div>
-<div className="residencies-menu">
-<div className="country-filter">
-  <div className="country-left">
+<div className="">
+<div className="">
+  <div className="">
   <span className={`location-header`}>
   {"Country"}
 </span>
-  {selectedCountries.map((el, i) => (
+{selectedCities.map((el, i) => (
+  <div className='client-selected-countries' key={i}>
+      {el.country}
+    </div>
+  ))}
+<div className="country-item"><span style={{visibility:'hidden'}} >placeholder</span></div>
+  {/* {selectedCountries.map((el, i) => (
       <div className='client-selected-countries' key={i}>
         {el.country}
         <Close className='closeBtn' onClick={() => handleCountryDeselect(el)}/>
@@ -100,14 +106,14 @@ const LocationClient = () => {
     ))}
     <div className='country-item country-search'>
     <input type="text" onChange={(e)=>setsearch(e.target.value)} placeholder='________________________' />
-    </div>
+    </div> */}
 {filteredCountries.filter(word=>word.country.toLocaleLowerCase().includes(search.toLocaleLowerCase())).slice(0,1).map((el,i)=>
   <div className={`country-item ${!search && 'hide'}`} key={i} onClick={()=>handleCountrySelect(el)}>
       {el.country}
   </div>  
   )}
 </div>
-<div className='country-right'>
+<div className=''>
 <span className={`location-header`}>
   {"Global regions"}
 </span>
