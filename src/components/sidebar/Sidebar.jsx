@@ -20,6 +20,7 @@ import ContactsAddNewClient from "../clientsComponents/ContactsAddNewClient";
 import ResidenciesFilter from "../filters/residencies/ResidenciesFilter";
 import LocationClient from "../clientsComponents/LocationClient";
 import ModifyClient from "../clientsComponents/ModifyClient";
+import Information from "../filters/information/Information";
 const Sidebar = props => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [open, setOpen] = useState(false);
@@ -41,9 +42,11 @@ const Sidebar = props => {
       case 0:
         return pageType==='home'? <KeywordFilter />: props.clientModification? <ModifyClient/> :"";
       case 1:
-        return pageType==='home'?<IndustriesFilter />:<LocationClient/>;
+        return pageType==='home'?<IndustriesFilter />:<ContactsAddNewClient/>;
       case 2:
-        return pageType==='home'?<IndustriesFilter />:<LocationClient/>;
+        return pageType==='home'?"":<LocationClient/>;
+      case 3:
+        return pageType==='home'?"":<LocationClient/>;
       case 4:
         return <Drilling />;
       case 5:
@@ -57,13 +60,17 @@ const Sidebar = props => {
       case 11:
         return <AvailabilitiesFilter />;
       case 15:
-        return <ContactsFilter />;
+        return <Information />;
       case 16:
-        return <ExperienceLayout />;
+        return <ContactsFilter />;
       case 17:
-          return <CVs />;
+        return <ExperienceLayout />;
       case 18:
+          return <CVs />;
+      case 19:
           return <OpportunitiesFilter />;
+      default :
+      return "";
     }
   };
   
