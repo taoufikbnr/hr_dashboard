@@ -14,13 +14,12 @@ import NationalitiesFilter from "../filters/nationalities/NationalitiesFilter";
 import KeywordFilter from "../filters/keyword/KeywordFilter";
 import CVs from "../filters/CVs/CVs";
 import ContactsFilter from "../filters/contacts/ContactsFilter";
-import ExperienceFilter from "../filters/experience/ExperienceFilter";
 import ExperienceLayout from "../filters/experience/ExperienceLayout";
+import OpportunitiesFilter from "../filters/opportunities/OpportunitiesFilter";
 import ContactsAddNewClient from "../clientsComponents/ContactsAddNewClient";
 import ResidenciesFilter from "../filters/residencies/ResidenciesFilter";
 import LocationClient from "../clientsComponents/LocationClient";
 import ModifyClient from "../clientsComponents/ModifyClient";
-
 const Sidebar = props => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [open, setOpen] = useState(false);
@@ -63,8 +62,11 @@ const Sidebar = props => {
         return <ExperienceLayout />;
       case 17:
           return <CVs />;
+      case 18:
+          return <OpportunitiesFilter />;
     }
   };
+  
   return (
     <div className={`sidebar ${open && "active"}`}>
       <div className="sidebarWrapper" ref={sidebarContainerRef} id="sidebar">

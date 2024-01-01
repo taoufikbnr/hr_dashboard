@@ -30,8 +30,8 @@ function App() {
         <Switch>
           <Route path="/login">
             <div className="contentLogin">
-              {/* <CandidateFile /> */}
-              <RecruitmentButton/>
+              <CandidateFile />
+              {/* <RecruitmentButton/> */}
             </div>
           </Route>
           <Route path="/clients">
