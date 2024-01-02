@@ -23,6 +23,7 @@ import ModifyClient from "../clientsComponents/ModifyClient";
 import Information from "../filters/information/Information";
 import Number from "../filters/number/Number";
 import PositionName from "../filters/positionName/PositionName";
+import LocationOpportunities from "../opportunitiesPageComponents/LocationOpportunities";
 const Sidebar = props => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [open, setOpen] = useState(false);
@@ -47,7 +48,7 @@ const Sidebar = props => {
       case "industries":
         return <IndustriesFilter />;
       case "location":
-        return pageName==='home'?"":<LocationClient/>;
+        return pageName==='clients'?<LocationClient/>:<LocationOpportunities/>;
       case "drilling":
         return <Drilling />;
       case "clients":
