@@ -6,7 +6,7 @@ import './clientsPage.css'
 import ClientFile from '../../components/clientsComponents/clientFile'
 import ReactPaginate from 'react-paginate'
 import Sidebar from '../../components/sidebar/Sidebar'
-import clientSidebarData from '../../data/clientPageSidebar'
+import clientSidebarData from '../../data/sidebarClientPage'
 const Clients = () => {
 
   const [clientModification, setclientModification] = useState(false);

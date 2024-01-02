@@ -1,13 +1,33 @@
-import { Ages_Empty, Ages_Filled, Availabilities_Empty, Availabilities_Filled, CVs_Candidate_parameters_Empty, CVs_Candidate_parameters_Filled, Clients_Empty, Clients_Filled, Contracts_Empty, Contracts_Filled, Drilling_Empty, Drilling_Filled, Educations_Empty, Educations_Filled, Experience_Candidate_parameters_Empty, Experience_Candidate_parameters_Filled, Industries_Empty, Industries_Filled, Keyword_empty, Keyword_filled, Languages_Empty, Languages_Filled, Mobilities_Empty, Mobilities_Filled, Nationalities_Empty, Nationalities_Filled, Phases_Empty, Phases_Filled, Positions_Empty, Positions_Filled, Residencies_Empty, Residencies_Filled, Salaries_Empty, Salaries_Filled, Softwares_Empty, Softwares_Filled, tick_box_empty } from './icons';
-const sidebarData = [
-
+import { Ages_Empty, Ages_Filled, Availabilities_Empty, Availabilities_Filled, CVs_Candidate_parameters_Empty, CVs_Candidate_parameters_Filled, Clients_Empty, Clients_Filled, Contracts_Empty, Contracts_Filled, Drilling_Empty, Drilling_Filled, Educations_Empty, Educations_Filled, Experience_Candidate_parameters_Empty, Experience_Candidate_parameters_Filled, Industries_Empty, Industries_Filled, Information_Clients_Empty, Information_Clients_Filled, Keyword_empty, Keyword_filled, Languages_Empty, Languages_Filled, Mobilities_Empty, Mobilities_Filled, Nationalities_Empty, Nationalities_Filled, Number_Add_opportunity_Clients_Empty, Number_Add_opportunity_Clients_Filled, Phases_Empty, Phases_Filled, Position_name_Add_opportunity_Clients_Empty, Position_name_Add_opportunity_Clients_Filled, Positions_Empty, Positions_Filled, Residencies_Empty, Residencies_Filled, Salaries_Empty, Salaries_Filled, Softwares_Empty, Softwares_Filled, tick_box_empty } from './icons';
+const opportunitySidebarData = [
     {
-        title:"Keywords",
-        icon:Keyword_filled,
-        iconEmpty:Keyword_empty,
+        title:"Contracts",
+        icon:Contracts_Filled,
+        iconEmpty:Contracts_Empty,
         path:"/",
         size:25
-    },
+      },
+      {
+        title:"Number",
+        icon:Number_Add_opportunity_Clients_Filled,
+        iconEmpty:Number_Add_opportunity_Clients_Empty,
+        path:"/",
+        size:30
+      },
+      {
+        title:"Position name",
+        icon:Position_name_Add_opportunity_Clients_Filled,
+        iconEmpty:Position_name_Add_opportunity_Clients_Empty,
+        path:"/",
+        size:30
+      },
+      {
+        title:"Planning",
+        icon:Availabilities_Filled,
+        iconEmpty:Availabilities_Empty,
+        path:"/",
+        size:25
+      },
     {
       title:"Industries",
       icon:Industries_Filled,
@@ -79,13 +99,6 @@ const sidebarData = [
       size:35
     },
     {
-      title:"Availabilities",
-      icon:Availabilities_Filled,
-      iconEmpty:Availabilities_Empty,
-      path:"/",
-      size:25
-    },
-    {
       title:"Salaries",
       icon:Salaries_Filled,
       iconEmpty:Salaries_Empty,
@@ -107,9 +120,9 @@ const sidebarData = [
       size:25
     },
     {
-      title:"Contracts",
-      icon:Contracts_Filled,
-      iconEmpty:Contracts_Empty,
+      title:"Information",
+      icon:Information_Clients_Filled,
+      iconEmpty:Information_Clients_Empty,
       path:"/",
       size:25
     },
@@ -127,13 +140,6 @@ const sidebarData = [
       path:"/",
       size:30
     },
-    {
-      title:"Opportunities",
-      icon:tick_box_empty,
-      iconEmpty:tick_box_empty,
-      path:"/",
-      size:20
-    }
 ];
 
-export default sidebarData;
+export default opportunitySidebarData;
