@@ -16,7 +16,7 @@ import CVs from "../filters/CVs/CVs";
 import ContactsFilter from "../filters/contacts/ContactsFilter";
 import ExperienceLayout from "../filters/experience/ExperienceLayout";
 import OpportunitiesFilter from "../filters/opportunities/OpportunitiesFilter";
-import ContactsAddNewClient from "../clientsComponents/ContactsAddNewClient";
+import ContractsAddNewClient from "../clientsComponents/ContractsAddNewClient";
 import ResidenciesFilter from "../filters/residencies/ResidenciesFilter";
 import LocationClient from "../clientsComponents/LocationClient";
 import ModifyClient from "../clientsComponents/ModifyClient";
@@ -28,52 +28,53 @@ const Sidebar = props => {
   const [open, setOpen] = useState(false);
   const [placement, setPlacement] = useState();
   const [currentIndex, setCurrentIndex] = useState(null);
+  const [currentSidebarTitle, setCurrentSidebarTitle] = useState(null);
   const title = useRef();
 
-  const handleClick = (newPlacement, i) => event => {
+  const handleClick = (newPlacement, i,sidebarTitle) => event => {
     event.preventDefault();
     setAnchorEl(event.currentTarget);
     setOpen(prev => currentIndex !== i || !prev);
     setPlacement(newPlacement);
     setCurrentIndex(i);
+    setCurrentSidebarTitle(sidebarTitle.toLowerCase())
   };
-
   const sidebarContainerRef = useRef(null);
-  const getPopupContent = (index,pageType) => {
-    switch (index) {
-      case 0:
-        return pageType==='home'? <KeywordFilter />: props.clientModification? <ModifyClient/> :"";
-      case 1:
-        return pageType==='home'?<IndustriesFilter />:<ContactsAddNewClient/>;
-      case 2:
-        return pageType==='home'?"":<LocationClient/>;
-      case 3:
-        return pageType==='home'?"":<LocationClient/>;
-      case 4:
+  const getPopupContent = (title,pageName) => {
+    switch (title) {
+      case "keywords":
+        return <KeywordFilter />;
+      case "industries":
+        return <IndustriesFilter />;
+      case "location":
+        return pageName==='home'?"":<LocationClient/>;
+      case "drilling":
         return <Drilling />;
-      case 5:
+      case "clients":
         return <ClientsFilter />;
-      case 7:
+      case "residencies":
         return <ResidenciesFilter />;
-      case 9:
+      case "nationalities":
         return <NationalitiesFilter />;
-      case 10:
+      case "ages":
         return <AgeFilter />;
-      case 11:
+      case "availabilities":
         return <AvailabilitiesFilter />;
-      case 15:
+      case "information":
         return <Information />;
-      case 16:
-        return <ContactsFilter />;
-      case 17:
+      case "contracts":
+        return pageName==='home'? <ContactsFilter /> : <ContractsAddNewClient/>;
+      case "number":
         return <Number />;
-      case 18:
+      case "position name":
         return <PositionName />;
-      case 19:
+      case "experience":
         return <ExperienceLayout />;
-      case 20:
+      case "cvs":
           return <CVs />;
-      case 21:
+      case "new client":
+          return props.clientModification?<ModifyClient/>:  "" ;    
+      case "opportunities":
           return <OpportunitiesFilter />;
       default :
       return "";
@@ -85,7 +86,7 @@ const Sidebar = props => {
       <div className="sidebarWrapper" ref={sidebarContainerRef} id="sidebar">
         <ul className="sidebarItems">
           {props.sidebarData.map((item, i) => (
-            <a key={i} onClick={handleClick("right", i)} className={`link ${currentIndex === i && open && "active"}`} href={item?.path}>
+            <a key={i} onClick={handleClick("right", i,item.title)} className={`link ${currentIndex === i && open && "active"}`} href={item?.path}>
               <li key={i} className={`sidebarItem ${open && "active"}`}>
                 <img className="icons" width={item.size} src={currentIndex === i && open ? item.icon : item.iconEmpty} alt="" />{" "}
                 <span className={`${currentIndex === i && open && "active"}`} ref={title}>
@@ -107,7 +108,7 @@ const Sidebar = props => {
             </span>
           </li>}
         </ul>
-        <PopUp  content={getPopupContent(currentIndex,props.pageName)} title={title} setOpen={setOpen} open={open} anchorEl={anchorEl} placement={placement} index={currentIndex} />
+        <PopUp  content={getPopupContent(currentSidebarTitle,props.pageName)} title={title} setOpen={setOpen} open={open} anchorEl={anchorEl} placement={placement} index={currentIndex} />
       </div>
     </div>
   );
