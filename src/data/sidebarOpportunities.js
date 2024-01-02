@@ -28,6 +28,13 @@ const opportunitySidebarData = [
         path:"/",
         size:25
       },
+      {
+        title:"Location",
+        icon:Residencies_Filled,
+        iconEmpty:Residencies_Empty,
+        path:"/",
+        size:25
+      },
     {
       title:"Industries",
       icon:Industries_Filled,
@@ -57,23 +64,9 @@ const opportunitySidebarData = [
       size:25
     },
     {
-      title:"Clients",
-      icon:Clients_Filled,
-      iconEmpty:Clients_Empty,
-      path:"/",
-      size:25
-    },
-    {
       title:"Mobilities",
       icon:Mobilities_Filled,
       iconEmpty:Mobilities_Empty,
-      path:"/",
-      size:25
-    },
-    {
-      title:"Residencies",
-      icon:Residencies_Filled,
-      iconEmpty:Residencies_Empty,
       path:"/",
       size:25
     },
@@ -88,20 +81,6 @@ const opportunitySidebarData = [
       title:"Nationalities",
       icon:Nationalities_Filled,
       iconEmpty:Nationalities_Empty,
-      path:"/",
-      size:25
-    },
-    {
-      title:"Ages",
-      icon:Ages_Filled,
-      iconEmpty:Ages_Empty,
-      path:"/",
-      size:35
-    },
-    {
-      title:"Salaries",
-      icon:Salaries_Filled,
-      iconEmpty:Salaries_Empty,
       path:"/",
       size:25
     },
@@ -125,20 +104,6 @@ const opportunitySidebarData = [
       iconEmpty:Information_Clients_Empty,
       path:"/",
       size:25
-    },
-    {
-      title:"Experience",
-      icon:Experience_Candidate_parameters_Filled,
-      iconEmpty:Experience_Candidate_parameters_Empty,
-      path:"/",
-      size:30
-    },
-    {
-      title:"CVs",
-      icon:CVs_Candidate_parameters_Filled,
-      iconEmpty:CVs_Candidate_parameters_Empty,
-      path:"/",
-      size:30
     },
 ];
 
