@@ -9,9 +9,9 @@ import { useFilters } from "./context/FiltersContext/FiltersContext";
 import CandidateFile from "./components/CandidateFile/CandidateFile";
 import ReactPdfViewer from "./components/reactPdfViewer/ReactPdfViewer";
 import Clients from "./page/clients/Clients";
-import clientSidebarData from "./data/clientPageSidebar";
 import sidebarData from "./data/sidebarData";
 import RecruitmentButton from "./components/recruitmentBtn/RecruitmentButton";
+import Opportunities from "./page/opportunities/Opportunities";
 function App() {
   const [selectedCandidates, setSelectedCandidates] = useState(0);
   const { keywords,selectedIndustries,selectedDrillingRigs } = useFilters();
@@ -38,6 +38,12 @@ function App() {
           <div>
               <Navbar />
                   <Clients  />
+            </div>
+          </Route>
+          <Route path="/opportunities">
+          <div>
+              <Navbar />
+                  <Opportunities  />
             </div>
           </Route>
           <Route path="/">
