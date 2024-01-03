@@ -1,12 +1,12 @@
 import React from 'react'
 import Sidebar from '../../components/sidebar/Sidebar'
 import opportunitySidebarData from '../../data/sidebarOpportunities'
+import Planning from '../../components/opportunitiesPageComponents/planning/Planning'
 
 const Opportunities = () => {
   return (
-    <div>
-        <Sidebar sidebarData={opportunitySidebarData} />
-        Opportunities
+    <div style={{marginLeft:100}}>
+        <Sidebar pageName={"opportunities"} sidebarData={opportunitySidebarData} />
     </div>
   )
 }
