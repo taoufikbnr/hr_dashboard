@@ -25,6 +25,7 @@ import Number from "../filters/number/Number";
 import PositionName from "../filters/positionName/PositionName";
 import LocationOpportunities from "../opportunitiesPageComponents/LocationOpportunities";
 import StatusFilter from "../statusFilter/StatusFilter";
+import Planning from "../opportunitiesPageComponents/planning/Planning";
 const Sidebar = props => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [open, setOpen] = useState(false);
@@ -78,6 +79,8 @@ const Sidebar = props => {
           return props.clientModification?<ModifyClient/>:  "" ;    
       case "opportunities":
           return <OpportunitiesFilter />;
+      case "planning":
+          return <Planning />;
       case "status":
           return <StatusFilter />;
       default :
