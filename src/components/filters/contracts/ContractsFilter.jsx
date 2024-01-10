@@ -3,8 +3,11 @@ import "./contracts.css"
 import { Close } from "@mui/icons-material";
 import countryCodes from "../../../data/CountryCodes.json"
 import { Box, Modal } from "@mui/material";
-import PhoneInput from 'react-phone-number-input';
+import PhoneInput, { formatPhoneNumberIntl } from 'react-phone-number-input';
+
+import flags from 'react-phone-number-input/flags'
 import 'react-phone-number-input/style.css';
+
 const ContractsFilter = () => {
 
   const [users, setUsers] = useState([
@@ -21,6 +24,7 @@ const ContractsFilter = () => {
     updatedUsers[index].inputs = value;
     setUsers(updatedUsers);
   };
+
 
   return (
     <div className="contacts-container">
@@ -40,6 +44,7 @@ const ContractsFilter = () => {
               ?
               <>
                   <PhoneInput
+                  flags={flags} 
                         value={user.inputs}
                         defaultCountry="FR"
                         onChange={(value) => handleInputChange(index, value)}
@@ -56,7 +61,7 @@ const ContractsFilter = () => {
       }
 </div>
               <div className={`contacts-actual-data ${user.inputs && "filled"}`}>
-                <span>{user.inputs}</span>
+                <span>{user.column1==="Phone 01" || user.column1==="Phone 02" ?formatPhoneNumberIntl(user.inputs) :user.inputs}</span>
                 <Close className='closeBtn' onClick={() => handleInputChange(index, "")}/>
               </div>
             </td>
