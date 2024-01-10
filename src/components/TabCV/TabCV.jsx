@@ -52,10 +52,12 @@ const TabCV = ({Search,buttons}) => {
                                         renderSearchProps.setKeyword(e.target.value);
                                     }}
                                     onKeyDown={(e) => {
-                                        if (e.keyCode === 13 && renderSearchProps.keyword) {
-                                            renderSearchProps.search();
-                                        }
-                                    }}
+                                      if (e.key === "Enter") {
+                                          renderSearchProps.search().then(() => {
+                                              renderSearchProps.jumpToNextMatch();
+                                          });
+                                      }
+                                  }}
                                 />
 
                             </div>
