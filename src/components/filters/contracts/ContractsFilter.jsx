@@ -21,10 +21,18 @@ const ContractsFilter = () => {
   ]);
   const handleInputChange = (index, value) => {
     const updatedUsers = [...users];
-    updatedUsers[index].inputs = value;
+    const currentColumn = updatedUsers[index].column1;
+
+
+    if (currentColumn === 'Phone 01' || currentColumn === 'Phone 02') {
+      updatedUsers[index].inputs = formatPhoneNumberIntl(value);
+    } else {
+      updatedUsers[index].inputs = value;
+
+    }
+
     setUsers(updatedUsers);
   };
-
 
   return (
     <div className="contacts-container">
@@ -61,7 +69,7 @@ const ContractsFilter = () => {
       }
 </div>
               <div className={`contacts-actual-data ${user.inputs && "filled"}`}>
-                <span>{user.column1==="Phone 01" || user.column1==="Phone 02" ?formatPhoneNumberIntl(user.inputs) :user.inputs}</span>
+                <span>{user.inputs}</span>
                 <Close className='closeBtn' onClick={() => handleInputChange(index, "")}/>
               </div>
             </td>
