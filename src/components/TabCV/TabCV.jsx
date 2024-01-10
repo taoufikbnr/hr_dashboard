@@ -43,7 +43,7 @@ const TabCV = ({Search,buttons}) => {
                                 <input
                                     style={{
                                         border: 'none',
-                                        width:100
+                                        width:"70%"
                                     }}
                                     placeholder="Enter to search"
                                     type="text"
@@ -61,7 +61,11 @@ const TabCV = ({Search,buttons}) => {
                                 />
 
                             </div>
-                        {/* <buttons.ZoomPopover /> */}
+                            {(
+                                        <div style={{fontSize:12}}>
+                                            {renderSearchProps.currentMatch} of {renderSearchProps.numberOfMatches}
+                                        </div>
+                                    )}
                             <div style={{ padding: '0 2px' }}>
                                 <Tooltip
                                     position={Position.BottomCenter}
