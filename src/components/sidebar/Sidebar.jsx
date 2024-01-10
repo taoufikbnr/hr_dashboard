@@ -13,7 +13,6 @@ import AvailabilitiesFilter from "../filters/availabilities/Availabilities";
 import NationalitiesFilter from "../filters/nationalities/NationalitiesFilter";
 import KeywordFilter from "../filters/keyword/KeywordFilter";
 import CVs from "../filters/CVs/CVs";
-import ContactsFilter from "../filters/contacts/ContactsFilter";
 import ExperienceLayout from "../filters/experience/ExperienceLayout";
 import OpportunitiesFilter from "../filters/opportunities/OpportunitiesFilter";
 import ContractsAddNewClient from "../clientsComponents/ContractsAddNewClient";
@@ -26,6 +25,7 @@ import PositionName from "../filters/positionName/PositionName";
 import LocationOpportunities from "../opportunitiesPageComponents/LocationOpportunities";
 import StatusFilter from "../statusFilter/StatusFilter";
 import Planning from "../opportunitiesPageComponents/planning/Planning";
+import ContractsFilter from "../filters/contracts/ContractsFilter";
 const Sidebar = props => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [open, setOpen] = useState(false);
@@ -66,7 +66,7 @@ const Sidebar = props => {
       case "information":
         return <Information />;
       case "contracts":
-        return pageName==='home'? <ContactsFilter /> : <ContractsAddNewClient/>;
+        return pageName==='home'? <ContractsFilter /> : <ContractsAddNewClient/>;
       case "number":
         return <Number />;
       case "position name":
