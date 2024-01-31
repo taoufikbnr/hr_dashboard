@@ -12,6 +12,7 @@ import Clients from "./page/clients/Clients";
 import sidebarData from "./data/sidebarData";
 import RecruitmentButton from "./components/recruitmentBtn/RecruitmentButton";
 import Opportunities from "./page/opportunities/Opportunities";
+import RatingComponent from "./components/rating/RatingComponent";
 function App() {
   const [selectedCandidates, setSelectedCandidates] = useState(0);
   const { keywords,selectedIndustries,selectedDrillingRigs } = useFilters();
@@ -30,7 +31,9 @@ function App() {
         <Switch>
           <Route path="/login">
             <div className="contentLogin">
-              <CandidateFile />
+              <RatingComponent iconsCount={3}/>
+              <RatingComponent iconsCount={4} selection={"single"}/>
+              {/* <CandidateFile /> */}
               {/* <RecruitmentButton/> */}
             </div>
           </Route>

@@ -81,12 +81,16 @@ import Position_name_Add_opportunity_Clients_Empty from "../assets/icons/Positio
 import Position_name_Add_opportunity_Clients_Filled from "../assets/icons/Position_name_Add_opportunity_Clients_Filled.svg";
 import Status_Clients_Empty from "../assets/icons/Status_Clients_Empty.svg";
 import Status_Clients_Filled from "../assets/icons/Status_Clients_Filled.svg";
+import Star_Grey_Filled from "../assets/icons/Star_Grey_Filled.svg";
+import Star_Gold_Filled from "../assets/icons/Star_Gold_Filled.svg";
 import resume from "../assets/resume.pdf";
 
 
 
 export {
     resume,
+    Star_Grey_Filled,
+    Star_Gold_Filled,
     Status_Clients_Filled,
     Status_Clients_Empty,
     Position_name_Add_opportunity_Clients_Empty,
