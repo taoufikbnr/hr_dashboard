@@ -32,7 +32,7 @@ function App() {
           <Route path="/login">
             <div className="contentLogin">
               <RatingComponent iconsCount={3}/>
-              <RatingComponent iconsCount={4} selection={"single"}/>
+              <RatingComponent iconsCount={4} isSingle={true}/>
               {/* <CandidateFile /> */}
               {/* <RecruitmentButton/> */}
             </div>
