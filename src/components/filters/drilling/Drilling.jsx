@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import drillData from "../../../data/drilling.json";
 import "./drilling.css";
 import { ArrowDropDownCircleRounded } from "@mui/icons-material";
 import { useFilters } from "../../../context/FiltersContext/FiltersContext";
+import RatingComponent from "../../rating/RatingComponent";
 const Drilling = () => {
-
-  const {selectedDrillingRigs, setselectedDrillingRigs,
-    selectedDrillingPositions, setselectedDrillingPositions,
-    selectedRigPositions, setselectedRigPositions } = useFilters();
+  const {
+    selectedDrillingRigs,
+    setselectedDrillingRigs,
+    selectedDrillingPositions,
+    setselectedDrillingPositions,
+    selectedRigPositions,
+    setselectedRigPositions,
+  } = useFilters();
 
   const [openMenu, setopenMenu] = useState(
     drillData.drillingPositions.title ? true : false
@@ -29,15 +34,18 @@ const Drilling = () => {
       setselectedDrillingRigs((prev) => [...prev, DrillRig]);
     }
   };
-  const handleDrillingPositions = (RigPos) => {
-    if (selectedDrillingPositions.includes(RigPos)) {
-      setselectedDrillingPositions(
-        selectedDrillingPositions.filter((item) => item !== RigPos)
+  const handleDrillingPositions = (drillPos) => {
+    const isdrillPosSelected = selectedDrillingPositions.some((item) => item.elementName === drillPos);
+    if (isdrillPosSelected) {
+      setselectedDrillingPositions((prev) =>
+        prev.filter((item) => item.elementName !== drillPos)
       );
     } else {
-      setselectedDrillingPositions((prev) => [...prev, RigPos]);
+      setselectedDrillingPositions((prevRatings) => [...prevRatings, { elementName: drillPos, rating: null }]);
     }
+  
   };
+
   const handleRigPositions = (RigPost) => {
     if (selectedRigPositions.includes(RigPost)) {
       setselectedRigPositions(
@@ -47,6 +55,16 @@ const Drilling = () => {
       setselectedRigPositions((prev) => [...prev, RigPost]);
     }
   };
+
+  const handleElementRating = (elementName,rating) => {
+
+    setselectedDrillingPositions((prevPositions) =>
+    prevPositions.map((position) =>
+      position.elementName === elementName ? { ...position, rating } : position
+    )
+  );
+  };
+
   return (
     <div>
       <div className="drilling-container">
@@ -79,7 +97,11 @@ const Drilling = () => {
           >
             <span></span>
             {drillData.drillingPositions.title}
-            {activeMenu === "Drilling positions"&&openMenu?<ArrowDropDownCircleRounded className='rotate'/> : <ArrowDropDownCircleRounded/>} 
+            {activeMenu === "Drilling positions" && openMenu ? (
+              <ArrowDropDownCircleRounded className="rotate" />
+            ) : (
+              <ArrowDropDownCircleRounded />
+            )}
           </span>
           <div
             className={`drilling-items ${
@@ -89,12 +111,17 @@ const Drilling = () => {
             {drillData.drillingPositions.content.map((el, i) => (
               <div
                 key={i}
-                onClick={() => handleDrillingPositions(el)}
                 className={`drilling-item ${
-                  selectedDrillingPositions.includes(el) && "selected"
+                  selectedDrillingPositions.some((item) => item.elementName === el) && "selected"
                 }`}
               >
-                {el}
+                <span onClick={() => handleDrillingPositions(el)}>{el}</span>
+ {selectedDrillingPositions.some((item) => item.elementName === el)&&
+ <RatingComponent
+                    isSingle={true}
+                    iconsCount={3}
+                    getValue={(value)=>handleElementRating(el,value)}
+                  />}
               </div>
             ))}
           </div>
@@ -108,7 +135,11 @@ const Drilling = () => {
           >
             <span></span>
             {drillData.rigPositions.title}
-            {activeMenu === "Rig positions"&&openMenu?<ArrowDropDownCircleRounded className='rotate'/> : <ArrowDropDownCircleRounded/>} 
+            {activeMenu === "Rig positions" && openMenu ? (
+              <ArrowDropDownCircleRounded className="rotate" />
+            ) : (
+              <ArrowDropDownCircleRounded />
+            )}
           </span>
           <div
             className={`drilling-items ${
