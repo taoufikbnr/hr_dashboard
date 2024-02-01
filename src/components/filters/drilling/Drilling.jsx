@@ -34,14 +34,16 @@ const Drilling = () => {
       setselectedDrillingRigs((prev) => [...prev, DrillRig]);
     }
   };
-  const handleDrillingPositions = (drillPos) => {
-    const isdrillPosSelected = selectedDrillingPositions.some((item) => item.elementName === drillPos);
-    if (isdrillPosSelected) {
-      setselectedDrillingPositions((prev) =>
-        prev.filter((item) => item.elementName !== drillPos)
-      );
-    } else {
-      setselectedDrillingPositions((prevRatings) => [...prevRatings, { elementName: drillPos, rating: null }]);
+  const handleDrillingPositions = (e,drillPos) => {
+    if(e.target.className.match('click-target')){
+      const isdrillPosSelected = selectedDrillingPositions.some((item) => item.elementName === drillPos);
+      if (isdrillPosSelected) {
+        setselectedDrillingPositions((prev) =>
+          prev.filter((item) => item.elementName !== drillPos)
+        );
+      } else {
+        setselectedDrillingPositions((prevRatings) => [...prevRatings, { elementName: drillPos, rating: null }]);
+      }
     }
   
   };
@@ -110,12 +112,13 @@ const Drilling = () => {
           >
             {drillData.drillingPositions.content.map((el, i) => (
               <div
+              onClick={(e) => handleDrillingPositions(e,el)}
                 key={i}
                 className={`drilling-item ${
                   selectedDrillingPositions.some((item) => item.elementName === el) && "selected"
-                }`}
+                } click-target`}
               >
-                <span onClick={() => handleDrillingPositions(el)}>{el}</span>
+                <span className="click-target">{el}</span>
  {selectedDrillingPositions.some((item) => item.elementName === el)&&
  <RatingComponent
                     isSingle={true}
